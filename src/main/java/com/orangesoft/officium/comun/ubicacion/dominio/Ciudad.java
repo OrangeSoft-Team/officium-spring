@@ -1,4 +1,4 @@
-package com.orangesoft.officium.comun.ubicacion.dominio.entidades;
+package com.orangesoft.officium.comun.ubicacion.dominio;
 
 import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionIdCiudadNulo;
 import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionNombreCiudadNulo;

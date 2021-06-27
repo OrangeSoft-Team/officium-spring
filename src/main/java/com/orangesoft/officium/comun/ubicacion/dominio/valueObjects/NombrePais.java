@@ -11,7 +11,7 @@ public final class NombrePais {
     private final String nombrePais;
 
     public NombrePais(String nombrePais) {
-        if(nombrePais == null || nombrePais.isBlank())
+        if(nombrePais == null || nombrePais.isEmpty())
             throw new ExcepcionNombrePaisNulo();
         if(nombrePais.length() < 2 || nombrePais.length() > 128)
             throw new ExcepcionTamanoNombrePaisInvalido();
