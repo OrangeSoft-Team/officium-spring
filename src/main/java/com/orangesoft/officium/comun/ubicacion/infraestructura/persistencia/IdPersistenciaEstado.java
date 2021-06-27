@@ -4,13 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.NamedNativeQuery;
-import org.springframework.data.annotation.Reference;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.ForeignKey;
-import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.UUID;
 

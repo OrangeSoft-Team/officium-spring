@@ -6,9 +6,11 @@ import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdPais;
 import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.NombrePais;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 
 @EqualsAndHashCode
 @Getter
+@Setter
 public class Pais {
     private IdPais idPais;
     private NombrePais nombrePais;

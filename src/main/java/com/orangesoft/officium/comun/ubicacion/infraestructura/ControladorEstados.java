@@ -20,7 +20,7 @@ public class ControladorEstados {
     @Autowired
     private final ServicioObtenerListaEstados servicioObtenerListaEstados;
 
-    @GetMapping("/{idPais}")
+    @GetMapping("/paises/{idPais}/estados")
     public List<DtoEstado> obtenerEstados(@PathVariable String idPais) {
         return servicioObtenerListaEstados.obtenerListaEstados(idPais);
     }

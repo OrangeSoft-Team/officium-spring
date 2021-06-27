@@ -11,5 +11,5 @@ public class DtoCiudad {
     private String uuidPais;
     private String uuidEstado;
     private String uuidCiudad;
-    private String nombreEstado;
+    private String nombreCiudad;
 }

@@ -16,6 +16,5 @@ public class PersistenciaEstado {
     @EmbeddedId
     private IdPersistenciaEstado idPersistenciaEstado;
     private String nombre;
-
 }
 

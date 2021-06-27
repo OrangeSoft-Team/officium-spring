@@ -1,16 +1,17 @@
 package com.orangesoft.officium.comun.ubicacion.infraestructura.mappers;
 
 import com.orangesoft.officium.comun.ubicacion.dominio.Estado;
+import com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia.IdPersistenciaEstado;
 import com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia.PersistenciaEstado;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import java.util.UUID;
 
-@Mapper(componentModel = "spring", imports = UUID.class)
+@Mapper(componentModel = "spring", imports = {UUID.class, IdPersistenciaEstado.class})
 public abstract class MappeadorPersistenciaEstado {
 
-    @Mapping(target = "IDPersistenciaEstado.uuid", expression = "java(new IDPersistenciaEstado(UUID.fromString(estado.getIdPais().getIdPais()), UUID.fromString(estado.getIdEstado().getIdEstado()))))")
+    @Mapping(target = "idPersistenciaEstado", expression = "java(new IdPersistenciaEstado(UUID.fromString(estado.getIdPais().getIdPais()), UUID.fromString(estado.getIdEstado().getIdEstado())))")
     @Mapping(target = "nombre", expression = "java(estado.getNombreEstado().getNombreEstado())")
     public abstract PersistenciaEstado estadoAPersistencia(Estado estado);
 

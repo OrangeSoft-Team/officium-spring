@@ -14,7 +14,7 @@ public abstract class MapeadorDTOEstado {
     @Mapping(target = "nombreEstado", expression = "java(estado.getNombreEstado().getNombreEstado())")
     public abstract DtoEstado mapEstadoADto(Estado estado);
 
-    @Mapping(target = "idPais", expression = "java(new IdPais(dtoEstado.getUuidEstado()))")
+    @Mapping(target = "idPais", expression = "java(new IdPais(dtoEstado.getUuidPais()))")
     @Mapping(target = "idEstado", expression = "java(new IdEstado(dtoEstado.getUuidEstado()))")
     @Mapping(target = "nombreEstado", expression = "java(new NombreEstado(dtoEstado.getNombreEstado()))")
     public abstract Estado mapDtoAEstado (DtoEstado dtoEstado);

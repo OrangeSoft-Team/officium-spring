@@ -1,7 +1,11 @@
 package com.orangesoft.officium.comun.ubicacion.infraestructura.servicios;
 
 import com.orangesoft.officium.comun.ubicacion.aplicacion.entrada.CasoUsoObtenerListaPaises;
+import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdEstado;
+import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdPais;
+import com.orangesoft.officium.comun.ubicacion.infraestructura.dto.DtoCiudad;
 import com.orangesoft.officium.comun.ubicacion.infraestructura.dto.DtoPais;
+import com.orangesoft.officium.comun.ubicacion.infraestructura.mappers.MapeadorDTOCiudad;
 import com.orangesoft.officium.comun.ubicacion.infraestructura.mappers.MapeadorDTOPais;
 import lombok.AllArgsConstructor;
 

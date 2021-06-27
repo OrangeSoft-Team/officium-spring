@@ -1,5 +1,6 @@
 package com.orangesoft.officium.comun.ubicacion.infraestructura;
 
+import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionIdEstadoNulo;
 import com.orangesoft.officium.comun.ubicacion.infraestructura.dto.DtoPais;
 import com.orangesoft.officium.comun.ubicacion.infraestructura.servicios.ServicioObtenerListaPaises;
 import lombok.AllArgsConstructor;
@@ -15,7 +16,7 @@ import java.util.List;
 public class ControladorPaises {
     private final ServicioObtenerListaPaises servicioObtenerListaPaises;
 
-    @GetMapping("/")
+    @GetMapping("/paises")
     public List<DtoPais> obtenerPaises() {
         return servicioObtenerListaPaises.obtenerListaPaises();
     }
