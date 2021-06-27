@@ -10,7 +10,7 @@ public final class IdEstado {
     private final String idEstado;
 
     public IdEstado(String idEstado) {
-        if(idEstado == null || idEstado.isBlank())
+        if(idEstado == null || idEstado.isEmpty())
             throw new ExcepcionIdEstadoNulo();
         this.idEstado = idEstado;
     }

@@ -11,7 +11,7 @@ public final class NombreEstado {
     private final String nombreEstado;
 
     public NombreEstado(String nombreEstado) {
-        if(nombreEstado == null || nombreEstado.isBlank())
+        if(nombreEstado == null || nombreEstado.isEmpty())
             throw new ExcepcionNombreEstadoNulo();
         if(nombreEstado.length() < 2 || nombreEstado.length() > 128)
             throw new ExcepcionTamanoNombreEstadoInvalido();

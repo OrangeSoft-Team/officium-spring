@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class DtoEstado {
     private String uuidPais;
     private String uuidEstado;
-    private String nombreCiudad;
+    private String nombreEstado;
 }

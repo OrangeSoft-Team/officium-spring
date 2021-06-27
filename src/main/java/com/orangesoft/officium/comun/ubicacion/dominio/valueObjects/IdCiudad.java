@@ -10,7 +10,7 @@ public final class IdCiudad {
     private final String idCiudad;
 
     public IdCiudad(String idCiudad) {
-        if(idCiudad == null || idCiudad.isBlank())
+        if(idCiudad == null || idCiudad.isEmpty())
             throw new ExcepcionIdCiudadNulo();
         this.idCiudad = idCiudad;
     }
