@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
-public abstract class MapeadorPais {
+public abstract class MapeadorDTOPais {
 
     @Mapping(target = "uuidPais", expression = "java(pais.getIdPais().getIdPais())")
     @Mapping(target = "nombrePais", expression = "java(pais.getNombrePais().getNombrePais())")
@@ -15,4 +15,5 @@ public abstract class MapeadorPais {
     @Mapping(target = "idPais", expression = "java(new IdPais(dtoPais.getUuidPais()))")
     @Mapping(target = "nombrePais", expression = "java(new NombrePais(dtoPais.getNombrePais()))")
     public abstract Pais mapDtoAPais (DtoPais dtoPais);
+
 }

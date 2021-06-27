@@ -1,4 +1,4 @@
-package com.orangesoft.officium.comun.ubicacion.aplicacion;
+package com.orangesoft.officium.comun.ubicacion.aplicacion.entrada;
 
 import com.orangesoft.officium.comun.ubicacion.dominio.Pais;
 
