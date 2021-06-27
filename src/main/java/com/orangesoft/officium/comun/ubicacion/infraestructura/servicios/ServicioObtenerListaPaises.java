@@ -1,6 +1,6 @@
 package com.orangesoft.officium.comun.ubicacion.infraestructura.servicios;
 
-import com.orangesoft.officium.comun.ubicacion.aplicacion.entrada.CasoUsoPedirListaPaises;
+import com.orangesoft.officium.comun.ubicacion.aplicacion.entrada.CasoUsoObtenerListaPaises;
 import com.orangesoft.officium.comun.ubicacion.infraestructura.dto.DtoPais;
 import com.orangesoft.officium.comun.ubicacion.infraestructura.mappers.MapeadorDTOPais;
 import lombok.AllArgsConstructor;
@@ -19,11 +19,11 @@ public class ServicioObtenerListaPaises {
     @Autowired
     private final MapeadorDTOPais mapeadorDTOPais;
     @Autowired
-    private final CasoUsoPedirListaPaises casoUsoPedirListaPaises;
+    private final CasoUsoObtenerListaPaises casoUsoObtenerListaPaises;
 
     @Transactional(readOnly = true)
     public List<DtoPais> obtenerListaPaises() {
-        return casoUsoPedirListaPaises.obtenerListaPaises()
+        return casoUsoObtenerListaPaises.obtenerListaPaises()
                 .stream()
                 .map(mapeadorDTOPais::mapPaisADto)
                 .collect(Collectors.toList());

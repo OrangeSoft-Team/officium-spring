@@ -4,6 +4,6 @@ import com.orangesoft.officium.comun.ubicacion.dominio.Pais;
 
 import java.util.List;
 
-public interface CasoUsoPedirListaPaises {
+public interface CasoUsoObtenerListaPaises {
     public List<Pais> obtenerListaPaises();
 }
