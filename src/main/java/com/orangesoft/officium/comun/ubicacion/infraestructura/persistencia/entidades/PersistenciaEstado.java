@@ -1,10 +1,8 @@
-package com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia;
+package com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia.entidades;
 
 import lombok.*;
-import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 
 @Data
 @Getter

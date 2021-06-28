@@ -1,4 +1,4 @@
-package com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia;
+package com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia.entidades;
 
 import lombok.*;
 

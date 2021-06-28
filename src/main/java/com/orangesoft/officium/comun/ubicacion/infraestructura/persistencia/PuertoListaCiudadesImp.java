@@ -5,6 +5,7 @@ import com.orangesoft.officium.comun.ubicacion.dominio.Ciudad;
 import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdEstado;
 import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdPais;
 import com.orangesoft.officium.comun.ubicacion.infraestructura.mappers.MapeadorPersistenciaCiudad;
+import com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia.repositorios.RepositorioCiudad;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

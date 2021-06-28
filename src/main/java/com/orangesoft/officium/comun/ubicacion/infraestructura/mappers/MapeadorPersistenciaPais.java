@@ -1,7 +1,7 @@
 package com.orangesoft.officium.comun.ubicacion.infraestructura.mappers;
 
 import com.orangesoft.officium.comun.ubicacion.dominio.Pais;
-import com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia.PersistenciaPais;
+import com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia.entidades.PersistenciaPais;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

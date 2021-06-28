@@ -1,8 +1,8 @@
 package com.orangesoft.officium.comun.ubicacion.infraestructura.mappers;
 
 import com.orangesoft.officium.comun.ubicacion.dominio.Estado;
-import com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia.IdPersistenciaEstado;
-import com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia.PersistenciaEstado;
+import com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia.entidades.IdPersistenciaEstado;
+import com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia.entidades.PersistenciaEstado;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
