@@ -1,7 +1,7 @@
 package com.orangesoft.officium.comun.ubicacion.dominio.valueObjects;
 
 import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionNombreEstadoNulo;
-import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionTamanoNombreEstadoInvalido;
+import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionlongitudNombreEstadoInvalido;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
@@ -14,7 +14,7 @@ public final class NombreEstado {
         if(nombreEstado == null || nombreEstado.isEmpty())
             throw new ExcepcionNombreEstadoNulo();
         if(nombreEstado.length() < 2 || nombreEstado.length() > 128)
-            throw new ExcepcionTamanoNombreEstadoInvalido();
+            throw new ExcepcionlongitudNombreEstadoInvalido();
 
         this.nombreEstado = nombreEstado;
     }
