@@ -18,6 +18,7 @@ public class ControladorOfertaLaboral {
     @Autowired
     private final ServicioObtenerListaOfertasLaboralesActivasEmpleado servicioObtenerListaOfertasLaboralesActivasEmpleado;
 
+    // TODO: Definir query strings para aplicar filtros de busqueda
     @GetMapping("/")
     public List<DtoOfertasLaboralesActivasEmpleado> obtenerListaOfertasLaboralesActivasEmpleado() {
         return servicioObtenerListaOfertasLaboralesActivasEmpleado.obtenerListaOfertasLaboralesActivasEmpleado();

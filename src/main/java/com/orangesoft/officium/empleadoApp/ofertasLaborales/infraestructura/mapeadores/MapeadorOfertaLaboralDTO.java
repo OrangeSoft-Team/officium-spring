@@ -1,5 +1,7 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.mapeadores;
 
+import com.orangesoft.officium.empleadoApp.empresa.dominio.Empresa;
+import com.orangesoft.officium.empleadoApp.empresa.dominio.value.NombreEmpresa;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.dto.DtoOfertasLaboralesActivasEmpleado;
 import org.mapstruct.Mapper;
@@ -18,8 +20,6 @@ public abstract class MapeadorOfertaLaboralDTO {
     @Mapping(target = "duracionEstimadaEscala", expression = "java(ofertaLaboral.getDuracionEstimadaOfertaLaboral().getEscalaTiempo().toString())")
     @Mapping(target = "turnoValor", expression = "java(ofertaLaboral.getTurnoTrabajoOfertaLaboral().getTurnoTrabajo().toString())")
     @Mapping(target = "numeroVacantes", expression = "java(ofertaLaboral.getNumeroVacantes().getNumeroVacantes())")
-    @Mapping(target = "empresaNombre", expression = "java(ofertaLaboral.getIdOfertaLaboral().getIdEmpresa())")
-    public abstract DtoOfertasLaboralesActivasEmpleado mapOfertaLaboralADto(OfertaLaboral ofertaLaboral);
-
-
+    @Mapping(target = "empresaNombre", expression = "java(nombreEmpresa.getNombreEmpresa())")
+    public abstract DtoOfertasLaboralesActivasEmpleado mapOfertaLaboralADto(NombreEmpresa nombreEmpresa,OfertaLaboral ofertaLaboral);
 }

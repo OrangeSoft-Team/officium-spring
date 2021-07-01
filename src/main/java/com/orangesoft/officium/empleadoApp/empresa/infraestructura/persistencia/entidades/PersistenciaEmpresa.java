@@ -2,10 +2,7 @@ package com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia
 
 import lombok.*;
 
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.util.UUID;
@@ -15,7 +12,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "empresas")
+@Entity(name = "empresas")
 public class PersistenciaEmpresa {
     @Id
     @GeneratedValue
