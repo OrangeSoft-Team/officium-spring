@@ -64,6 +64,6 @@ public class OfertaLaboral {
         if(turnoTrabajoOfertaLaboral == null)
             throw new ExcepcionTurnoTrabajoOfertaLaboralNulo();
         if(numeroVacantes == null)
-            throw new ExcepcionEstadoOfertaLaboralNulo();
+            throw new ExcepcionEstadoOfertaLaboralNulo() ;
     }
 }

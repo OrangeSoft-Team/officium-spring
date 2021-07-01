@@ -28,7 +28,7 @@ public final class FechaPublicacionOfertaLaboral {
     }
     private void validarFechaPublicacion(Instant fechaPublicacion) {
         if(fechaPublicacion == null)
-            throw new ExcepcionFechaPublicacionOfertaLaboralNula();
+            throw new ExcepcionFechaPublicacionOfertaLaboralNula() ;
     }
 
 }

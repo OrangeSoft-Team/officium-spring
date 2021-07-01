@@ -17,6 +17,6 @@ public final class TurnoTrabajoOfertaLaboral {
 
     private void validarTurnoTrabajo(TurnoTrabajo turnoTrabajo) {
         if(turnoTrabajo == null)
-            throw new ExcepcionTurnoTrabajoOfertaLaboralNulo();
+            throw new ExcepcionTurnoTrabajoOfertaLaboralNulo() ;
     }
 }

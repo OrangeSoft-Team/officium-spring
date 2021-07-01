@@ -21,7 +21,7 @@ public final class SueldoOfertaLaboral {
 
     private void validarSueldo(float sueldo) {
         if(sueldo <= 0)
-            throw new ExcepcionSueldoOfertaLaboralInvalido();
+            throw new ExcepcionSueldoOfertaLaboralInvalido()  ;
     }
 
     private void validarMoneda(Moneda moneda) {

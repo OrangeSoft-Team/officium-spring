@@ -19,6 +19,6 @@ public final class TituloOfertaLaboral {
         if(titulo == null)
             throw new ExcepcionTituloOfertaLaboralNulo();
         if(titulo.length() < 4 || titulo.length() > 80)
-            throw new ExcepcionLongitudTituloOfertaLaboralInvalida();
+            throw new ExcepcionLongitudTituloOfertaLaboralInvalida() ;
     }
 }

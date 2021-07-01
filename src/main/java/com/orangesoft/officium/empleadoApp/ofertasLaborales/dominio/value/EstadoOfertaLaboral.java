@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @EqualsAndHashCode
 @Getter
-public class EstadoOfertaLaboral {
+public final class EstadoOfertaLaboral {
     private final EstadoOfertaLaboral estadoOfertaLaboral;
 
     public EstadoOfertaLaboral(EstadoOfertaLaboral estadoOfertaLaboral) {

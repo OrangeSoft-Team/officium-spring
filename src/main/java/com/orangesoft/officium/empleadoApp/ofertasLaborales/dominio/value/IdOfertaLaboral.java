@@ -19,7 +19,7 @@ public final class IdOfertaLaboral {
 
     private void validarIdOfertaLaboral(String idEmpresa, String idOfertaLaboral) {
         if(idEmpresa == null || idOfertaLaboral == null)
-            throw new ExcepcionIdOfertaLaboralNulo();
+            throw new ExcepcionIdOfertaLaboralNulo() ;
     }
 
 }

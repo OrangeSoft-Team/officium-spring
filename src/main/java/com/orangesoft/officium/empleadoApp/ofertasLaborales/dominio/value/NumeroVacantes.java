@@ -16,6 +16,6 @@ public final class NumeroVacantes {
 
     private void validarNumeroVacantes(int numeroVacantes) {
         if(numeroVacantes < 1 || numeroVacantes > 99)
-            throw new ExcepcionNumeroVacantesInvalido();
+            throw new ExcepcionNumeroVacantesInvalido() ;
     }
 }

@@ -19,6 +19,6 @@ public final class DuracionEstimadaOfertaLaboral {
 
     private void validarDuracionEstimadaOfertaLaboral(int duracionEstimada) {
         if(duracionEstimada < 0 || duracionEstimada > 99)
-            throw new ExcepcionDuracionEstimaOfertaLaboralInvalida();
+            throw new ExcepcionDuracionEstimaOfertaLaboralInvalida() ;
     }
 }

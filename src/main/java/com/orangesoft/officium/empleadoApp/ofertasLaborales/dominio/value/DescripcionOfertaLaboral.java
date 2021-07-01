@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @EqualsAndHashCode
 @Getter
-public class DescripcionOfertaLaboral {
+public final class DescripcionOfertaLaboral {
     private final String descripcion;
 
     public DescripcionOfertaLaboral(String descripcion) {

@@ -19,6 +19,6 @@ public final class CargoOfertaLaboral {
         if(cargo == null)
             throw new ExcepcionCargoOfertaLaboralNulo();
         if(cargo.length() < 4 || cargo.length() > 40)
-            throw new ExcepcionLongitudCargoOfertaLaboral();
+            throw new ExcepcionLongitudCargoOfertaLaboral() ;
     }
 }
