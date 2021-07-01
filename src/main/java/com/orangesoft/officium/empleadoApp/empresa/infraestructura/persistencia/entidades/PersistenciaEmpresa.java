@@ -16,7 +16,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "empresas")
-public class EmpresaPersistencia {
+public class PersistenciaEmpresa {
     @Id
     @GeneratedValue
     private UUID uuid;

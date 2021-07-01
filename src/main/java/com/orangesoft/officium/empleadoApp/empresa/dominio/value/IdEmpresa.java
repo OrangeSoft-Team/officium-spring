@@ -9,7 +9,7 @@ import lombok.Getter;
 public final class IdEmpresa {
     private final String idEmpresa;
 
-    public IdEmpresa(String idEmpresa, String nombreEmpresa) {
+    public IdEmpresa(String idEmpresa) {
         validarIdEmpresa(idEmpresa);
         this.idEmpresa = idEmpresa;
     }
