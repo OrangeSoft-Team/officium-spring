@@ -2,6 +2,7 @@ package com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia.rep
 
 import com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia.entidades.PersistenciaEstado;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.UUID;

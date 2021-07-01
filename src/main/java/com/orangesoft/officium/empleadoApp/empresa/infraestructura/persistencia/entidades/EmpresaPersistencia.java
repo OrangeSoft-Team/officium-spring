@@ -34,5 +34,5 @@ public class EmpresaPersistencia {
     @NotEmpty
     private UUID uuidEstado;
     @NotEmpty
-    private UUID uuidCiudad;
+    private UUID uuidCiudad ;
 }
