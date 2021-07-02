@@ -36,7 +36,7 @@ public class PersistenciaOfertaLaboral {
     @NotNull
     private String descripcion;
     @NotNull
-    private Integer duracionEstimadaEscala;
+    private String duracionEstimadaEscala;
     @NotNull
     private String duracionEstimadaValor;
     @NotNull

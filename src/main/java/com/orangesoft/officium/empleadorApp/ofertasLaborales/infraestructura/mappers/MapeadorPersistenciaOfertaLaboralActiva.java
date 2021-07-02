@@ -31,7 +31,7 @@ public abstract class MapeadorPersistenciaOfertaLaboralActiva {
     @Mapping(target = "cargo", expression = "java(ofertaLaboral.getCargo().getCargo())" )
     @Mapping(target = "sueldo", expression = "java(ofertaLaboral.getSueldo().getSueldo())")
     @Mapping(target = "duracionEstimadaValor", expression ="java(ofertaLaboral.getDuracionEstimadaValor().getDuracionEstimadaValor().toString())" )
-    @Mapping(target = "duracionEstimadaEscala", expression = "java(ofertaLaboral.getDuracionEstimadaEscala())")
+    @Mapping(target = "duracionEstimadaEscala", expression = "java(ofertaLaboral.getDuracionEstimadaEscala().toString())")
     @Mapping(target = "turnoTrabajo", expression = "java(ofertaLaboral.getTurnoTrabajo().getTurnoTrabajo())" )
     @Mapping(target = "numeroVacantes", expression = "java(ofertaLaboral.getNumeroVacantes().toString())")
     @Mapping(target = "descripcion", expression = "java(ofertaLaboral.getDescripcion().getDescripcion())")
