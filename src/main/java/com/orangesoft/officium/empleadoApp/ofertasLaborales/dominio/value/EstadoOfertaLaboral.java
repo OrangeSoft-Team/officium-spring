@@ -1,5 +1,6 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value;
 
+import com.orangesoft.officium.empleadoApp.estadoOfertaLaboral.dominio.EnumEstadoOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.exepciones.ExcepcionEstadoOfertaLaboralNulo;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -7,14 +8,14 @@ import lombok.Getter;
 @EqualsAndHashCode
 @Getter
 public final class EstadoOfertaLaboral {
-    private final EstadoOfertaLaboral estadoOfertaLaboral;
+    private final EnumEstadoOfertaLaboral estadoOfertaLaboral;
 
-    public EstadoOfertaLaboral(EstadoOfertaLaboral estadoOfertaLaboral) {
+    public EstadoOfertaLaboral(EnumEstadoOfertaLaboral estadoOfertaLaboral) {
         validarEstadoOfertaLabaral(estadoOfertaLaboral);
         this.estadoOfertaLaboral = estadoOfertaLaboral;
     }
 
-    private void validarEstadoOfertaLabaral(EstadoOfertaLaboral estadoOfertaLaboral) {
+    private void validarEstadoOfertaLabaral(EnumEstadoOfertaLaboral estadoOfertaLaboral) {
         if(estadoOfertaLaboral == null)
             throw new ExcepcionEstadoOfertaLaboralNulo();
     }

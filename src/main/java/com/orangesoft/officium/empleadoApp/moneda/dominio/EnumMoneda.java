@@ -1,5 +1,5 @@
 package com.orangesoft.officium.empleadoApp.moneda.dominio;
 
-public enum Moneda {
+public enum EnumMoneda {
     USD, EUR;
 }

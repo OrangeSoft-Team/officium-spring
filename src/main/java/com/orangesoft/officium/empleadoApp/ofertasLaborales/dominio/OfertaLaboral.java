@@ -33,7 +33,6 @@ public class OfertaLaboral {
                          TurnoTrabajoOfertaLaboral turnoTrabajoOfertaLaboral,
                          NumeroVacantes numeroVacantes,
                          EstadoOfertaLaboral estadoOfertaLaboral) {
-        validarOfertaLaboral();
         this.idOfertaLaboral = idOfertaLaboral;
         this.tituloOfertaLaboral = tituloOfertaLaboral;
         this.cargoOfertaLaboral = cargoOfertaLaboral;
@@ -44,6 +43,7 @@ public class OfertaLaboral {
         this.turnoTrabajoOfertaLaboral = turnoTrabajoOfertaLaboral;
         this.numeroVacantes = numeroVacantes;
         this.estadoOfertaLaboral = estadoOfertaLaboral;
+        validarOfertaLaboral();
     }
 
     private void validarOfertaLaboral() {
@@ -64,6 +64,8 @@ public class OfertaLaboral {
         if(turnoTrabajoOfertaLaboral == null)
             throw new ExcepcionTurnoTrabajoOfertaLaboralNulo();
         if(numeroVacantes == null)
-            throw new ExcepcionEstadoOfertaLaboralNulo() ;
+            throw new ExcepcionEstadoOfertaLaboralNulo();
+        if(estadoOfertaLaboral == null)
+            throw new ExcepcionEstadoOfertaLaboralNulo();
     }
 }

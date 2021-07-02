@@ -21,7 +21,7 @@ public class ServicioObtenerListaOfertasLaboralesActivasEmpleado {
     public List<DtoOfertasLaboralesActivasEmpleado> obtenerListaOfertasLaboralesActivasEmpleado() {
         ArrayList<DtoOfertasLaboralesActivasEmpleado> listaOfertasLaboralesActivasEmpleado = new ArrayList<>();
         casoUsoObtenerListaOfertasLaboralesActivasEmpleado.obtenerListaOfertasLaboralesActivasEmpleado()
-                .forEach((K,V)->listaOfertasLaboralesActivasEmpleado.add(mapeadorOfertaLaboralDTO.mapOfertaLaboralADto(K,V)));
+                .forEach((P)->listaOfertasLaboralesActivasEmpleado.add(mapeadorOfertaLaboralDTO.mapOfertaLaboralADto(P.getFirstElement(),P.getSecondElement())));
         return listaOfertasLaboralesActivasEmpleado;
     }
 }

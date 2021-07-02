@@ -1,6 +1,6 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value;
 
-import com.orangesoft.officium.empleadoApp.moneda.dominio.Moneda;
+import com.orangesoft.officium.empleadoApp.moneda.dominio.EnumMoneda;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.exepciones.ExcepcionMonedaOfertaLaboralNula;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.exepciones.ExcepcionSueldoOfertaLaboralInvalido;
 import lombok.EqualsAndHashCode;
@@ -10,9 +10,9 @@ import lombok.Getter;
 @Getter
 public final class SueldoOfertaLaboral {
     private final float sueldo;
-    private final Moneda moneda;
+    private final EnumMoneda moneda;
 
-    public SueldoOfertaLaboral(float sueldo, Moneda moneda) {
+    public SueldoOfertaLaboral(float sueldo, EnumMoneda moneda) {
         validarSueldo(sueldo);
         validarMoneda(moneda);
         this.sueldo = sueldo;
@@ -24,7 +24,7 @@ public final class SueldoOfertaLaboral {
             throw new ExcepcionSueldoOfertaLaboralInvalido()  ;
     }
 
-    private void validarMoneda(Moneda moneda) {
+    private void validarMoneda(EnumMoneda moneda) {
         if(moneda == null)
             throw new ExcepcionMonedaOfertaLaboralNula();
     }

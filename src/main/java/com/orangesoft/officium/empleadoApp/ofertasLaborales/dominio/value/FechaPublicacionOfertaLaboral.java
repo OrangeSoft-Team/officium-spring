@@ -23,7 +23,7 @@ public final class FechaPublicacionOfertaLaboral {
     private void validarfechaUltimaModificacion(Instant fechaUltimaModificacion) {
         if(fechaUltimaModificacion == null)
             throw new ExcepcionFechaPublicacionOfertaLaboralNula();
-        if(fechaUltimaModificacion.isBefore(fechaPublicacion))
+        if(fechaUltimaModificacion.isBefore(fechaUltimaModificacion))
             throw new ExcepcionLongitudTituloOfertaLaboralInvalida();
     }
     private void validarFechaPublicacion(Instant fechaPublicacion) {

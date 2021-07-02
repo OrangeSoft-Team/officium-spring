@@ -1,5 +1,5 @@
 package com.orangesoft.officium.empleadoApp.escalaTiempo.dominio;
 
-public enum EscalaTiempo {
+public enum EnumEscalaTiempo {
     SEGUNDO, MINUTO, HORA, DIA, SEMANA, MES, ANO
 }

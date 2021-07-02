@@ -1,5 +1,5 @@
 package com.orangesoft.officium.empleadoApp.turnoTrabajo.dominio;
 
-public enum TurnoTrabajo {
+public enum EnumTurnoTrabajo {
     DIURNO, NOCTURNO, MIXTO
 }

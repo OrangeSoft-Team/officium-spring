@@ -17,15 +17,17 @@ import java.time.Instant;
 @Entity(name = "ofertasLaborales")
 public class PersistenciaOfertaLaboral {
     @EmbeddedId
-    private IdPersistenciaOfertaLaboral idPersistenciaOfertaLaboral;
+    public IdPersistenciaOfertaLaboral idPersistenciaOfertaLaboral;
     @NotNull
-    private Instant fechaPublicacion;
+    public Instant fechaPublicacion;
     @NotNull
     private Instant fechaUltimaModificacion;
     @NotNull
+    private String titulo;
+    @NotNull
     private String cargo;
     @NotNull
-    private String sueldo;
+    private float sueldo;
     @NotNull
     private String descripcion;
     @NotNull
@@ -35,7 +37,7 @@ public class PersistenciaOfertaLaboral {
     @NotNull
     private String turnoTrabajo;
     @NotNull
-    private String numeroVacantes;
+    private int numeroVacantes;
     @NotNull
     private char estado;
 }

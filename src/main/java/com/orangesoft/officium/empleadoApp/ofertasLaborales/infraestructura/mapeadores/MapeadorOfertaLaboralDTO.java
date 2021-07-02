@@ -1,6 +1,5 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.mapeadores;
 
-import com.orangesoft.officium.empleadoApp.empresa.dominio.Empresa;
 import com.orangesoft.officium.empleadoApp.empresa.dominio.value.NombreEmpresa;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.dto.DtoOfertasLaboralesActivasEmpleado;
