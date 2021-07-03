@@ -94,20 +94,21 @@ CREATE TABLE IF NOT EXISTS ofertas_laborales
 (
     uuid_empresa              uuid,
     uuid                      uuid,
+    titulo                    VARCHAR(150)   not null,
     fecha_publicacion         DATE           not null,
     fecha_ultima_modificacion DATE           not null,
     cargo                     VARCHAR(150)   not null,
     sueldo                    numeric(30, 2) not null,
+    divisa                    VARCHAR(30)    not null,
     descripcion               VARCHAR(250)   not null,
     duracion_estimada_escala  VARCHAR(50)    not null,
     duracion_estimada         VARCHAR(100)   not null,
-    turno_trabajo_inicio      VARCHAR(20)    not null,
-    turno_trabajo_fin         VARCHAR(20)    not null,
+    turno_trabajo             VARCHAR(20)    not null,
     numero_vacantes           numeric(5, 0)  not null,
     estado                    CHAR(1)        not null,
     CONSTRAINT ofertas_laborales_pk_uuid PRIMARY KEY (uuid_empresa, uuid),
     CONSTRAINT ofertas_laborales_fk_uuid_empresa FOREIGN KEY (uuid_empresa) REFERENCES empresas,
-    CONSTRAINT ofertas_laborales_chk_genero CHECK (estado IN ('P', 'C'))
+    CONSTRAINT ofertas_laborales_chk_estado CHECK (estado IN ('P', 'C'))
 );
 
 CREATE TABLE IF NOT EXISTS postulacion_oferta_laboral
