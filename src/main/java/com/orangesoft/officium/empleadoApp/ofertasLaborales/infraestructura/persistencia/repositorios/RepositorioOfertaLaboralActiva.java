@@ -22,6 +22,7 @@ public interface RepositorioOfertaLaboralActiva extends JpaRepository<Persistenc
             "o.fechaUltimaModificacion," +
             "o.cargo," +
             "o.sueldo," +
+            "o.divisa," +
             "o.descripcion," +
             "o.duracionEstimadaEscala," +
             "o.duracionEstimada," +

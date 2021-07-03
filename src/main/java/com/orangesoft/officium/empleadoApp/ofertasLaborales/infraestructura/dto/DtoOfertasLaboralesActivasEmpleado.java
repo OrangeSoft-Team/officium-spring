@@ -13,9 +13,10 @@ public class DtoOfertasLaboralesActivasEmpleado {
     private String fechaPublicacion;
     private String cargo;
     private Float sueldo;
+    private String divisa;
     private Integer duracionEstimadaValor;
     private String duracionEstimadaEscala;
-    private String turnoValor;
+    private String turnoTrabajo;
     private Integer numeroVacantes;
     private String empresaNombre;
 }

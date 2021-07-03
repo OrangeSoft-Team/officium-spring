@@ -29,6 +29,8 @@ public class PersistenciaOfertaLaboral {
     @NotNull
     private float sueldo;
     @NotNull
+    private String divisa;
+    @NotNull
     private String descripcion;
     @NotNull
     private String duracionEstimadaEscala;

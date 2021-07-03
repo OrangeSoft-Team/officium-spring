@@ -12,6 +12,5 @@ class OfficiumApplicationTests {
 
     @Test
     void contextLoads() {
-        throw new ExcepcionIdPaisNulo();
     }
 }

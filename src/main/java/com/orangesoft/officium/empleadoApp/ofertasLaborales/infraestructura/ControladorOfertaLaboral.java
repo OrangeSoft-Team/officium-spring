@@ -1,6 +1,5 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura;
 
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.dto.DtoDetalleOfertaLaboralActivaEmpleado;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.dto.DtoOfertasLaboralesActivasEmpleado;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.servicios.ServicioObtenerListaOfertasLaboralesActivasEmpleado;
 import lombok.AllArgsConstructor;
@@ -18,7 +17,7 @@ public class ControladorOfertaLaboral {
     @Autowired
     private final ServicioObtenerListaOfertasLaboralesActivasEmpleado servicioObtenerListaOfertasLaboralesActivasEmpleado;
 
-    // TODO: Definir query strings para aplicar filtros de busqueda
+    // TODO: Definir query strings para aplicar filtros de busqueda y encapsular a través de un comando
     @GetMapping("/")
     public List<DtoOfertasLaboralesActivasEmpleado> obtenerListaOfertasLaboralesActivasEmpleado() {
         return servicioObtenerListaOfertasLaboralesActivasEmpleado.obtenerListaOfertasLaboralesActivasEmpleado();

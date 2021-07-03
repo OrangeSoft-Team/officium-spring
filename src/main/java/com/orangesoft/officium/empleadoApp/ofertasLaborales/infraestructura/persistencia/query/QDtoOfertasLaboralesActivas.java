@@ -1,8 +1,5 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.query;
 
-import com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia.entidades.PersistenciaEmpresa;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.IdPersistenciaOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +23,7 @@ public class QDtoOfertasLaboralesActivas {
     private Instant fechaUltimaModificacion;
     private String cargo;
     private float sueldo;
+    private String divisa;
     private String descripcion;
     private String duracionEstimadaEscala;
     private String duracionEstimada;
