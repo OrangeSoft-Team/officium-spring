@@ -2,6 +2,7 @@ package com.orangesoft.officium.empleadoApp.ofertasLaborales.mothers;
 
 import com.orangesoft.officium.comun.generics.Tupla;
 import com.orangesoft.officium.comun.generics.TuplaOfertaLaboral;
+import com.orangesoft.officium.empleadoApp.empresa.dominio.value.IdEmpresa;
 import com.orangesoft.officium.empleadoApp.empresa.dominio.value.NombreEmpresa;
 import com.orangesoft.officium.empleadoApp.escalaTiempo.dominio.EnumEscalaTiempo;
 import com.orangesoft.officium.empleadoApp.estadoOfertaLaboral.dominio.EnumEstadoOfertaLaboral;
@@ -40,7 +41,8 @@ public class OfertaLaboralEmpleadoMother {
 
     public Tupla<NombreEmpresa,OfertaLaboral> obtenerEntidadOfertaLaboralPython() {
         return new TuplaOfertaLaboral(new NombreEmpresa("Cobras y lagartos SoftwareFactory"),new OfertaLaboral(
-                new IdOfertaLaboral(empresaUUID.toString(), ofertaUUID.toString()),
+                new IdEmpresa(empresaUUID.toString()),
+                new IdOfertaLaboral(ofertaUUID.toString()),
                 new TituloOfertaLaboral("Se busca desarrollador en Python"),
                 new CargoOfertaLaboral("Desarrollador 2"),
                 new FechaPublicacionOfertaLaboral(fechaCreacion,null),
@@ -109,7 +111,8 @@ public class OfertaLaboralEmpleadoMother {
 
     public Tupla<NombreEmpresa,OfertaLaboral> obtenerEntidadOfertaLaboralJava() {
         return new TuplaOfertaLaboral(new NombreEmpresa("Cobras y lagartos SoftwareFactory"),new OfertaLaboral(
-                new IdOfertaLaboral(empresaUUID.toString(), ofertaUUID.toString()),
+                new IdEmpresa(empresaUUID.toString()),
+                new IdOfertaLaboral(ofertaUUID.toString()),
                 new TituloOfertaLaboral("Se busca desarrollador en Java"),
                 new CargoOfertaLaboral("Desarrollador Infra III"),
                 new FechaPublicacionOfertaLaboral(fechaCreacion,null),

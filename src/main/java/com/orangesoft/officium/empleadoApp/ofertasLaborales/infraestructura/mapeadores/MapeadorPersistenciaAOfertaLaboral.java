@@ -15,7 +15,7 @@ import java.util.UUID;
 @Mapper(componentModel = "spring", imports = {UUID.class, IdPersistenciaOfertaLaboral.class, EnumEstadoOfertaLaboral.class, EnumMoneda.class, EnumTurnoTrabajo.class, EnumEscalaTiempo.class})
 public abstract class MapeadorPersistenciaAOfertaLaboral {
 
-    @Mapping(target = "idPersistenciaOfertaLaboral", expression="java(new IdPersistenciaOfertaLaboral(UUID.fromString(ofertaLaboral.getIdOfertaLaboral().getIdEmpresa()),UUID.fromString(ofertaLaboral.getIdOfertaLaboral().getIdOfertaLaboral())))")
+    @Mapping(target = "idPersistenciaOfertaLaboral", expression="java(new IdPersistenciaOfertaLaboral(UUID.fromString(ofertaLaboral.getIdEmpresa().getIdEmpresa()),UUID.fromString(ofertaLaboral.getIdOfertaLaboral().getIdOfertaLaboral())))")
     @Mapping(target = "fechaPublicacion", expression = "java(ofertaLaboral.getFechaPublicacionOfertaLaboral().getFechaPublicacion())")
     @Mapping(target = "fechaUltimaModificacion", expression = "java(ofertaLaboral.getFechaPublicacionOfertaLaboral().getFechaUltimaModificacion())")
     @Mapping(target = "titulo", expression = "java(ofertaLaboral.getTituloOfertaLaboral().getTitulo())")
@@ -30,7 +30,8 @@ public abstract class MapeadorPersistenciaAOfertaLaboral {
     @Mapping(target = "estado", expression = "java(ofertaLaboral.getEstadoOfertaLaboral().getEstadoOfertaLaboral().equals(EnumEstadoOfertaLaboral.PUBLICADA)? 'P': 'C')")
     public abstract PersistenciaOfertaLaboral OfertaLaboralAPersistencia(OfertaLaboral ofertaLaboral);
 
-    @Mapping(target = "idOfertaLaboral", expression = "java(new IdOfertaLaboral(persistenciaOfertaLaboral.getIdPersistenciaOfertaLaboral().getUuidEmpresa().toString(), persistenciaOfertaLaboral.getIdPersistenciaOfertaLaboral().getUuid().toString()))")
+    @Mapping(target = "idEmpresa", expression = "java(new IdEmpresa(persistenciaOfertaLaboral.getIdPersistenciaOfertaLaboral().getUuidEmpresa().toString()))")
+    @Mapping(target = "idOfertaLaboral", expression = "java(new IdOfertaLaboral(persistenciaOfertaLaboral.getIdPersistenciaOfertaLaboral().getUuid().toString()))")
     @Mapping(target = "tituloOfertaLaboral", expression = "java(new TituloOfertaLaboral(persistenciaOfertaLaboral.getTitulo()))")
     @Mapping(target = "cargoOfertaLaboral", expression = "java(new CargoOfertaLaboral(persistenciaOfertaLaboral.getCargo()))")
     @Mapping(target = "fechaPublicacionOfertaLaboral", expression = "java(new FechaPublicacionOfertaLaboral(persistenciaOfertaLaboral.getFechaPublicacion(), persistenciaOfertaLaboral.getFechaUltimaModificacion()))")

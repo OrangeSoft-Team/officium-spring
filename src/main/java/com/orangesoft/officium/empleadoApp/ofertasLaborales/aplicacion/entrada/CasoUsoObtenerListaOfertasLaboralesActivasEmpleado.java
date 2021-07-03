@@ -7,5 +7,5 @@ import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.OfertaLabora
 import java.util.List;
 
 public interface CasoUsoObtenerListaOfertasLaboralesActivasEmpleado {
-    public List<Tupla<NombreEmpresa, OfertaLaboral>> obtenerListaOfertasLaboralesActivasEmpleado();
+    public List<Tupla<NombreEmpresa, OfertaLaboral>> consultarListaOfertasLaboralesActivasEmpleado();
 }

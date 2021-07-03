@@ -13,13 +13,13 @@ import java.util.List;
 
 @Component
 @AllArgsConstructor
-public class CasoUsoObtenerListaOfertasLaboralesActivasEmpleadoImp implements CasoUsoObtenerListaOfertasLaboralesActivasEmpleado {
+public class CasoUsoObtenerListaOfertasLaboralesActivasEmpleadoImpl implements CasoUsoObtenerListaOfertasLaboralesActivasEmpleado {
 
     @Autowired
     public PuertoListaOfertasLaboralesActivas puertoListaOfertasLaboralesActivas;
 
     @Override
-    public List<Tupla<NombreEmpresa, OfertaLaboral>> obtenerListaOfertasLaboralesActivasEmpleado() {
+    public List<Tupla<NombreEmpresa, OfertaLaboral>> consultarListaOfertasLaboralesActivasEmpleado() {
         return puertoListaOfertasLaboralesActivas.obtenerListaOfertasLaboralesActivas();
     }
 }
