@@ -2,7 +2,6 @@ package com.orangesoft.officium.empleadorApp.empresa.dominio;
 
 import com.orangesoft.officium.empleadorApp.empresa.dominio.excepciones.*;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.valueObjects.*;
-import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjects.CodigoPostalEmpresa;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

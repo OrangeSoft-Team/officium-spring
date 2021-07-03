@@ -7,11 +7,9 @@ import lombok.Getter;
 @EqualsAndHashCode
 @Getter
 public final class Estado {
-    private final String estado;
+    private final char estado;
 
-    public Estado(String estado){
-        if(estado==null || estado.isEmpty())
-            throw new ExcepcionEstadoNulo();
+    public Estado(char estado){
         this.estado=estado;
     }
 }

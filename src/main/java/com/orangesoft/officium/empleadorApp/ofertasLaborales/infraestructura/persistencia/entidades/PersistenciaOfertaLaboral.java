@@ -1,49 +1,49 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.persistencia.entidades;
 
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjects.DuracionEstimadaEscala;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.time.Instant;
 import java.util.UUID;
 
 
 @Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Entity(name="ofertaLaboral")
+@Entity(name = "ofertasLaborales")
 public class PersistenciaOfertaLaboral {
-    @Id
-    @GeneratedValue
-    private UUID uuid;
+    @EmbeddedId
+    public IdPersistenciaOfertaLaboral idPersistenciaOfertaLaboral;
+    @NotNull
+    public Instant fechaPublicacion;
+    @NotNull
+    private Instant fechaUltimaModificacion;
     @NotNull
     private String titulo;
-    @NotNull
-    private String fechaPublicacion;
-    @NotNull
-    private String fechaUltimamodificacion;
     @NotNull
     private String cargo;
     @NotNull
     private float sueldo;
     @NotNull
+    private String divisa;
+    @NotNull
     private String descripcion;
     @NotNull
     private String duracionEstimadaEscala;
     @NotNull
-    private String duracionEstimadaValor;
+    private String duracionEstimada;
     @NotNull
     private String turnoTrabajo;
     @NotNull
-    private String numeroVacantes;
+    private int numeroVacantes;
     @NotNull
-    private String estado;
-
+    private char estado;
 }

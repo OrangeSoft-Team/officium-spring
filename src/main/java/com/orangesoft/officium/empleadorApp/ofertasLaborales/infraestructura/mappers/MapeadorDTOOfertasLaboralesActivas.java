@@ -20,7 +20,7 @@ public abstract class MapeadorDTOOfertasLaboralesActivas {
     @Mapping(target = "turnoTrabajo", expression = "java(ofertaLaboral.getTurnoTrabajo().getTurnoTrabajo())")
     @Mapping(target = "numeroVacantes", expression = "java(ofertaLaboral.getNumeroVacantes().getNumeroVacantes())")
     @Mapping(target = "descripcion", expression = "java(ofertaLaboral.getDescripcion().getDescripcion())")
-    @Mapping(target = "estado", expression = "java(ofertaLaboral.getEstado().getEstado())")
+    @Mapping(target = "estado", expression = "java(Character.toString(ofertaLaboral.getEstado().getEstado()))")
     public abstract DtoOfertasLaboralesActivasEmpresa mapOfertaLaboraActivaADto(OfertaLaboral ofertaLaboral);
 
 
@@ -33,6 +33,6 @@ public abstract class MapeadorDTOOfertasLaboralesActivas {
     @Mapping(target = "turnoTrabajo", expression = "java(new TurnoTrabajo(dtoOfertasLaboralesActivasEmpresa.getTurnoTrabajo()))" )
     @Mapping(target = "numeroVacantes", expression = "java(new NumeroVacantes(dtoOfertasLaboralesActivasEmpresa.getNumeroVacantes()))")
     @Mapping(target = "descripcion", expression = "java(new Descripcion(dtoOfertasLaboralesActivasEmpresa.getDescripcion()))")
-    @Mapping(target = "estado", expression = "java(new Estado(dtoOfertasLaboralesActivasEmpresa.getEstado()))")
+    @Mapping(target = "estado", expression = "java(new Estado(dtoOfertasLaboralesActivasEmpresa.getEstado().toCharArray()[0]))")
     public abstract OfertaLaboral mapDtoAOfertaLaboraActiva(DtoOfertasLaboralesActivasEmpresa dtoOfertasLaboralesActivasEmpresa);
 }
