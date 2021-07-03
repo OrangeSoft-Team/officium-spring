@@ -38,7 +38,6 @@ public class Empresa {
                    IdPais idPaisEmpresa,
                    IdEstado idEstadoEmpresa,
                    IdCiudad idCiudadEmpresa) {
-        validarEmpresa();
         this.idEmpresa = idEmpresa;
         this.nombreEmpresa = nombreEmpresa;
         this.correoElectronicoEmpresa = correoElectronicoEmpresa;
@@ -47,6 +46,7 @@ public class Empresa {
         this.idPaisEmpresa = idPaisEmpresa;
         this.idEstadoEmpresa = idEstadoEmpresa;
         this.idCiudadEmpresa = idCiudadEmpresa;
+        validarEmpresa();
     }
 
     public void validarEmpresa() {

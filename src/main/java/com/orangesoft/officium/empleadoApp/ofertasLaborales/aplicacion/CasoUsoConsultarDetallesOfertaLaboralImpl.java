@@ -1,8 +1,9 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion;
 
 import com.orangesoft.officium.comun.generics.Tupla;
-import com.orangesoft.officium.empleadoApp.empresa.dominio.value.NombreEmpresa;
+import com.orangesoft.officium.empleadoApp.empresa.dominio.Empresa;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.entrada.CasoUsoConsultarDetallesOfertaLaboral;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.exepciones.ExcepcionOfertaLaboralNoEncontrada;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.salida.PuertoDetallesOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.IdOfertaLaboral;
@@ -17,7 +18,10 @@ public class CasoUsoConsultarDetallesOfertaLaboralImpl implements CasoUsoConsult
     private final PuertoDetallesOfertaLaboral puertoDetallesOfertaLaboral;
 
     @Override
-    public Tupla<NombreEmpresa, OfertaLaboral> consultarDetallesOfertaLaboral(IdOfertaLaboral idOfertaLaboral) {
-        return null;
+    public Tupla<Empresa, OfertaLaboral> consultarDetallesOfertaLaboral(IdOfertaLaboral idOfertaLaboral) {
+        Tupla<Empresa,OfertaLaboral> tupla = puertoDetallesOfertaLaboral.obtenerDetallesOfertaLaboral(idOfertaLaboral);
+        if(tupla != null)
+            return tupla;
+        throw new ExcepcionOfertaLaboralNoEncontrada();
     }
 }
