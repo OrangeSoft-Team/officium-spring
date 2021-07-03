@@ -4,7 +4,6 @@ import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.per
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.UUID;
 @Repository
 public interface RepositorioOfertasLaboralesActivas extends JpaRepository<PersistenciaOfertaLaboral, UUID> {
