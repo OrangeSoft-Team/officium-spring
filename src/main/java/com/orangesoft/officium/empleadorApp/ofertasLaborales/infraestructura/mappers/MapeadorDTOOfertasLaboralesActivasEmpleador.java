@@ -1,14 +1,14 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.mappers;
 
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.OfertaLaboral;
-import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.dto.DtoOfertasLaboralesActivasEmpresa;
+import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.dto.DtoOfertasLaboralesActivasEmpleador;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import java.util.UUID;
 
 @Mapper(componentModel = "spring", imports = {UUID.class})
-public abstract class MapeadorDTOOfertasLaboralesActivas {
+public abstract class MapeadorDTOOfertasLaboralesActivasEmpleador {
 
     @Mapping(target = "uuid", expression = "java(ofertaLaboral.getIdOfertaLaboral().getIdOfertaLaboral())")
     @Mapping(target = "titulo", expression = "java(ofertaLaboral.getTitulo().getTitulo())")
@@ -21,7 +21,7 @@ public abstract class MapeadorDTOOfertasLaboralesActivas {
     @Mapping(target = "numeroVacantes", expression = "java(ofertaLaboral.getNumeroVacantes().getNumeroVacantes())")
     @Mapping(target = "descripcion", expression = "java(ofertaLaboral.getDescripcion().getDescripcion())")
     @Mapping(target = "estado", expression = "java(Character.toString(ofertaLaboral.getEstado().getEstado()))")
-    public abstract DtoOfertasLaboralesActivasEmpresa mapOfertaLaboraActivaADto(OfertaLaboral ofertaLaboral);
+    public abstract DtoOfertasLaboralesActivasEmpleador mapOfertaLaboraActivaADto(OfertaLaboral ofertaLaboral);
 
 
     @Mapping(target = "titulo", expression = "java(new Titulo(dtoOfertasLaboralesActivasEmpresa.getTitulo()))")
@@ -34,5 +34,5 @@ public abstract class MapeadorDTOOfertasLaboralesActivas {
     @Mapping(target = "numeroVacantes", expression = "java(new NumeroVacantes(dtoOfertasLaboralesActivasEmpresa.getNumeroVacantes()))")
     @Mapping(target = "descripcion", expression = "java(new Descripcion(dtoOfertasLaboralesActivasEmpresa.getDescripcion()))")
     @Mapping(target = "estado", expression = "java(new Estado(dtoOfertasLaboralesActivasEmpresa.getEstado().toCharArray()[0]))")
-    public abstract OfertaLaboral mapDtoAOfertaLaboraActiva(DtoOfertasLaboralesActivasEmpresa dtoOfertasLaboralesActivasEmpresa);
+    public abstract OfertaLaboral mapDtoAOfertaLaboraActiva(DtoOfertasLaboralesActivasEmpleador dtoOfertasLaboralesActivasEmpresa);
 }

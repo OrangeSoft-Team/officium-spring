@@ -1,5 +1,6 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio;
 
+import com.orangesoft.officium.empleadorApp.empresa.dominio.valueObjects.IdEmpresa;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.excepciones.*;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjects.*;
 import lombok.EqualsAndHashCode;
@@ -10,6 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class OfertaLaboral {
+     private IdEmpresa idEmpresa;
      private IdOfertaLaboral idOfertaLaboral;
      private Titulo titulo;
      private FechaPublicacion fechaPublicacion;

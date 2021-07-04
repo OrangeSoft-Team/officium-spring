@@ -1,15 +1,24 @@
 package com.orangesoft.officium.empleadorApp.empresa.infraestructura.mappers;
 
+import com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia.entidades.PersistenciaEmpresa;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.Empresa;
-import com.orangesoft.officium.empleadorApp.empresa.infraestructura.persistencia.entidades.PersistenciaEmpresa;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.valueObjects.*;
-import lombok.Builder;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import java.util.UUID;
-@Mapper(componentModel = "spring", imports = {UUID.class, Empresa.class})
-public abstract class MapeadorPersistenciaEmpresa {
+@Mapper(componentModel = "spring", imports = {UUID.class,
+        Empresa.class,
+        IdEmpresa.class,
+        NombreEmpresa.class,
+        CorreoElectronicoEmpresa.class,
+        DireccionEmpresa.class,
+        CodigoPostalEmpresa.class,
+        IdPais.class,
+        IdEstado.class,
+        IdCiudad.class})
+public abstract class MapeadorPersistenciaEmpresaEmpleador {
     @Mapping(target = "uuid", expression = "java(UUID.fromString(empresa.getIdEmpresa().getIdEmpresa()))")
     @Mapping(target = "nombre", expression = "java(empresa.getNombreEmpresa().getNombreEmpresa())")
     @Mapping(target = "correoElectronico", expression = "java(empresa.getCorreoElectronicoEmpresa().getCorreoElectronicoEmpresa())")
