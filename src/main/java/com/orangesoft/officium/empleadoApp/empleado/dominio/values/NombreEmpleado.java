@@ -15,6 +15,8 @@ public final class NombreEmpleado {
     public NombreEmpleado(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido) {
         validarPrimerNombreEmpleado(primerNombre);
         validarPrimerApellidoEmpleado(primerApellido);
+        validarSegundoNombreEmpleado(segundoNombre);
+        validarSegundoApellidoEmpleado(segundoApellido);
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;
         this.primerApellido = primerApellido;
@@ -36,7 +38,7 @@ public final class NombreEmpleado {
     private void validarPrimerApellidoEmpleado(String primerApellido) {
         if(primerApellido == null)
             throw new ExcepcionPrimerApellidoEmpleadoNulo();
-        if(segundoNombre.length() < 3 || segundoNombre.length() > 40)
+        if(primerApellido.length() < 3 || primerApellido.length() > 40)
             throw new ExcepcionLongitudPrimerApellidoEmpleadoInvalida();
     }
 

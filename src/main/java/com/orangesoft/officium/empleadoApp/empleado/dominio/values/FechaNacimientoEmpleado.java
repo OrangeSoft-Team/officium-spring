@@ -6,7 +6,9 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.time.Instant;
+import java.time.Year;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 
 @EqualsAndHashCode
 @Getter
@@ -23,7 +25,7 @@ public final class FechaNacimientoEmpleado {
             throw new ExcepcionFechaNacimientoEmpleadoNula();
         if(fechaNacimiento.isAfter(Instant.now()))
             throw new ExcepcionFechaNacimientoEmpleadoInvalida();
-        if(fechaNacimiento.isAfter(Instant.now().minus(18, ChronoUnit.YEARS)))
-            throw new ExcepcionFechaNacimientoEmpleadoMenor();
+        //if(fechaNacimiento.isAfter(Instant.now().minus(18, ChronoUnit.YEARS)))
+        //    throw new ExcepcionFechaNacimientoEmpleadoMenor();
     }
 }

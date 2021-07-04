@@ -45,7 +45,7 @@ public class ControladorOfertaLaboralEmpleado {
         return servicioObtenerDetalleOfertaLaboralEmpleado.consultarDetallesOfertaLaboral(idOfertaLaboral);
     }
 
-    @PostMapping("/{:uuid_oferta_laboral}")
+    @PostMapping("/{idOfertaLaboral}")
     public ResponseEntity<Void> postularseOfertaLaboral(@PathVariable String idOfertaLaboral, @RequestBody DtoAplicarOfertaLaboralEmpleadoEmpleado dtoAplicarOfertaLaboralEmpleadoEmpleado) {
         try{
             UUID.fromString(idOfertaLaboral);
