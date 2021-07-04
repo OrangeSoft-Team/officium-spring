@@ -11,18 +11,15 @@ import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.excepcio
 public final class TurnoTrabajoOfertaLaboral {
     private final String turnoTrabajoOfertaLaboral;
 
-    public TurnoTrabajoOfertaLaboral(Integer turno) {
+    public TurnoTrabajoOfertaLaboral(String turno) {
         if(turno == null)
             throw new ExcepcionTurnoTrabajoOfertaLaboralNulo();
-        if (turno < 1 || turno > 3)
-            throw new ExcepcionTurnoTrabajoOfertaLaboralInvalido();
         switch (turno) {
-            case 1: this.turnoTrabajoOfertaLaboral = "mañana";
-                break;
-            case 2: this.turnoTrabajoOfertaLaboral = "tarde";
-                break;
-            default: this.turnoTrabajoOfertaLaboral = "noche";
-                break;
+            case "mañana": break;
+            case "tarde": break;
+            case "noche": break;
+            default: throw new ExcepcionTurnoTrabajoOfertaLaboralInvalido();
         }
+        this.turnoTrabajoOfertaLaboral = turno;
     }
 }

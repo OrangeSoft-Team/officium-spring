@@ -3,11 +3,11 @@ package com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.valueOb
 public enum PeriodoTiempo {
     DIAS, SEMANAS, MESES, ANIOS;
 
-    public static PeriodoTiempo obtenerPeriodoTiempo(Integer numeroPeriodo) {
-        switch (numeroPeriodo){
-            case 1: return DIAS;
-            case 2: return SEMANAS;
-            case 3: return MESES;
+    public static PeriodoTiempo obtenerPeriodoTiempo(String periodo) {
+        switch (periodo){
+            case "dias": return DIAS;
+            case "semanas": return SEMANAS;
+            case "meses": return MESES;
             default: return ANIOS;
         }
     }
