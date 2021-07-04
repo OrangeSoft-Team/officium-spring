@@ -15,7 +15,7 @@ import java.util.UUID;
     @AllArgsConstructor
     @NoArgsConstructor
     @EqualsAndHashCode
-    public class IdPersistenciaOfertaLaboral implements Serializable{
+    public class IdPersistenciaOfertaLaboralEmpleador implements Serializable{
         private UUID uuidEmpresa;
         private UUID uuid;
     }

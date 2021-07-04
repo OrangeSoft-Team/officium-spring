@@ -19,9 +19,9 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "ofertasLaborales")
-public class PersistenciaOfertaLaboral {
+public class PersistenciaOfertaLaboralEmpleador {
     @EmbeddedId
-    public IdPersistenciaOfertaLaboral idPersistenciaOfertaLaboral;
+    public IdPersistenciaOfertaLaboralEmpleador idPersistenciaOfertaLaboral;
     @NotNull
     public Instant fechaPublicacion;
     @NotNull
