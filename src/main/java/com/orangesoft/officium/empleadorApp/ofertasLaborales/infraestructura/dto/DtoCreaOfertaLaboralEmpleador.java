@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DtoCreaOfertaLaboralEmpresa {
+public class DtoCreaOfertaLaboralEmpleador {
     private String uuidEmpresa;
     private String titulo;
     private String cargo;
