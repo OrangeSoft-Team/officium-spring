@@ -1,9 +1,12 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.servicios;
 
-import com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion.entrada.CasoUsoConsultarDetallesOfertasLaborales;
+import com.orangesoft.officium.comun.generics.Tupla;
+import com.orangesoft.officium.empleadorApp.empresa.dominio.Empresa;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.OfertaLaboral;
+import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjects.IdOfertaLaboral;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.dto.DtoDetalleOfertaLaboralEmpresa;
-import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.dto.DtoOfertasLaboralesActivasEmpresa;
+import com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion.entrada.CasoUsoConsultarDetallesOfertasLaborales;
+import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.dto.DtoDetalleOfertaLaboralEmpresa;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.mappers.MapeadorOfertaLaboralDetalleDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +25,8 @@ public class ServicioConsultarDetalleOfertasLaborales {
     @Autowired
     private final CasoUsoConsultarDetallesOfertasLaborales casoUsoConsultarDetallesOfertasLaborales;
 
-    public List<DtoDetalleOfertaLaboralEmpresa> consultarDetalleOfertasLaborales(){
-        return casoUsoConsultarDetallesOfertasLaborales.consultarDetallesofertasLaborales()
-                .stream().map(mapeadorOfertaLaboralDetalleDTO::mapOfertaLaboralADetalleDto)
-                .collect(Collectors.toList());
+    public DtoDetalleOfertaLaboralEmpresa consultarDetallesOfertaLaboral(String idOferta) {
+        Tupla<Empresa, OfertaLaboral> tupla = casoUsoConsultarDetallesOfertasLaborales.consultarDetallesOfertaLaboral(new IdOfertaLaboral(idOferta));
+        return mapeadorOfertaLaboralDetalleDTO.mapOfertaLaboralADetalleDto(tupla.getFirstElement(), tupla.getSecondElement());
     }
 }

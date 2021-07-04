@@ -1,6 +1,6 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion.salida;
 
-import com.orangesoft.officium.comun.generics.Tupla;
+import com.orangesoft.officium.empleadorApp.Tupla.Tupla;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.Empresa;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjects.IdOfertaLaboral;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.OfertaLaboral;

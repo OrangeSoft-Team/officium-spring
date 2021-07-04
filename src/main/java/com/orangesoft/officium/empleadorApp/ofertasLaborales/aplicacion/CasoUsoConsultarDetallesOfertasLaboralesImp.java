@@ -1,6 +1,6 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion;
 
-import com.orangesoft.officium.comun.generics.Tupla;
+import com.orangesoft.officium.empleadorApp.Tupla.Tupla;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion.excepciones.ExcepcionOfertaLaboralNoEncontrada;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.Empresa;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion.entrada.CasoUsoConsultarDetallesOfertasLaborales;
