@@ -10,6 +10,7 @@ import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.mape
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
@@ -19,6 +20,7 @@ public class ServicioObtenerDetalleOfertaLaboralEmpleado {
     @Autowired
     private final CasoUsoConsultarDetallesOfertaLaboral consultarDetallesOfertaLaboral;
 
+    @Transactional(readOnly = true)
     public DtoDetalleOfertaLaboralActivaEmpleado consultarDetallesOfertaLaboral(String idOferta) {
         Tupla<Empresa, OfertaLaboral> tupla = consultarDetallesOfertaLaboral.consultarDetallesOfertaLaboral(new IdOfertaLaboral(idOferta));
         return mapeadorOfertaLaboralADetalleDTO.mapOfertaLaboralADetalleDto(tupla.getFirstElement(), tupla.getSecondElement());

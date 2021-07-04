@@ -4,9 +4,8 @@ import lombok.*;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.time.Instant;
 
 @Data
@@ -17,9 +16,9 @@ import java.time.Instant;
 @Entity(name = "ofertasLaborales")
 public class PersistenciaOfertaLaboral {
     @EmbeddedId
-    public IdPersistenciaOfertaLaboral idPersistenciaOfertaLaboral;
+    private IdPersistenciaOfertaLaboral idPersistenciaOfertaLaboral;
     @NotNull
-    public Instant fechaPublicacion;
+    private Instant fechaPublicacion;
     @NotNull
     private Instant fechaUltimaModificacion;
     @NotNull
