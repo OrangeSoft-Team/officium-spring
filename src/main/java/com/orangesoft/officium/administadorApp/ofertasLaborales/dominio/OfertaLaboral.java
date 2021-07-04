@@ -26,7 +26,7 @@ public class OfertaLaboral {
     private TurnoTrabajoOfertaLaboral turnoTrabajoOfertaLaboral;
     private NumeroVacantesOfertaLaboral numeroVacantesOfertaLaboral;
     private EstadoOfertaLaboral estadoOfertaLaboral;
-    //private IdCiudad idCiudadOfertaLaboral;
+    private IdCiudad idCiudadOfertaLaboral;
     private IdEmpresa idEmpresaOfertaLaboral;
     private NombreEmpresa nombreEmpresaOfertaLaboral;
 
@@ -41,7 +41,7 @@ public class OfertaLaboral {
                          TurnoTrabajoOfertaLaboral turnoTrabajoOfertaLaboral,
                          NumeroVacantesOfertaLaboral numeroVacantesOfertaLaboral,
                          EstadoOfertaLaboral estadoOfertaLaboral,
-                         //IdCiudad idCiudadOfertaLaboral,
+                         IdCiudad idCiudadOfertaLaboral,
                          IdEmpresa idEmpresaOfertaLaboral,
                          NombreEmpresa nombreEmpresaOfertaLaboral) {
         if (idOfertaLaboral == null)
@@ -84,7 +84,7 @@ public class OfertaLaboral {
         this.turnoTrabajoOfertaLaboral = turnoTrabajoOfertaLaboral;
         this.numeroVacantesOfertaLaboral = numeroVacantesOfertaLaboral;
         this.estadoOfertaLaboral = estadoOfertaLaboral;
-        //this.idCiudadOfertaLaboral = idCiudadOfertaLaboral;
+        this.idCiudadOfertaLaboral = idCiudadOfertaLaboral;
         this.idEmpresaOfertaLaboral = idEmpresaOfertaLaboral;
         this.nombreEmpresaOfertaLaboral = nombreEmpresaOfertaLaboral;
     }

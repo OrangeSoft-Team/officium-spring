@@ -1,11 +1,16 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura;
 
+import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.servicios.ServicioObtenerDetallesOfertaLaboralAdministrador;
 import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.servicios.ServicioObtenerListaOfertasLaboralesActivasAdministrador;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.UUID;
 
+import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.valueObjects.IdOfertaLaboral;
+import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.dto.DtoCrearOfertaLaboralEmpresaAdministrador;
+import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.dto.DtoDetalleOfertaLaboralActivaAdministrador;
 import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.dto.DtoOfertasLaboralesActivasAdministrador;
 
 @RestController
@@ -13,11 +18,24 @@ import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.
 @AllArgsConstructor
 public class ControladorOfertasLaborales {
     @Autowired
-    private ServicioObtenerListaOfertasLaboralesActivasAdministrador servicioObtenerListaOfertasLaboralesActivasAdministrador;
+    private final ServicioObtenerListaOfertasLaboralesActivasAdministrador servicioObtenerListaOfertasLaboralesActivasAdministrador;
+
+    @Autowired
+    private final ServicioObtenerDetallesOfertaLaboralAdministrador servicioObtenerDetallesOfertaLaboralAdministrador;
 
     @GetMapping()
     public List<DtoOfertasLaboralesActivasAdministrador> obtenerListaOfertasLaboralesActivasEmpleado() {
         return servicioObtenerListaOfertasLaboralesActivasAdministrador.obtenerListaOfertasLaboralesActivasAdministrador();
+    }
+
+    @GetMapping("/{idOfertaLaboral}")
+    public DtoDetalleOfertaLaboralActivaAdministrador obtenerDetallesOfertaLaboralAdministrador(@PathVariable String idOfertaLaboral) {
+        try{
+            UUID.fromString(idOfertaLaboral);
+        }catch (IllegalArgumentException e) {
+            throw new RuntimeException("El codigo de oferta laboral enviado no es valido");
+        }
+        return servicioObtenerDetallesOfertaLaboralAdministrador.obtenerDetalleOfertaLaboralAdministrador(new IdOfertaLaboral(idOfertaLaboral));
     }
 
 }

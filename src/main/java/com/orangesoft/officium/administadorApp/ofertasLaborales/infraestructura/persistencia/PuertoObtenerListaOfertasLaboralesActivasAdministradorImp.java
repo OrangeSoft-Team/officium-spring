@@ -16,10 +16,10 @@ import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.OfertaLa
 public class PuertoObtenerListaOfertasLaboralesActivasAdministradorImp implements PuertoObtenerListaOfertasLaboralesActivasAdministrador {
 
     @Autowired
-    public final RepositorioOfertaLaboralActiva repositorioOfertaLaboralActiva;
+    private final RepositorioOfertaLaboralActiva repositorioOfertaLaboralActiva;
 
     @Autowired
-    public final MapeadorQDTOAOfertaLaboral mapeadorQDTOAOfertaLaboral;
+    private final MapeadorQDTOAOfertaLaboral mapeadorQDTOAOfertaLaboral;
 
     @Override
     public List<OfertaLaboral> obtenerListOfertasLaborales() {
