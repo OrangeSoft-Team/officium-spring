@@ -20,10 +20,7 @@ public final class CorreoElectronicoEmpresa {
     private void validarCorreoElectronicoEmpresa(String correoElectronicoEmpresa) {
         if(correoElectronicoEmpresa == null)
             throw new ExcepcionCorreoElectronicoEmpresaNulo();
-        String regex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
-                "[a-zA-Z0-9_+&*-]+)*@"+
-                "(?:[a-zA-Z0-9-]+\\.)+[a-z"+
-                "A-Z]{2,7}$";
+        String regex = "^(.+)@(.+)$";
         Pattern patronEsperado = Pattern.compile(regex);
         if (!patronEsperado.matcher(correoElectronicoEmpresa).matches())
             throw new ExcepcionFormatoEmailEmpresaInvalido();

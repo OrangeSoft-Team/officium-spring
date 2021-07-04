@@ -1,5 +1,6 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.mapeadores;
 
+import com.orangesoft.officium.empleadoApp.empresa.dominio.value.IdEmpresa;
 import com.orangesoft.officium.empleadoApp.escalaTiempo.dominio.EnumEscalaTiempo;
 import com.orangesoft.officium.empleadoApp.estadoOfertaLaboral.dominio.EnumEstadoOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.moneda.dominio.EnumMoneda;
@@ -14,6 +15,7 @@ import java.util.UUID;
 
 @Mapper(componentModel = "spring", imports = {
         UUID.class,
+        IdEmpresa.class,
         IdOfertaLaboral.class,
         TituloOfertaLaboral.class,
         CargoOfertaLaboral.class,
@@ -28,7 +30,8 @@ import java.util.UUID;
         EnumMoneda.class, EnumTurnoTrabajo.class,
         EnumEscalaTiempo.class})
 public abstract class MapeadorQDTOAOfertaLaboral {
-    @Mapping(target = "idOfertaLaboral", expression = "java(new IdOfertaLaboral(qDtoOfertasLaboralesActivas.getUuidEmpresa().toString(), qDtoOfertasLaboralesActivas.getUuid().toString()))")
+    @Mapping(target = "idEmpresa", expression = "java(new IdEmpresa(qDtoOfertasLaboralesActivas.getUuidEmpresa().toString()))")
+    @Mapping(target = "idOfertaLaboral", expression = "java(new IdOfertaLaboral(qDtoOfertasLaboralesActivas.getUuid().toString()))")
     @Mapping(target = "tituloOfertaLaboral", expression = "java(new TituloOfertaLaboral(qDtoOfertasLaboralesActivas.getTitulo()))")
     @Mapping(target = "cargoOfertaLaboral", expression = "java(new CargoOfertaLaboral(qDtoOfertasLaboralesActivas.getCargo()))")
     @Mapping(target = "fechaPublicacionOfertaLaboral", expression = "java(new FechaPublicacionOfertaLaboral(qDtoOfertasLaboralesActivas.getFechaPublicacion(), qDtoOfertasLaboralesActivas.getFechaUltimaModificacion()))")

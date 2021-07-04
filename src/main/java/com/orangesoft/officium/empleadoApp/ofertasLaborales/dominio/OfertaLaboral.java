@@ -1,5 +1,7 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio;
 
+import com.orangesoft.officium.empleadoApp.empresa.dominio.excepciones.ExcepcionIdEmpresaNulo;
+import com.orangesoft.officium.empleadoApp.empresa.dominio.value.IdEmpresa;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.exepciones.*;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.*;
 import lombok.Builder;
@@ -12,6 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class OfertaLaboral {
+    private IdEmpresa idEmpresa;
     private IdOfertaLaboral idOfertaLaboral;
     private TituloOfertaLaboral tituloOfertaLaboral;
     private CargoOfertaLaboral cargoOfertaLaboral;
@@ -23,7 +26,8 @@ public class OfertaLaboral {
     private NumeroVacantes numeroVacantes;
     private EstadoOfertaLaboral estadoOfertaLaboral;
 
-    public OfertaLaboral(IdOfertaLaboral idOfertaLaboral,
+    public OfertaLaboral(IdEmpresa idEmpresa,
+                         IdOfertaLaboral idOfertaLaboral,
                          TituloOfertaLaboral tituloOfertaLaboral,
                          CargoOfertaLaboral cargoOfertaLaboral,
                          FechaPublicacionOfertaLaboral fechaPublicacionOfertaLaboral,
@@ -33,6 +37,7 @@ public class OfertaLaboral {
                          TurnoTrabajoOfertaLaboral turnoTrabajoOfertaLaboral,
                          NumeroVacantes numeroVacantes,
                          EstadoOfertaLaboral estadoOfertaLaboral) {
+        this.idEmpresa = idEmpresa;
         this.idOfertaLaboral = idOfertaLaboral;
         this.tituloOfertaLaboral = tituloOfertaLaboral;
         this.cargoOfertaLaboral = cargoOfertaLaboral;
@@ -47,6 +52,8 @@ public class OfertaLaboral {
     }
 
     private void validarOfertaLaboral() {
+        if(idEmpresa == null)
+            throw new ExcepcionIdEmpresaNulo();
         if(idOfertaLaboral == null)
             throw new ExcepcionIdOfertaLaboralNulo();
         if(tituloOfertaLaboral == null)
