@@ -1,6 +1,6 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.repositorios;
 
-import com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia.entidades.PersistenciaEmpresa;
+import com.orangesoft.officium.comun.persistencia.empresa.PersistenciaEmpresa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

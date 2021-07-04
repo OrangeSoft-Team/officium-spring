@@ -1,7 +1,7 @@
 package com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia.mapper;
 
 import com.orangesoft.officium.empleadoApp.empresa.dominio.Empresa;
-import com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia.entidades.PersistenciaEmpresa;
+import com.orangesoft.officium.comun.persistencia.empresa.PersistenciaEmpresa;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

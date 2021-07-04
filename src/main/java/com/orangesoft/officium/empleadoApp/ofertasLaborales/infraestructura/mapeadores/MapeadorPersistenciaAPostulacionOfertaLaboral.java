@@ -1,5 +1,7 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.mapeadores;
 
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.IdPersisenciaPostulacionOfertaLaboral;
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.PersistenciaPostulacionOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.empleado.dominio.values.IdEmpleado;
 import com.orangesoft.officium.empleadoApp.empresa.dominio.value.IdEmpresa;
 import com.orangesoft.officium.empleadoApp.estadoOfertaLaboral.dominio.EnumEstadoPostulacionOfertaLaboral;
@@ -8,8 +10,6 @@ import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.Coment
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.EstadoPostulacionOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.FechaPostulacionOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.IdOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.IdPersisenciaPostulacionOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaPostulacionOfertaLaboral;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

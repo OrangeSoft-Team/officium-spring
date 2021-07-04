@@ -1,9 +1,9 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.utilitarios;
 
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.PersistenciaOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.mapeadores.MapeadorPersistenciaAOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.mapeadores.MapeadorPersistenciaAOfertaLaboralImpl;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.mothers.OfertaLaboralEmpleadoMother;
 import org.junit.Test;
 

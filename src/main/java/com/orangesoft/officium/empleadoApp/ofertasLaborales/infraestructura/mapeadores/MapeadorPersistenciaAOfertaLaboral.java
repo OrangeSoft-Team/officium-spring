@@ -1,11 +1,11 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.mapeadores;
 
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.IdPersistenciaOfertaLaboral;
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.PersistenciaOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.escalaTiempo.dominio.EnumEscalaTiempo;
 import com.orangesoft.officium.empleadoApp.estadoOfertaLaboral.dominio.EnumEstadoOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.moneda.dominio.EnumMoneda;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.OfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.IdPersistenciaOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.turnoTrabajo.dominio.EnumTurnoTrabajo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

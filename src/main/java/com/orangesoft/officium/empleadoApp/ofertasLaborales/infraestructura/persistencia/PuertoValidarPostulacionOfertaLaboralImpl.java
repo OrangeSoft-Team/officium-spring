@@ -2,20 +2,18 @@ package com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.per
 
 import com.orangesoft.officium.comun.generics.Tupla;
 import com.orangesoft.officium.comun.generics.TuplaOfertaLaboralEmpleado;
-import com.orangesoft.officium.comun.generics.TuplaPersistenciaEmpresaOferta;
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.PersistenciaOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.empleado.dominio.Empleado;
 import com.orangesoft.officium.empleadoApp.empleado.dominio.values.IdEmpleado;
 import com.orangesoft.officium.empleadoApp.empleado.infraestructura.mapeadores.MapeadorPersistenciaEmpleado;
-import com.orangesoft.officium.empleadoApp.empleado.infraestructura.persistencia.entidades.PersistenciaEmpleado;
+import com.orangesoft.officium.comun.persistencia.empleado.PersistenciaEmpleado;
 import com.orangesoft.officium.empleadoApp.empleado.infraestructura.repositorios.RepositorioEmpleado;
 import com.orangesoft.officium.empleadoApp.empresa.dominio.value.IdEmpresa;
-import com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia.entidades.PersistenciaEmpresa;
+import com.orangesoft.officium.comun.persistencia.empresa.PersistenciaEmpresa;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.salida.PuertoValidarPostulacionOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.IdOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.mapeadores.MapeadorPersistenciaAOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaPostulacionOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.repositorios.RepositorioDetallesOfertaLaboral;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -6,7 +6,7 @@ import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdPais;
 import com.orangesoft.officium.empleadoApp.cuenta.dominio.EnumEstadoCuentaEmpleado;
 import com.orangesoft.officium.empleadoApp.empleado.dominio.Empleado;
 import com.orangesoft.officium.empleadoApp.empleado.dominio.values.*;
-import com.orangesoft.officium.empleadoApp.empleado.infraestructura.persistencia.entidades.PersistenciaEmpleado;
+import com.orangesoft.officium.comun.persistencia.empleado.PersistenciaEmpleado;
 import com.orangesoft.officium.empleadoApp.genero.dominio.EnumGeneroEmpleado;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

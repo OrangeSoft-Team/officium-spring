@@ -1,4 +1,4 @@
-package com.orangesoft.officium.empleadoApp.empleado.infraestructura.persistencia.entidades;
+package com.orangesoft.officium.comun.persistencia.empleado;
 
 import lombok.*;
 

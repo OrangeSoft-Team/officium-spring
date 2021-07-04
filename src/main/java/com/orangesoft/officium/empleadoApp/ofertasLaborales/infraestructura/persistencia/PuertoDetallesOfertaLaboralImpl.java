@@ -2,14 +2,14 @@ package com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.per
 
 import com.orangesoft.officium.comun.generics.Tupla;
 import com.orangesoft.officium.comun.generics.TuplaEmpresaOfertaLaboral;
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.PersistenciaOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.empresa.dominio.Empresa;
-import com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia.entidades.PersistenciaEmpresa;
+import com.orangesoft.officium.comun.persistencia.empresa.PersistenciaEmpresa;
 import com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia.mapper.MapeadorPersistenciaEmpresa;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.salida.PuertoDetallesOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.IdOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.mapeadores.MapeadorPersistenciaAOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.repositorios.RepositorioDetallesOfertaLaboral;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

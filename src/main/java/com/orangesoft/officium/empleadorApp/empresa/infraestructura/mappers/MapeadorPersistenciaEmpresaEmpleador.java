@@ -1,6 +1,6 @@
 package com.orangesoft.officium.empleadorApp.empresa.infraestructura.mappers;
 
-import com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia.entidades.PersistenciaEmpresa;
+import com.orangesoft.officium.comun.persistencia.empresa.PersistenciaEmpresa;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.Empresa;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.valueObjects.*;
 

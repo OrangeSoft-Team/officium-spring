@@ -1,18 +1,16 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.integracion;
 
 import com.orangesoft.officium.comun.generics.Tupla;
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.PersistenciaOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.empresa.dominio.Empresa;
-import com.orangesoft.officium.empleadoApp.empresa.dominio.value.NombreEmpresa;
-import com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia.entidades.PersistenciaEmpresa;
+import com.orangesoft.officium.comun.persistencia.empresa.PersistenciaEmpresa;
 import com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia.mapper.MapeadorPersistenciaEmpresaImpl;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.CasoUsoConsultarDetallesOfertaLaboralImpl;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.entrada.CasoUsoConsultarDetallesOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.IdOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.mapeadores.MapeadorPersistenciaAOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.mapeadores.MapeadorPersistenciaAOfertaLaboralImpl;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.PuertoDetallesOfertaLaboralImpl;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.repositorios.RepositorioDetallesOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.mothers.OfertaLaboralEmpleadoMother;
 import org.junit.Test;

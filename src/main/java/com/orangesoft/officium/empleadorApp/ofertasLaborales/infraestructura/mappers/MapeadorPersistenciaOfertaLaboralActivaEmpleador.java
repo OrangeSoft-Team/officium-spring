@@ -1,7 +1,7 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.mappers;
 
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.IdPersistenciaOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.IdPersistenciaOfertaLaboral;
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.PersistenciaOfertaLaboral;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.valueObjects.IdEmpresa;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.valueObjects.IdPais;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.OfertaLaboral;
@@ -35,7 +35,7 @@ public abstract class MapeadorPersistenciaOfertaLaboralActivaEmpleador {
     @Mapping(target = "estado", expression = "java(new Estado(persistenciaOfertaLaboral.getEstado()))")
     public abstract OfertaLaboral persistenciaAOfertaLaboral(PersistenciaOfertaLaboral persistenciaOfertaLaboral);
 
-    @Mapping(target = "idPersistenciaOfertaLaboral", expression = "java(new IdPersistenciaOfertaLaboral(UUID.fromString(ofertaLaboral.getIdEmpresa().getIdEmpresa()), UUID.fromString(ofertaLaboral.getIdOfertaLaboral().getIdOfertaLaboral())))")
+    @Mapping(target = "idPersistenciaOfertaLaboral", expression = "java(new com.orangesoft.officium.comun.persistencia.ofertaLaboral.IdPersistenciaOfertaLaboral(UUID.fromString(ofertaLaboral.getIdEmpresa().getIdEmpresa()), UUID.fromString(ofertaLaboral.getIdOfertaLaboral().getIdOfertaLaboral())))")
     @Mapping(target = "titulo", expression = "java(ofertaLaboral.getTitulo().getTitulo())")
     @Mapping(target = "fechaPublicacion", expression = "java(Instant.parse(ofertaLaboral.getFechaPublicacion().getFechaPublicacion()))" )
     @Mapping(target = "fechaUltimaModificacion", expression = "java(Instant.parse(ofertaLaboral.getFechaUltimaModificacion().getFechaUltimaPublicacion()))")

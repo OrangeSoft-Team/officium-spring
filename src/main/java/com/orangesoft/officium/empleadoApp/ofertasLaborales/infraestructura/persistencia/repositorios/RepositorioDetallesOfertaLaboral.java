@@ -1,10 +1,8 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.repositorios;
 
 import com.orangesoft.officium.comun.generics.Tupla;
-import com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia.entidades.PersistenciaEmpresa;
-import com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia.repositorios.RepositorioEmpresa;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.IdOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
+import com.orangesoft.officium.comun.persistencia.empresa.PersistenciaEmpresa;
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.PersistenciaOfertaLaboral;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

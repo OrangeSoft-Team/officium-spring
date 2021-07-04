@@ -1,6 +1,6 @@
 package com.orangesoft.officium.empleadoApp.empleado.infraestructura.repositorios;
 
-import com.orangesoft.officium.empleadoApp.empleado.infraestructura.persistencia.entidades.PersistenciaEmpleado;
+import com.orangesoft.officium.comun.persistencia.empleado.PersistenciaEmpleado;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -1,8 +1,8 @@
 package com.orangesoft.officium.comun.generics;
 
-import com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia.entidades.PersistenciaEmpresa;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaPostulacionOfertaLaboral;
+import com.orangesoft.officium.comun.persistencia.empresa.PersistenciaEmpresa;
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.PersistenciaOfertaLaboral;
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.PersistenciaPostulacionOfertaLaboral;
 
 public class TripletaPersistenciaEmpresaOfertaPostulacion extends Tripleta<PersistenciaEmpresa, PersistenciaOfertaLaboral, PersistenciaPostulacionOfertaLaboral> {
     public TripletaPersistenciaEmpresaOfertaPostulacion(PersistenciaEmpresa firstElement, PersistenciaOfertaLaboral secondElement, PersistenciaPostulacionOfertaLaboral thirdElement) {

@@ -1,8 +1,8 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.repositorios;
 
 import com.orangesoft.officium.comun.generics.TripletaPersistenciaEmpresaOfertaPostulacion;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.IdPersisenciaPostulacionOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaPostulacionOfertaLaboral;
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.IdPersisenciaPostulacionOfertaLaboral;
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.PersistenciaPostulacionOfertaLaboral;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

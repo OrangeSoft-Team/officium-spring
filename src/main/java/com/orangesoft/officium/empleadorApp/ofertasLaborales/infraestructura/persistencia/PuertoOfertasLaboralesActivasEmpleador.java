@@ -1,6 +1,6 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.persistencia;
 
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
+import com.orangesoft.officium.comun.persistencia.ofertaLaboral.PersistenciaOfertaLaboral;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.valueObjects.IdEmpresa;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion.salida.PuertoVerOfertasLaboralesActivasEmpleador;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.OfertaLaboral;
