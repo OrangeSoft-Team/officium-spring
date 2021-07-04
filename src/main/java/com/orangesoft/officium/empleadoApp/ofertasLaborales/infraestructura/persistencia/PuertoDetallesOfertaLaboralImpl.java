@@ -25,7 +25,6 @@ public class PuertoDetallesOfertaLaboralImpl implements PuertoDetallesOfertaLabo
     private final MapeadorPersistenciaAOfertaLaboral mapeadorPersistenciaAOfertaLaboral;
     @Autowired
     private final MapeadorPersistenciaEmpresa mapeadorPersistenciaEmpresa;
-
     @Autowired
     private final RepositorioDetallesOfertaLaboral repositorioDetallesOfertaLaboral;
 
