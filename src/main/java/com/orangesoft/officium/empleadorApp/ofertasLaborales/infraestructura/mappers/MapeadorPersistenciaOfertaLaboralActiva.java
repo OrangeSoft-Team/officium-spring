@@ -14,7 +14,8 @@ public abstract class MapeadorPersistenciaOfertaLaboralActiva {
 
     @Mapping(target = "idOfertaLaboral", expression = "java(new IdOfertaLaboral(persistenciaOfertaLaboral.getUuid().toString()))")
     @Mapping(target = "titulo", expression = "java(new Titulo(persistenciaOfertaLaboral.getTitulo()))")
-    @Mapping(target = "fechaPublicacion", expression = "java(new FechaPublicacion(persistenciaOfertaLaboral.getFechaPublicacion()))")
+    @Mapping(target = "fechaPublicacion", expression = "java(new FechaPublicacion(persistenciaOfertaLaboral.getFechaPublicacion().toString()))")
+    @Mapping(target = "fechaUltimaModificacion", expression = "java(new FechaUltimaModificacion(persistenciaOfertaLaboral.getFechaUltimaModificacion().toString()))")
     @Mapping(target = "cargo", expression = "java(new Cargo(persistenciaOfertaLaboral.getCargo()))")
     @Mapping(target = "sueldo", expression = "java(new Sueldo(persistenciaOfertaLaboral.getSueldo()))")
     @Mapping(target = "descripcion", expression = "java(new Descripcion(persistenciaOfertaLaboral.getDescripcion()))")
@@ -25,9 +26,9 @@ public abstract class MapeadorPersistenciaOfertaLaboralActiva {
     @Mapping(target = "estado", expression = "java(new Estado(persistenciaOfertaLaboral.getEstado()))")
     public abstract OfertaLaboral persistenciaAOfertaLaboral(PersistenciaOfertaLaboral persistenciaOfertaLaboral);
 
-    @Mapping(target = "uuid", expression = "java(UUID.fromString(ofertaLaboral.getIdOfertaLaboral().getIdOfertaLaboral() ))")
     @Mapping(target = "titulo", expression = "java(ofertaLaboral.getTitulo().getTitulo())")
     @Mapping(target = "fechaPublicacion", expression = "java(ofertaLaboral.getFechaPublicacion().getFechaPublicacion())" )
+    @Mapping(target = "fechaUltimaModificacion", expression= "java(ofertaLaboral.getFechaUltimaModificacion().getFechaUltimaModificacion())")
     @Mapping(target = "cargo", expression = "java(ofertaLaboral.getCargo().getCargo())" )
     @Mapping(target = "sueldo", expression = "java(ofertaLaboral.getSueldo().getSueldo())")
     @Mapping(target = "divisa", expression = "java(ofertaLaboral.getSueldoOfertaLaboral().getMoneda().toString())")

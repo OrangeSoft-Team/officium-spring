@@ -2,6 +2,7 @@ package com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.pe
 
 import com.orangesoft.officium.empleadorApp.Tupla.Tupla;
 import com.orangesoft.officium.empleadorApp.Tupla.TuplaEmpresaOfertaLaboral;
+import com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion.salida.PuertoConsultarDetallesOfertasLaborales;
 import com.orangesoft.officium.empleadorApp.empresa.infraestructura.mappers.MapeadorPersistenciaEmpresa;
 import com.orangesoft.officium.empleadorApp.empresa.infraestructura.persistencia.entidades.PersistenciaEmpresa;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
 
 @Component
 @AllArgsConstructor
-public class PuertoConsultarDetallesOfertasLaborales implements PuertoConsultarDetallesOfertasLaborales {
+public class PuertoConsultarDetallesOfertasLaboralesImp implements com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion.salida.PuertoConsultarDetallesOfertasLaborales {
 
     @Autowired
     private final RepositorioConsultarDetallesOfertasLaborales repositorioConsultarDetallesOfertasLaborales;
@@ -32,8 +33,9 @@ public class PuertoConsultarDetallesOfertasLaborales implements PuertoConsultarD
     @Override
     public Tupla<Empresa, OfertaLaboral> consultarDetallesOfertasLaborales(IdOfertaLaboral idOfertaLaboral) {
         Tupla<PersistenciaEmpresa, PersistenciaOfertaLaboral> ofertaLaboralTupla = repositorioConsultarDetallesOfertasLaborales.consultarDetallesOfertaLaboral(UUID.fromString(idOfertaLaboral.getIdOfertaLaboral()));
-        return ofertaLaboralTupla == null? null: new TuplaEmpresaOfertaLaboral (
-                mapeadorPersistenciaEmpresa.PersistenciaAEmpresa(ofertaLaboralTupla.getFirstElement()),
-                mapeadorPersistenciaOfertaLaboralActiva.persistenciaAOfertaLaboral(ofertaLaboralTupla.getSecondElement()) );
-        }
+        return ofertaLaboralTupla == null? null: new TuplaEmpresaOfertaLaboral ( mapeadorPersistenciaEmpresa.PersistenciaAEmpresa(ofertaLaboralTupla.getFirstElement()),
+                mapeadorPersistenciaOfertaLaboralActiva.persistenciaAOfertaLaboral(ofertaLaboralTupla.getSecondElement()));
+    }
+
+
 }

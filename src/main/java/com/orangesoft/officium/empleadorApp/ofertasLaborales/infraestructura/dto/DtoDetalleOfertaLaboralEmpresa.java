@@ -13,10 +13,14 @@ public class DtoDetalleOfertaLaboralEmpresa {
     private String fechaPublicacion;
     private String fechaModificacion;
     private String cargo;
+    private String divisa;
     private Float sueldo;
     private String descripcion;
     private Integer duracionEstimadaValor;
     private String duracionEstimadaEscala;
     private String turnoTrabajo;
     private Integer numeroVacantes;
+    private String uuidEmpresa;
+    private String empresaNombre;
+    private String direccionEmpresa;
 }
