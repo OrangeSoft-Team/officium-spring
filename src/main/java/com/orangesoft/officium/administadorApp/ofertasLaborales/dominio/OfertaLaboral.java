@@ -25,7 +25,8 @@ public class OfertaLaboral {
     private DuracionEstimadaOfertaLaboral duracionEstimadaOfertaLaboral;
     private TurnoTrabajoOfertaLaboral turnoTrabajoOfertaLaboral;
     private NumeroVacantesOfertaLaboral numeroVacantesOfertaLaboral;
-    private IdCiudad idCiudadOfertaLaboral;
+    private EstadoOfertaLaboral estadoOfertaLaboral;
+    //private IdCiudad idCiudadOfertaLaboral;
     private IdEmpresa idEmpresaOfertaLaboral;
     private NombreEmpresa nombreEmpresaOfertaLaboral;
 
@@ -39,7 +40,8 @@ public class OfertaLaboral {
                          DuracionEstimadaOfertaLaboral duracionEstimadaOfertaLaboral,
                          TurnoTrabajoOfertaLaboral turnoTrabajoOfertaLaboral,
                          NumeroVacantesOfertaLaboral numeroVacantesOfertaLaboral,
-                         IdCiudad idCiudadOfertaLaboral,
+                         EstadoOfertaLaboral estadoOfertaLaboral,
+                         //IdCiudad idCiudadOfertaLaboral,
                          IdEmpresa idEmpresaOfertaLaboral,
                          NombreEmpresa nombreEmpresaOfertaLaboral) {
         if (idOfertaLaboral == null)
@@ -62,8 +64,10 @@ public class OfertaLaboral {
             throw new ExcepcionTurnoTrabajoOfertaLaboralNulo();
         if (numeroVacantesOfertaLaboral == null)
             throw new ExcepcionNumeroVacantesOfertaLaboralNulo();
-        if (idCiudadOfertaLaboral == null)
-            throw new ExcepcionIdCiudadNulo();
+        if (estadoOfertaLaboral == null)
+            throw  new ExcepcionCampoNulo("estado");
+//        if (idCiudadOfertaLaboral == null)
+//            throw new ExcepcionIdCiudadNulo();
         if (idEmpresaOfertaLaboral == null)
             throw new ExcepcionCampoNulo("id empresa");
         if (nombreEmpresaOfertaLaboral == null)
@@ -79,7 +83,8 @@ public class OfertaLaboral {
         this.duracionEstimadaOfertaLaboral = duracionEstimadaOfertaLaboral;
         this.turnoTrabajoOfertaLaboral = turnoTrabajoOfertaLaboral;
         this.numeroVacantesOfertaLaboral = numeroVacantesOfertaLaboral;
-        this.idCiudadOfertaLaboral = idCiudadOfertaLaboral;
+        this.estadoOfertaLaboral = estadoOfertaLaboral;
+        //this.idCiudadOfertaLaboral = idCiudadOfertaLaboral;
         this.idEmpresaOfertaLaboral = idEmpresaOfertaLaboral;
         this.nombreEmpresaOfertaLaboral = nombreEmpresaOfertaLaboral;
     }

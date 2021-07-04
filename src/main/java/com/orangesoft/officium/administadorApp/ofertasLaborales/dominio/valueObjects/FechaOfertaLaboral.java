@@ -18,11 +18,11 @@ public final class FechaOfertaLaboral {
         if(fechaOfertaLaboral == null || fechaOfertaLaboral.isEmpty())
             throw new ExcepcionFechaNula();
 
-        Pattern pattern = Pattern.compile("^\\d{4}-\\d{2}-\\d{2}$", Pattern.LITERAL);
-        Matcher matcher = pattern.matcher(fechaOfertaLaboral);
-        if(!matcher.find()) {
-            throw new ExcepcionFormatoFechaInvalido();
-        }
+//        Pattern pattern = Pattern.compile("^\\d{4}-\\d{2}-\\d{2}$", Pattern.LITERAL);
+//        Matcher matcher = pattern.matcher(fechaOfertaLaboral);
+//        if(!matcher.find()) {
+//            throw new ExcepcionFormatoFechaInvalido();
+//        }
 
         this.fechaOfertaLaboral = fechaOfertaLaboral;
     }

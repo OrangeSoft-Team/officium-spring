@@ -23,7 +23,8 @@ public abstract class MapeadorDtoDetalleOfertasLaboralActivaAdministrador {
     @Mapping(target = "numeroVacantes", expression = "java(ofertaLaboral.getNumeroVacantesOfertaLaboral().getNumeroVacantesOfertaLaboral())")
     @Mapping(target = "uuidEmpresa", expression = "java(ofertaLaboral.getIdEmpresaOfertaLaboral().getIdEmpresa())")
     @Mapping(target = "empresaNombre", expression = "java(ofertaLaboral.getNombreEmpresaOfertaLaboral().getNombreEmpresa())")
-    @Mapping(target = "direccionEmpresa", expression = "java(ofertaLaboral.getIdCiudadOfertaLaboral().getIdCiudad())")
+    // Direccion de la empresa por query
+    //@Mapping(target = "direccionEmpresa", expression = "java(ofertaLaboral.getIdCiudadOfertaLaboral().getIdCiudad())")
     public abstract DtoDetalleOfertaLaboralActivaAdministrador mapOfertaLaboralADto(OfertaLaboral ofertaLaboral);
 
     @Mapping(target = "idOfertaLaboral", expression = "java(new IdOfertaLaboral(dtoDetalleOfertaLaboralActivaAdministrador.getUuid()))")
@@ -38,6 +39,6 @@ public abstract class MapeadorDtoDetalleOfertasLaboralActivaAdministrador {
     @Mapping(target = "numeroVacantesOfertaLaboral", expression = "java(new NumeroVacantesOfertaLaboral(dtoDetalleOfertaLaboralActivaAdministrador.getNumeroVacantes()))")
     @Mapping(target = "idEmpresaOfertaLaboral", expression = "java(new IdEmpresa(dtoDetalleOfertaLaboralActivaAdministrador.getUuidEmpresa()))")
     @Mapping(target = "nombreEmpresaOfertaLaboral", expression = "java(new NombreEmpresa(dtoDetalleOfertaLaboralActivaAdministrador.getEmpresaNombre()))")
-    @Mapping(target = "idCiudadOfertaLaboral", expression = "java(new IdCiudad(dtoDetalleOfertaLaboralActivaAdministrador.getDireccionEmpresa()))")
+    //@Mapping(target = "idCiudadOfertaLaboral", expression = "java(new IdCiudad(dtoDetalleOfertaLaboralActivaAdministrador.getDireccionEmpresa()))")
     public abstract OfertaLaboral mapDtoAOfertaLaboral (DtoDetalleOfertaLaboralActivaAdministrador dtoDetalleOfertaLaboralActivaAdministrador);
 }
