@@ -16,7 +16,7 @@ import java.util.*;
 
 @Component
 @AllArgsConstructor
-public class PuertoListaOfertasLaboralesActivasImp implements PuertoListaOfertasLaboralesActivas {
+public class PuertoListaOfertasLaboralesActivasImpl implements PuertoListaOfertasLaboralesActivas {
     @Autowired
     private final RepositorioOfertaLaboralActiva repositorioOfertaLaboralActiva;
     @Autowired

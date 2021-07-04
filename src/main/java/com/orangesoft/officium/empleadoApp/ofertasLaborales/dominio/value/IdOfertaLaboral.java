@@ -8,17 +8,15 @@ import lombok.Getter;
 @Getter
 public final class IdOfertaLaboral {
 
-    private final String idEmpresa;
     private final String idOfertaLaboral;
 
-    public IdOfertaLaboral(String idEmpresa, String idOfertaLaboral) {
-        validarIdOfertaLaboral(idEmpresa, idOfertaLaboral);
-        this.idEmpresa = idEmpresa;
+    public IdOfertaLaboral(String idOfertaLaboral) {
+        validarIdOfertaLaboral(idOfertaLaboral);
         this.idOfertaLaboral = idOfertaLaboral;
     }
 
-    private void validarIdOfertaLaboral(String idEmpresa, String idOfertaLaboral) {
-        if(idEmpresa == null || idOfertaLaboral == null)
+    private void validarIdOfertaLaboral(String idOfertaLaboral) {
+        if(idOfertaLaboral == null)
             throw new ExcepcionIdOfertaLaboralNulo() ;
     }
 
