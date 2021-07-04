@@ -8,14 +8,14 @@ import org.mapstruct.Mapping;
 import java.util.UUID;
 
 @Mapper(componentModel = "spring", imports = {UUID.class})
-public abstract class MapeadorDTOOfertasLaboralesActivas {
+public abstract class MapeadorDTOOfertasLaboralesActivasEmpleador {
 
     @Mapping(target = "uuid", expression = "java(ofertaLaboral.getIdOfertaLaboral().getIdOfertaLaboral())")
     @Mapping(target = "titulo", expression = "java(ofertaLaboral.getTitulo().getTitulo())")
-    @Mapping(target = "fechaPublicacion", expression = "java(ofertaLaboral.getFechaPublicacion().getFechaPublicacion())")
+    @Mapping(target = "fechaPublicacion", expression = "java(ofertaLaboral.getFechaPublicacion().getFechaPublicacion().toString())")
     @Mapping(target = "cargo", expression = "java(ofertaLaboral.getCargo().getCargo())")
     @Mapping(target = "sueldo", expression = "java(ofertaLaboral.getSueldo().getSueldo())")
-    @Mapping(target = "duracionEstimadaValor", expression = "java(ofertaLaboral.getDuracionEstimadaValor().getDuracionEstimadaValor())")
+    @Mapping(target = "duracionEstimadaValor", expression = "java(Integer.parseInt(ofertaLaboral.getDuracionEstimadaValor().getDuracionEstimadaValor().toString()))")
     @Mapping(target = "duracionEstimadaEscala", expression = "java(ofertaLaboral.getDuracionEstimadaEscala().getDuracionEstimadaEscala())")
     @Mapping(target = "turnoTrabajo", expression = "java(ofertaLaboral.getTurnoTrabajo().getTurnoTrabajo())")
     @Mapping(target = "numeroVacantes", expression = "java(ofertaLaboral.getNumeroVacantes().getNumeroVacantes())")
@@ -25,7 +25,7 @@ public abstract class MapeadorDTOOfertasLaboralesActivas {
 
 
     @Mapping(target = "titulo", expression = "java(new Titulo(dtoOfertasLaboralesActivasEmpresa.getTitulo()))")
-    @Mapping(target = "fechaPublicacion", expression = "java(new FechaPublicacion(dtoOfertasLaboralesActivasEmpresa.getFechaPublicacion()))" )
+    @Mapping(target = "fechaPublicacion", expression = "java(new FechaPublicacion(java.time.Instant.parse(dtoOfertasLaboralesActivasEmpresa.getFechaPublicacion())))" )
     @Mapping(target = "cargo", expression = "java(new Cargo(dtoOfertasLaboralesActivasEmpresa.getCargo()))" )
     @Mapping(target = "sueldo", expression = "java(new Sueldo(dtoOfertasLaboralesActivasEmpresa.getSueldo()))")
     @Mapping(target = "duracionEstimadaValor", expression ="java(new DuracionEstimadaValor(dtoOfertasLaboralesActivasEmpresa.getDuracionEstimadaValor()))" )

@@ -3,13 +3,14 @@ package com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjec
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+import java.time.Instant;
+
 @EqualsAndHashCode
 @Getter
 public class FechaPublicacion {
-    private final String fechaPublicacion;
+    private final Instant fechaPublicacion;
 
-    public FechaPublicacion(String fechaPublicacion){
-        
+    public FechaPublicacion(Instant fechaPublicacion){
         this.fechaPublicacion=fechaPublicacion;
     }
 
