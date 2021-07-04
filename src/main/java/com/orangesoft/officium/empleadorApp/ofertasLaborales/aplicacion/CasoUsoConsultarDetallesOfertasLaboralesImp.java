@@ -1,8 +1,12 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion;
 
+import com.orangesoft.officium.comun.generics.Tupla;
+import com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion.excepciones.ExcepcionOfertaLaboralNoEncontrada;
+import com.orangesoft.officium.empleadorApp.empresa.dominio.Empresa;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion.entrada.CasoUsoConsultarDetallesOfertasLaborales;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion.salida.PuertoConsultarDetallesOfertasLaborales;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.OfertaLaboral;
+import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjects.IdOfertaLaboral;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,7 +20,11 @@ public class CasoUsoConsultarDetallesOfertasLaboralesImp implements CasoUsoConsu
     private final PuertoConsultarDetallesOfertasLaborales puertoConsultarDetallesOfertasLaborales;
 
     @Override
-    public List<OfertaLaboral> consultarDetallesofertasLaborales() {
-        return puertoConsultarDetallesOfertasLaborales.consultarDetallesOfertasLaborales();
+    public Tupla<Empresa, OfertaLaboral> consultarDetallesOfertaLaboral(IdOfertaLaboral idOfertaLaboral) {
+        Tupla<Empresa,OfertaLaboral> tupla = puertoConsultarDetallesOfertasLaborales
+                .consultarDetallesOfertasLaborales(idOfertaLaboral);
+        if(tupla != null)
+            return tupla;
+        throw new ExcepcionOfertaLaboralNoEncontrada();
     }
 }
