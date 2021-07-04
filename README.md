@@ -61,7 +61,7 @@ Para realizar la instalación de la aplicación, es necesario realizar los sigui
 
 - Clone el repositorio
 
-- De preferencia abra la carpeta del proyecto como un proeycto de IntelliJ IDEA
+- De preferencia abra la carpeta del proyecto como un proyecto de IntelliJ IDEA
 
 - Cree un archivo application.properties en la ruta "src/main/resources" y copie el contenido del archivo application.properties.example en este.
 
