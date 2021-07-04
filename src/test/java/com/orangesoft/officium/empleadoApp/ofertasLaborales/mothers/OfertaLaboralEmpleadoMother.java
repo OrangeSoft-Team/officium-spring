@@ -15,6 +15,7 @@ import com.orangesoft.officium.empleadoApp.estadoOfertaLaboral.dominio.EnumEstad
 import com.orangesoft.officium.empleadoApp.moneda.dominio.EnumMoneda;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.*;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.dto.DtoDetalleOfertaLaboralActivaEmpleado;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.dto.DtoOfertasLaboralesActivasEmpleado;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.IdPersistenciaOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
@@ -44,6 +45,26 @@ public class OfertaLaboralEmpleadoMother {
                 "DIURNO",
                 2,
                 "Cobras y lagartos SoftwareFactory"
+        );
+    }
+
+    public DtoDetalleOfertaLaboralActivaEmpleado obtenerDtoDetallesOfertaLaboralPython() {
+        return new DtoDetalleOfertaLaboralActivaEmpleado(
+                ofertaUUID.toString(),
+                "Se busca desarrollador en Python",
+                fechaCreacion.toString(),
+                fechaCreacion.toString(),
+                "Desarrollador 2",
+                "USD",
+                8320.00f,
+                "Se busca desarrollador en Python sin conocimientos de principios SOLID y con 10 años de experiencia",
+                50,
+                "HORA",
+                "DIURNO",
+                2,
+                empresaUUID.toString(),
+                "Cobras y lagartos SoftwareFactory",
+                "Todos los caminos llevan a Roma"
         );
     }
 
