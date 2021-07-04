@@ -1,8 +1,11 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura;
 
+import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.dto.DtoDetalleOfertaLaboralEmpresa;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.dto.DtoOfertasLaboralesActivasEmpresa;
+import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.servicios.ServicioConsultarDetalleOfertasLaborales;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.servicios.ServicioVerOfertasLaboralesActivas;
 import lombok.AllArgsConstructor;
+import org.hibernate.annotations.GenericGenerators;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +20,17 @@ import java.util.List;
 public class ControladorOfertasLaboralesActivasEmpleador {
     @Autowired
     private ServicioVerOfertasLaboralesActivas servicioVerOfertasLaboralesActivas;
+
+    @Autowired
+    private ServicioConsultarDetalleOfertasLaborales servicioConsultarDetalleOfertasLaborales;
+
     @GetMapping("/")
     public List<DtoOfertasLaboralesActivasEmpresa> ofertasLaboralesActivas(){
         return servicioVerOfertasLaboralesActivas.ofertasLaboralesActivas();
+    }
+
+    @GetMapping("/{idOfertaLaboral}")
+    public List<DtoDetalleOfertaLaboralEmpresa> consultarDetallesOfertasLaborales(){
+        return servicioConsultarDetalleOfertasLaborales.consultarDetalleOfertasLaborales();
     }
 }
