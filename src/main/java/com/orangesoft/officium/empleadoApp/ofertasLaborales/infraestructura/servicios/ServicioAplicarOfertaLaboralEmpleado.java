@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.UUID;
+
 @Service
 @AllArgsConstructor
 public class ServicioAplicarOfertaLaboralEmpleado {
@@ -17,6 +19,13 @@ public class ServicioAplicarOfertaLaboralEmpleado {
 
     @Transactional
     public void aplicarOfertaLaboral(String idEmpleado, String idEmpresa, String idOfertaLaboral){
+        try{
+            UUID.fromString(idOfertaLaboral);
+            UUID.fromString(idEmpleado);
+            UUID.fromString(idEmpresa);
+        }catch (IllegalArgumentException e){
+            throw new RuntimeException("El identificador suministrado no cumple con el formato esperado");
+        }
         casoUsoAplicarOfertaLaboral.aplicarOfertaLaboral(new IdEmpleado(idEmpleado), new IdEmpresa(idEmpresa), new IdOfertaLaboral(idOfertaLaboral));
     }
 }

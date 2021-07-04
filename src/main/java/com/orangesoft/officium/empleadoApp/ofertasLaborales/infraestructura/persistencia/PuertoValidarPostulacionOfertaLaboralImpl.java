@@ -1,4 +1,4 @@
-package com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura;
+package com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia;
 
 import com.orangesoft.officium.comun.generics.Tupla;
 import com.orangesoft.officium.comun.generics.TuplaOfertaLaboralEmpleado;
