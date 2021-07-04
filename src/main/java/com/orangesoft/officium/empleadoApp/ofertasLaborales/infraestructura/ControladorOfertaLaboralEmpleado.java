@@ -1,9 +1,11 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura;
 
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.dto.DtoAplicarOfertaLaboralEmpleadoEmpleado;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.dto.DtoConsultarPostulacionesOfertasLaboralesEmpleado;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.dto.DtoDetalleOfertaLaboralActivaEmpleado;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.dto.DtoOfertasLaboralesActivasEmpleado;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.servicios.ServicioAplicarOfertaLaboralEmpleado;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.servicios.ServicioConsultarPostulacionesOfertasLaboralesEmpleado;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.servicios.ServicioObtenerDetalleOfertaLaboralEmpleado;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.servicios.ServicioObtenerListaOfertasLaboralesActivasEmpleado;
 import lombok.AllArgsConstructor;
@@ -28,6 +30,9 @@ public class ControladorOfertaLaboralEmpleado {
     @Autowired
     private final ServicioAplicarOfertaLaboralEmpleado servicioAplicarOfertaLaboralEmpleado;
 
+    @Autowired
+    private final ServicioConsultarPostulacionesOfertasLaboralesEmpleado servicioConsultarPostulacionesOfertasLaboralesEmpleado;
+
     // TODO: Definir query strings para aplicar filtros de busqueda y encapsular a través de un comando
     @GetMapping("/")
     public List<DtoOfertasLaboralesActivasEmpleado> obtenerListaOfertasLaboralesActivasEmpleado() {
@@ -37,24 +42,17 @@ public class ControladorOfertaLaboralEmpleado {
     // TODO: Mejorar el manejo de excepciones de aplicación
     @GetMapping("/{idOfertaLaboral}")
     public DtoDetalleOfertaLaboralActivaEmpleado obtenerDetallesOfertaLaboralEmpleado(@PathVariable String idOfertaLaboral) {
-        try{
-            UUID.fromString(idOfertaLaboral);
-        }catch (IllegalArgumentException e){
-            throw new RuntimeException("El identificador suministrado no cumple con el formato esperado");
-        }
         return servicioObtenerDetalleOfertaLaboralEmpleado.consultarDetallesOfertaLaboral(idOfertaLaboral);
     }
 
     @PostMapping("/{idOfertaLaboral}")
     public ResponseEntity<Void> postularseOfertaLaboral(@PathVariable String idOfertaLaboral, @RequestBody DtoAplicarOfertaLaboralEmpleadoEmpleado dtoAplicarOfertaLaboralEmpleadoEmpleado) {
-        try{
-            UUID.fromString(idOfertaLaboral);
-            UUID.fromString(dtoAplicarOfertaLaboralEmpleadoEmpleado.getUuidEmpleado());
-            UUID.fromString(dtoAplicarOfertaLaboralEmpleadoEmpleado.getUuidEmpresa());
-        }catch (IllegalArgumentException e){
-            throw new RuntimeException("El identificador suministrado no cumple con el formato esperado");
-        }
         servicioAplicarOfertaLaboralEmpleado.aplicarOfertaLaboral(dtoAplicarOfertaLaboralEmpleadoEmpleado.getUuidEmpleado().toString(), dtoAplicarOfertaLaboralEmpleadoEmpleado.getUuidEmpresa().toString(), idOfertaLaboral);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @GetMapping("/postulaciones/{idEmpleado}")
+    public List<DtoConsultarPostulacionesOfertasLaboralesEmpleado> consultarPostulacionesOfertasLaboralesEmpleados(@PathVariable String idEmpleado) {
+        return servicioConsultarPostulacionesOfertasLaboralesEmpleado.consultarPostulacionesOfertasLaboralesEmpleado(idEmpleado);
     }
 }

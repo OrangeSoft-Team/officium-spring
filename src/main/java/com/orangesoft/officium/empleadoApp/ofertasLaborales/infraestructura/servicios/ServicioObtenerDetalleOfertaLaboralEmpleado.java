@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.UUID;
+
 @Service
 @AllArgsConstructor
 public class ServicioObtenerDetalleOfertaLaboralEmpleado {
@@ -21,8 +23,13 @@ public class ServicioObtenerDetalleOfertaLaboralEmpleado {
     private final CasoUsoConsultarDetallesOfertaLaboral consultarDetallesOfertaLaboral;
 
     @Transactional(readOnly = true)
-    public DtoDetalleOfertaLaboralActivaEmpleado consultarDetallesOfertaLaboral(String idOferta) {
-        Tupla<Empresa, OfertaLaboral> tupla = consultarDetallesOfertaLaboral.consultarDetallesOfertaLaboral(new IdOfertaLaboral(idOferta));
+    public DtoDetalleOfertaLaboralActivaEmpleado consultarDetallesOfertaLaboral(String idOfertaLaboral) {
+        try{
+            UUID.fromString(idOfertaLaboral);
+        }catch (IllegalArgumentException e){
+            throw new RuntimeException("El identificador suministrado no cumple con el formato esperado");
+        }
+        Tupla<Empresa, OfertaLaboral> tupla = consultarDetallesOfertaLaboral.consultarDetallesOfertaLaboral(new IdOfertaLaboral(idOfertaLaboral));
         return mapeadorOfertaLaboralADetalleDTO.mapOfertaLaboralADetalleDto(tupla.getFirstElement(), tupla.getSecondElement());
     }
 }
