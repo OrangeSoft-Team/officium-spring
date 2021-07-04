@@ -10,11 +10,13 @@ import lombok.NoArgsConstructor;
 public class DtoOfertasLaboralesActivasEmpresa {
     private String uuid;
     private String titulo;
-    private String fichaPublicacion;
+    private String fechaPublicacion;
     private String cargo;
-    private Float suelo;
+    private Float sueldo;
     private Integer duracionEstimadaValor;
     private String duracionEstimadaEscala;
     private String turnoTrabajo;
     private Integer numeroVacantes;
+    private String descripcion;
+    private String estado;
 }
