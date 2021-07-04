@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import java.time.Instant;
 import java.util.UUID;
 
 @Data
@@ -31,6 +32,8 @@ public class PersistenciaEmpleado {
     private char genero;
     @NotNull
     private String numeroTelefonico;
+    @NotNull
+    private Instant fechaNacimiento;
     @NotNull
     private Boolean activo;
     @NotNull

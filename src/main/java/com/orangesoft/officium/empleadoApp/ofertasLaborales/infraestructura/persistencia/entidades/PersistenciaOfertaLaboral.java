@@ -17,9 +17,9 @@ import java.time.Instant;
 @Entity(name = "ofertasLaborales")
 public class PersistenciaOfertaLaboral {
     @EmbeddedId
-    public IdPersistenciaOfertaLaboral idPersistenciaOfertaLaboral;
+    private IdPersistenciaOfertaLaboral idPersistenciaOfertaLaboral;
     @NotNull
-    public Instant fechaPublicacion;
+    private Instant fechaPublicacion;
     @NotNull
     private Instant fechaUltimaModificacion;
     @NotNull
