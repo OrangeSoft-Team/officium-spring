@@ -6,6 +6,7 @@ import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.mape
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ public class ServicioObtenerListaOfertasLaboralesActivasEmpleado {
     @Autowired
     private final CasoUsoObtenerListaOfertasLaboralesActivasEmpleado casoUsoObtenerListaOfertasLaboralesActivasEmpleado;
 
+    @Transactional(readOnly = true)
     public List<DtoOfertasLaboralesActivasEmpleado> obtenerListaOfertasLaboralesActivasEmpleado() {
         ArrayList<DtoOfertasLaboralesActivasEmpleado> listaOfertasLaboralesActivasEmpleado = new ArrayList<>();
         casoUsoObtenerListaOfertasLaboralesActivasEmpleado.consultarListaOfertasLaboralesActivasEmpleado()
