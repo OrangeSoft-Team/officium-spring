@@ -1,6 +1,7 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.mappers;
 
-import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.entidades.IdPersistenciaOfertaLaboral;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.IdPersistenciaOfertaLaboral;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -11,7 +12,6 @@ import java.util.UUID;
 
 import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.valueObjects.EnumEstadoOfertaLaboral;
-import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
 
 @Mapper(componentModel = "spring", imports = {
         IdPersistenciaOfertaLaboral.class,
@@ -21,7 +21,7 @@ import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.
         LocalDate.class,
         ZoneId.class
 })
-public abstract class MapeadorOfertaLaboralPersistencia {
+public abstract class MapeadorOfertaLaboralPersistenciaAdministrador {
     @Mapping(target = "idPersistenciaOfertaLaboral", expression = "java(new IdPersistenciaOfertaLaboral(UUID.fromString(ofertaLaboral.getIdEmpresaOfertaLaboral().getIdEmpresa()), UUID.fromString(ofertaLaboral.getIdOfertaLaboral().getIdOfertaLaboral())))")
     @Mapping(target = "fechaPublicacion", expression = "java( LocalDate.parse(ofertaLaboral.getFechaPublicacionOfertaLaboral().getFechaOfertaLaboral()).atStartOfDay(ZoneId.of(\"Europe/Paris\")).toInstant() )")
     @Mapping(target = "fechaUltimaModificacion", expression = "java(  LocalDate.parse( ofertaLaboral.getFechaUltimaModificacionOfertaLaboral().getFechaOfertaLaboral() ).atStartOfDay(ZoneId.of(\"Europe/Paris\")).toInstant() )")

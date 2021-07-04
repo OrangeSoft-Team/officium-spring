@@ -4,9 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
-import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
 
 @Repository
-public interface RepositorioCrearOfertaLaboral extends JpaRepository<PersistenciaOfertaLaboral, UUID> {
+public interface RepositorioCrearOfertaLaboralAdministrador extends JpaRepository<PersistenciaOfertaLaboral, UUID> {
 
 }

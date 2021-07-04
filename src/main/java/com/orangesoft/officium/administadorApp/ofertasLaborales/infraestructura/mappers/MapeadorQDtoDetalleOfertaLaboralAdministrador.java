@@ -2,7 +2,7 @@ package com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura
 
 import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.valueObjects.*;
-import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.query.QDtoDetalleOfertaLaboral;
+import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.query.QDtoDetalleOfertaLaboralAdministrador;
 import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdCiudad;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -32,7 +32,7 @@ import java.util.UUID;
         PeriodoTiempo.class,
         DateTimeFormatter.class,
         ZoneId.class})
-public abstract class MapeadorQDtoDetalleOfertaLaboral {
+public abstract class MapeadorQDtoDetalleOfertaLaboralAdministrador {
     @Mapping(target = "idEmpresaOfertaLaboral", expression = "java(new IdEmpresa(qDtoDetalleOfertaLaboral.getUuidEmpresa().toString()))")
     @Mapping(target = "idOfertaLaboral", expression = "java(new IdOfertaLaboral(qDtoDetalleOfertaLaboral.getUuid().toString()))")
     @Mapping(target = "tituloOfertaLaboral", expression = "java(new TituloOfertaLaboral(qDtoDetalleOfertaLaboral.getTitulo()))")
@@ -47,5 +47,5 @@ public abstract class MapeadorQDtoDetalleOfertaLaboral {
     @Mapping(target = "estadoOfertaLaboral", expression = "java(new EstadoOfertaLaboral( EnumEstadoOfertaLaboral.PUBLICADA ))")
     @Mapping(target = "idCiudadOfertaLaboral", expression = "java(new IdCiudad(qDtoDetalleOfertaLaboral.getCiudad()))")
     @Mapping(target = "nombreEmpresaOfertaLaboral", expression = "java(new NombreEmpresa(qDtoDetalleOfertaLaboral.getNombreEmpresa()))")
-    public abstract OfertaLaboral PersistenciaAOfertaLaboral(QDtoDetalleOfertaLaboral qDtoDetalleOfertaLaboral);
+    public abstract OfertaLaboral PersistenciaAOfertaLaboral(QDtoDetalleOfertaLaboralAdministrador qDtoDetalleOfertaLaboral);
 }

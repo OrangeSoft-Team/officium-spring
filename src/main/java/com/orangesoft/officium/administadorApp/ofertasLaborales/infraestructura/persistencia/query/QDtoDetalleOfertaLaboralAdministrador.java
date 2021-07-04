@@ -14,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Setter
 @Getter
-public class QDtoOfertasLaboralesActivas {
+public class QDtoDetalleOfertaLaboralAdministrador {
     private String nombreEmpresa;
     private UUID uuidEmpresa;
     private UUID uuid;
@@ -23,12 +23,10 @@ public class QDtoOfertasLaboralesActivas {
     private Instant fechaUltimaModificacion;
     private String cargo;
     private float sueldo;
-    private String divisa;
     private String descripcion;
     private String duracionEstimadaEscala;
     private String duracionEstimada;
     private String turnoTrabajo;
     private int numeroVacantes;
-    private char estado;
-    //private String ciudad;
+    private String Ciudad;
 }

@@ -1,10 +1,10 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.valueObjects;
 
+import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.excepciones.ExcepcionTamanoNombreEstadoInvalido;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.excepciones.ExcepcionTituloOfertaLaboralNulo;
-import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionTamanoNombreEstadoInvalido;
 
 @EqualsAndHashCode
 @Getter

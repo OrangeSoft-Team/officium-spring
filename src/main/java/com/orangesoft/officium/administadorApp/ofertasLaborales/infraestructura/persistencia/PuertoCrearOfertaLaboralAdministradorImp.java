@@ -1,8 +1,8 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia;
 
-import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.mappers.MapeadorOfertaLaboralPersistencia;
-import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.repositorios.RepositorioCrearOfertaLaboral;
-import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.repositorios.RepositorioEmpresa;
+import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.mappers.MapeadorOfertaLaboralPersistenciaAdministrador;
+import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.repositorios.RepositorioCrearOfertaLaboralAdministrador;
+import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.repositorios.RepositorioEmpresaAdministrador;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,13 +17,13 @@ import java.util.UUID;
 public class PuertoCrearOfertaLaboralAdministradorImp implements PuertoCrearOfertaLaboralAdministrador {
 
     @Autowired
-    private final RepositorioCrearOfertaLaboral repositorioCrearOfertaLaboral;
+    private final RepositorioCrearOfertaLaboralAdministrador repositorioCrearOfertaLaboral;
 
     @Autowired
-    private final RepositorioEmpresa repositorioEmpresa;
+    private final RepositorioEmpresaAdministrador repositorioEmpresa;
 
     @Autowired
-    private final MapeadorOfertaLaboralPersistencia mapeadorOfertaLaboralPersistencia;
+    private final MapeadorOfertaLaboralPersistenciaAdministrador mapeadorOfertaLaboralPersistencia;
 
     @Override
     public void crearOfertaLaboral(OfertaLaboral ofertaLaboral) {

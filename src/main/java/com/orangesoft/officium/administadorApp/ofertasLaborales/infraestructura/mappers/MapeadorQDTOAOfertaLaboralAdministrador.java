@@ -1,5 +1,6 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.mappers;
 
+import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.query.QDtoOfertasLaboralesActivasAdministrador;
 import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdCiudad;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -10,7 +11,6 @@ import java.util.UUID;
 
 import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.valueObjects.*;
-import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.query.QDtoOfertasLaboralesActivas;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -33,7 +33,7 @@ import org.springframework.stereotype.Component;
         PeriodoTiempo.class,
         DateTimeFormatter.class,
         ZoneId.class})
-public abstract class MapeadorQDTOAOfertaLaboral {
+public abstract class MapeadorQDTOAOfertaLaboralAdministrador {
     @Mapping(target = "idEmpresaOfertaLaboral", expression = "java(new IdEmpresa(qDtoOfertasLaboralesActivas.getUuidEmpresa().toString()))")
     @Mapping(target = "idOfertaLaboral", expression = "java(new IdOfertaLaboral(qDtoOfertasLaboralesActivas.getUuid().toString()))")
     @Mapping(target = "tituloOfertaLaboral", expression = "java(new TituloOfertaLaboral(qDtoOfertasLaboralesActivas.getTitulo()))")
@@ -48,5 +48,5 @@ public abstract class MapeadorQDTOAOfertaLaboral {
     @Mapping(target = "estadoOfertaLaboral", expression = "java(new EstadoOfertaLaboral(qDtoOfertasLaboralesActivas.getEstado() == 'P'? EnumEstadoOfertaLaboral.PUBLICADA: EnumEstadoOfertaLaboral.CANCELADA))")
     //@Mapping(target = "idCiudadOfertaLaboral", expression = "java(new IdCiudad(qDtoOfertasLaboralesActivas.getCiudad()))")
     @Mapping(target = "nombreEmpresaOfertaLaboral", expression = "java(new NombreEmpresa(qDtoOfertasLaboralesActivas.getNombreEmpresa()))")
-    public abstract OfertaLaboral PersistenciaAOfertaLaboral(QDtoOfertasLaboralesActivas qDtoOfertasLaboralesActivas);
+    public abstract OfertaLaboral PersistenciaAOfertaLaboral(QDtoOfertasLaboralesActivasAdministrador qDtoOfertasLaboralesActivas);
 }
