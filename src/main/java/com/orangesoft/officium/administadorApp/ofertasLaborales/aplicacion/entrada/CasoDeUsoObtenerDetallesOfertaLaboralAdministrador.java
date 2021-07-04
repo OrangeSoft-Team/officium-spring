@@ -1,0 +1,8 @@
+package com.orangesoft.officium.administadorApp.ofertasLaborales.aplicacion.entrada;
+
+import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.valueObjects.IdOfertaLaboral;
+import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.dto.DtoDetalleOfertaLaboralActivaAdministrador;
+
+public interface CasoDeUsoObtenerDetallesOfertaLaboralAdministrador {
+    public DtoDetalleOfertaLaboralActivaAdministrador obtenerDetalleOfertaLaboral(IdOfertaLaboral idOfertaLaboral);
+}
