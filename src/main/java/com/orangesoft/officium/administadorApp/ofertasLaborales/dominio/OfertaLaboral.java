@@ -66,12 +66,13 @@ public class OfertaLaboral {
             throw new ExcepcionNumeroVacantesOfertaLaboralNulo();
         if (estadoOfertaLaboral == null)
             throw  new ExcepcionCampoNulo("estado");
+        // TODO: revisar este atributo ya que se usa para colocar el nombre y el id de la ciudad
 //        if (idCiudadOfertaLaboral == null)
 //            throw new ExcepcionIdCiudadNulo();
         if (idEmpresaOfertaLaboral == null)
             throw new ExcepcionCampoNulo("id empresa");
-        if (nombreEmpresaOfertaLaboral == null)
-            throw new ExcepcionCampoNulo("nombre empresa");
+//        if (nombreEmpresaOfertaLaboral == null)
+//            throw new ExcepcionCampoNulo("nombre empresa");
 
         this.idOfertaLaboral = idOfertaLaboral;
         this.tituloOfertaLaboral = tituloOfertaLaboral;

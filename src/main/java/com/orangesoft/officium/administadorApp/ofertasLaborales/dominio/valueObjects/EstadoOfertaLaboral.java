@@ -1,8 +1,13 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.valueObjects;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+
 import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.excepciones.ExcepcionCampoNulo;
 
-public class EstadoOfertaLaboral {
+@EqualsAndHashCode
+@Getter
+public final class EstadoOfertaLaboral {
     private final EnumEstadoOfertaLaboral estadoOfertaLaboral;
 
     public EstadoOfertaLaboral(EnumEstadoOfertaLaboral estadoOfertaLaboral) {

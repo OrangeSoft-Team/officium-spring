@@ -4,5 +4,5 @@ import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.OfertaLa
 import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.dto.DtoCrearOfertaLaboralEmpresaAdministrador;
 
 public interface PuertoCrearOfertaLaboralAdministrador {
-    public OfertaLaboral crearOfertaLaboral(DtoCrearOfertaLaboralEmpresaAdministrador dtoCrearOfertaLaboralEmpresaAdministrador);
+    public void crearOfertaLaboral(OfertaLaboral ofertaLaboral);
 }

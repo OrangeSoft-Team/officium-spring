@@ -1,9 +1,7 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.aplicacion.entrada;
 
 import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.OfertaLaboral;
-import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.dto.DtoCrearOfertaLaboralEmpresaAdministrador;
-import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.dto.DtoDetalleOfertaLaboralActivaAdministrador;
 
 public interface CasoDeUsoCrearOfertaLaboralAdministrador {
-    public DtoDetalleOfertaLaboralActivaAdministrador crearOfertaLaboral(DtoCrearOfertaLaboralEmpresaAdministrador dtoCrearOfertaLaboralEmpresaAdministrador);
+    public OfertaLaboral crearOfertaLaboral(OfertaLaboral ofertaLaboral);
 }

@@ -1,5 +1,6 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura;
 
+import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.servicios.ServicioCrearOfertaLaboralEmpresaAdministrador;
 import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.servicios.ServicioObtenerDetallesOfertaLaboralAdministrador;
 import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.servicios.ServicioObtenerListaOfertasLaboralesActivasAdministrador;
 import lombok.AllArgsConstructor;
@@ -23,6 +24,9 @@ public class ControladorOfertasLaborales {
     @Autowired
     private final ServicioObtenerDetallesOfertaLaboralAdministrador servicioObtenerDetallesOfertaLaboralAdministrador;
 
+    @Autowired
+    private final ServicioCrearOfertaLaboralEmpresaAdministrador servicioCrearOfertaLaboralEmpresaAdministrador;
+
     @GetMapping()
     public List<DtoOfertasLaboralesActivasAdministrador> obtenerListaOfertasLaboralesActivasEmpleado() {
         return servicioObtenerListaOfertasLaboralesActivasAdministrador.obtenerListaOfertasLaboralesActivasAdministrador();
@@ -36,6 +40,13 @@ public class ControladorOfertasLaborales {
             throw new RuntimeException("El codigo de oferta laboral enviado no es valido");
         }
         return servicioObtenerDetallesOfertaLaboralAdministrador.obtenerDetalleOfertaLaboralAdministrador(new IdOfertaLaboral(idOfertaLaboral));
+    }
+
+    @PostMapping()
+    public DtoCrearOfertaLaboralEmpresaAdministrador crearOfertaLaboral(
+            @RequestBody DtoCrearOfertaLaboralEmpresaAdministrador dtoCrearOfertaLaboralEmpresaAdministrador
+    ){
+        return servicioCrearOfertaLaboralEmpresaAdministrador.crearOfertaLaboralAdministrador(dtoCrearOfertaLaboralEmpresaAdministrador);
     }
 
 }
