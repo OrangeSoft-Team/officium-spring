@@ -5,7 +5,7 @@ import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.pers
 import com.orangesoft.officium.empleadorApp.Tupla.Tupla;
 import com.orangesoft.officium.empleadorApp.Tupla.TuplaEmpresaOfertaLaboral;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion.salida.PuertoConsultarDetallesOfertasLaborales;
-import com.orangesoft.officium.empleadorApp.empresa.infraestructura.mappers.MapeadorPersistenciaEmpresa;
+import com.orangesoft.officium.empleadorApp.empresa.infraestructura.mappers.MapeadorPersistenciaEmpresaEmpleador;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.Empresa;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjects.IdOfertaLaboral;
@@ -26,7 +26,7 @@ public class PuertoConsultarDetallesOfertasLaboralesImp implements com.orangesof
     @Autowired
     private final RepositorioConsultarDetallesOfertasLaborales repositorioConsultarDetallesOfertasLaborales;
     @Autowired
-    private final MapeadorPersistenciaEmpresa mapeadorPersistenciaEmpresa;
+    private final MapeadorPersistenciaEmpresaEmpleador mapeadorPersistenciaEmpresa;
     @Autowired
     private final MapeadorPersistenciaOfertaLaboralActiva mapeadorPersistenciaOfertaLaboralActiva;
 

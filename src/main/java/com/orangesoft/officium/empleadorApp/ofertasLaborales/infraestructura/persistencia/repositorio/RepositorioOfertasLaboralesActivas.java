@@ -12,6 +12,6 @@ import java.util.UUID;
 @Repository
 public interface RepositorioOfertasLaboralesActivas extends JpaRepository<PersistenciaOfertaLaboral, UUID> {
 
-  @Query("SELECT o FROM  OfertasLaborales o WHERE o.estado = 'P' ")
+  @Query("SELECT o FROM  ofertasLaborales o WHERE o.estado = 'P' ")
   public List<PersistenciaOfertaLaboral> buscarOfertasLaboralesActivas();
 }
