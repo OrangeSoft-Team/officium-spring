@@ -2,6 +2,12 @@ package com.orangesoft.officium.empleadorApp.empresa.dominio;
 
 import com.orangesoft.officium.empleadorApp.empresa.dominio.excepciones.*;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.valueObjects.*;
+import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdCiudad;
+import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdEstado;
+import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdPais;
+import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionIdPaisNulo;
+import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionIdCiudadNulo;
+import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionIdEstadoNulo;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

@@ -1,11 +1,11 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.persistencia;
 
+import com.orangesoft.officium.empleadoApp.empresa.infraestructura.persistencia.entidades.PersistenciaEmpresa;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
 import com.orangesoft.officium.empleadorApp.Tupla.Tupla;
 import com.orangesoft.officium.empleadorApp.Tupla.TuplaEmpresaOfertaLaboral;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion.salida.PuertoConsultarDetallesOfertasLaborales;
 import com.orangesoft.officium.empleadorApp.empresa.infraestructura.mappers.MapeadorPersistenciaEmpresa;
-import com.orangesoft.officium.empleadorApp.empresa.infraestructura.persistencia.entidades.PersistenciaEmpresa;
-import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.persistencia.entidades.PersistenciaOfertaLaboral;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.Empresa;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjects.IdOfertaLaboral;
@@ -33,7 +33,8 @@ public class PuertoConsultarDetallesOfertasLaboralesImp implements com.orangesof
     @Override
     public Tupla<Empresa, OfertaLaboral> consultarDetallesOfertasLaborales(IdOfertaLaboral idOfertaLaboral) {
         Tupla<PersistenciaEmpresa, PersistenciaOfertaLaboral> ofertaLaboralTupla = repositorioConsultarDetallesOfertasLaborales.consultarDetallesOfertaLaboral(UUID.fromString(idOfertaLaboral.getIdOfertaLaboral()));
-        return ofertaLaboralTupla == null? null: new TuplaEmpresaOfertaLaboral ( mapeadorPersistenciaEmpresa.PersistenciaAEmpresa(ofertaLaboralTupla.getFirstElement()),
+        return ofertaLaboralTupla == null? null: new TuplaEmpresaOfertaLaboral (
+                mapeadorPersistenciaEmpresa.PersistenciaAEmpresa(ofertaLaboralTupla.getFirstElement()),
                 mapeadorPersistenciaOfertaLaboralActiva.persistenciaAOfertaLaboral(ofertaLaboralTupla.getSecondElement()));
     }
 

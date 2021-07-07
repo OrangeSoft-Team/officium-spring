@@ -1,7 +1,10 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio;
 
+import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionIdEstadoNulo;
+import com.orangesoft.officium.empleadorApp.empresa.dominio.valueObjects.IdEmpresa;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.excepciones.*;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjects.*;
+import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class OfertaLaboral {
+     private IdEmpresa idEmpresa;
      private IdOfertaLaboral idOfertaLaboral;
      private Titulo titulo;
      private FechaPublicacion fechaPublicacion;
@@ -23,10 +27,12 @@ public class OfertaLaboral {
      private NumeroVacantes numeroVacantes;
      private Estado estado;
 
-    public OfertaLaboral(Titulo titulo,FechaPublicacion fechaPublicacion,FechaUltimaModificacion fechaUltimaModificacion,
-                         Cargo cargo, Sueldo sueldo, Descripcion descripcion,DuracionEstimadaEscala duracionEstimadaEscala, DuracionEstimadaValor duracionEstimadaValor,
-                         TurnoTrabajo turnoTrabajo, NumeroVacantes numeroVacantes, Estado estado){
-          if(titulo==null)
+    public OfertaLaboral(IdEmpresa idEmpresa,Titulo titulo, FechaPublicacion fechaPublicacion, FechaUltimaModificacion fechaUltimaModificacion,
+                         Cargo cargo, Sueldo sueldo, Descripcion descripcion, DuracionEstimadaEscala duracionEstimadaEscala, DuracionEstimadaValor duracionEstimadaValor, TurnoTrabajo turnoTrabajo, NumeroVacantes numeroVacantes, Estado estado){
+         if(idEmpresa==null)
+             throw new ExcepcionIdEstadoNulo();
+
+        if(titulo==null)
                throw new ExcepcionTituloNulo();
           if(fechaPublicacion==null)
               throw new ExcepcionFechaPublicacionNulo();
