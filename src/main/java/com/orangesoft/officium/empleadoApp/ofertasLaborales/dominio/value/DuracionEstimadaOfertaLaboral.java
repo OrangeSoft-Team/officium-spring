@@ -1,6 +1,6 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value;
 
-import com.orangesoft.officium.empleadoApp.escalaTiempo.dominio.EnumEscalaTiempo;
+import com.orangesoft.officium.comun.dominio.ofertaLaboral.EnumEscalaDuracionOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.exepciones.ExcepcionDuracionEstimaOfertaLaboralInvalida;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -9,9 +9,9 @@ import lombok.Getter;
 @Getter
 public final class DuracionEstimadaOfertaLaboral {
     private final int duracionEstimada;
-    private final EnumEscalaTiempo escalaTiempo;
+    private final EnumEscalaDuracionOfertaLaboral escalaTiempo;
 
-    public DuracionEstimadaOfertaLaboral(int duracionEstimada, EnumEscalaTiempo escalaTiempo) {
+    public DuracionEstimadaOfertaLaboral(int duracionEstimada, EnumEscalaDuracionOfertaLaboral escalaTiempo) {
         validarDuracionEstimadaOfertaLaboral(duracionEstimada);
         this.duracionEstimada = duracionEstimada;
         this.escalaTiempo = escalaTiempo;

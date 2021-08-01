@@ -7,5 +7,5 @@ import java.util.List;
 import java.util.UUID;
 
 public interface RepositorioCiudad extends JpaRepository<PersistenciaCiudad, UUID> {
-    public List<PersistenciaCiudad> findAllByIdPersistenciaCiudad_UuidPaisAndIdPersistenciaCiudad_UuidEstado(UUID idPersistenciaCiudad_uuidPais, UUID idPersistenciaCiudad_uuidEstado);
+    public List<PersistenciaCiudad> findAllByUuidEstado(UUID estado);
 }

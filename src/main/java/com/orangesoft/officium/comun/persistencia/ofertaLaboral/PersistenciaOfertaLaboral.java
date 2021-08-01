@@ -4,9 +4,11 @@ import lombok.*;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.UUID;
 
 @Data
 @Getter
@@ -15,30 +17,33 @@ import java.time.Instant;
 @NoArgsConstructor
 @Entity(name = "ofertasLaborales")
 public class PersistenciaOfertaLaboral {
-    @EmbeddedId
-    private IdPersistenciaOfertaLaboral idPersistenciaOfertaLaboral;
+    @Id
+    @Generated
+    private UUID uuid;
+    @NotNull
+    private String titulo;
     @NotNull
     private Instant fechaPublicacion;
     @NotNull
-    private Instant fechaUltimaModificacion;
-    @NotNull
-    private String titulo;
+    private Instant fechaLimite;
     @NotNull
     private String cargo;
     @NotNull
     private float sueldo;
     @NotNull
-    private String divisa;
-    @NotNull
     private String descripcion;
     @NotNull
-    private String duracionEstimadaEscala;
+    private int valorDuracion;
     @NotNull
-    private String duracionEstimada;
+    private String escalaDuracion;
     @NotNull
     private String turnoTrabajo;
     @NotNull
     private int numeroVacantes;
     @NotNull
-    private char estado;
+    private String estatus;
+    @NotNull
+    private UUID uuidEmpresa;
+    private Instant fechaUltimaModificacion;
+    private String requisitosEspeciales;
 }

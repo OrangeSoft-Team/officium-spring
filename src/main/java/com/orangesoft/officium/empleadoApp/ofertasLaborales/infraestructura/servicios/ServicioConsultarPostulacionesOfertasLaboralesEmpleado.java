@@ -29,7 +29,7 @@ public class ServicioConsultarPostulacionesOfertasLaboralesEmpleado {
         }catch (IllegalArgumentException e){
             throw new RuntimeException("El identificador suministrado no cumple con el formato esperado");
         }
-        List<TripletaEmpresaOfertaPostulacion> tripletaEmpresaOfertaPostulacions =  casoUsoConsultarPostulacionesOfertasLaboralesEmpleado.obtenerPostulacionesOfertaLaboral(new IdEmpleado(idEmpleado));
+        List<TripletaEmpresaOfertaPostulacion> tripletaEmpresaOfertaPostulacions =  casoUsoConsultarPostulacionesOfertasLaboralesEmpleado.obtenerPostulacionesOfertaLaboral(new IdEmpleado(UUID.fromString(idEmpleado)));
         List<DtoConsultarPostulacionesOfertasLaboralesEmpleado> dtoConsultarPostulacionesOfertasLaboralesEmpleadoArrayList = new ArrayList<>();
         tripletaEmpresaOfertaPostulacions.forEach((e)->{
             dtoConsultarPostulacionesOfertasLaboralesEmpleadoArrayList.add(mapeadorPostulacionOfertaLaboralDTO.mapPostulacionOfertasLaboralesADto(e.getFirstElement(),e.getSecondElement(),e.getThirdElement()));

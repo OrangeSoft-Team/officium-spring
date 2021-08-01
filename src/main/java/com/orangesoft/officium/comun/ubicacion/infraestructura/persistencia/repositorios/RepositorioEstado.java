@@ -8,5 +8,5 @@ import java.util.List;
 import java.util.UUID;
 
 public interface RepositorioEstado extends JpaRepository<PersistenciaEstado, UUID> {
-    public List<PersistenciaEstado> findAllByIdPersistenciaEstado_UuidPais(UUID uuid);
+    public List<PersistenciaEstado> findAllByUuidPais(UUID uuidPais);
 }

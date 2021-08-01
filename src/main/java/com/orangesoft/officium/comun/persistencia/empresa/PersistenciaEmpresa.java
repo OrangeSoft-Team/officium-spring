@@ -19,17 +19,13 @@ public class PersistenciaEmpresa {
     private UUID uuid;
     @NotEmpty
     private String nombre;
+    @NotEmpty
+    private String estatus;
     @Email
     @NotEmpty
     private String correoElectronico;
     @NotEmpty
-    private String direccionCalle;
-    @NotEmpty
-    private String codigoPostal;
-    @NotEmpty
-    private UUID uuidPais;
-    @NotEmpty
-    private UUID uuidEstado;
-    @NotEmpty
-    private UUID uuidCiudad ;
+    private String token;
+    private UUID uuidDireccion;
+    private String requisitosEspeciales;
 }

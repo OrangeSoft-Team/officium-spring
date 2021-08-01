@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.time.Instant;
+import java.util.Date;
 import java.util.UUID;
 
 @Data
@@ -20,30 +21,26 @@ public class PersistenciaEmpleado {
     @Generated
     private UUID uuid;
     @NotNull
-    @Email
-    private String correoElectronico;
-    @NotNull
-    private String contrasena;
-    @NotNull
     private String primerNombre;
     @NotNull
     private String primerApellido;
     @NotNull
-    private char genero;
+    @Email
+    private String correoElectronico;
     @NotNull
-    private String numeroTelefonico;
+    private String telefono;
+    @NotNull
+    private String nivelEducativo;
+    @NotNull
+    private String estatus;
+    @NotNull
+    private String genero;
     @NotNull
     private Instant fechaNacimiento;
     @NotNull
-    private Boolean activo;
+    private String token;
     @NotNull
-    private UUID uuidPais;
-    @NotNull
-    private UUID uuidEstado;
-    @NotNull
-    private UUID uuidCiudad;
-    @NotNull
+    private UUID uuidDireccion;
     private String segundoNombre;
-    @NotNull
     private String segundoApellido;
 }

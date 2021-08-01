@@ -4,18 +4,20 @@ import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.exepciones.E
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+import java.util.UUID;
+
 @EqualsAndHashCode
 @Getter
 public final class IdOfertaLaboral {
 
-    private final String idOfertaLaboral;
+    private final UUID idOfertaLaboral;
 
-    public IdOfertaLaboral(String idOfertaLaboral) {
+    public IdOfertaLaboral(UUID idOfertaLaboral) {
         validarIdOfertaLaboral(idOfertaLaboral);
         this.idOfertaLaboral = idOfertaLaboral;
     }
 
-    private void validarIdOfertaLaboral(String idOfertaLaboral) {
+    private void validarIdOfertaLaboral(UUID idOfertaLaboral) {
         if(idOfertaLaboral == null)
             throw new ExcepcionIdOfertaLaboralNulo() ;
     }

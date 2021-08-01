@@ -26,6 +26,6 @@ public class ServicioAplicarOfertaLaboralEmpleado {
         }catch (IllegalArgumentException e){
             throw new RuntimeException("El identificador suministrado no cumple con el formato esperado");
         }
-        casoUsoAplicarOfertaLaboral.aplicarOfertaLaboral(new IdEmpleado(idEmpleado), new IdEmpresa(idEmpresa), new IdOfertaLaboral(idOfertaLaboral));
+        casoUsoAplicarOfertaLaboral.aplicarOfertaLaboral(new IdEmpleado(UUID.fromString(idEmpleado)), new IdEmpresa(UUID.fromString(idEmpresa)), new IdOfertaLaboral(UUID.fromString(idOfertaLaboral)));
     }
 }

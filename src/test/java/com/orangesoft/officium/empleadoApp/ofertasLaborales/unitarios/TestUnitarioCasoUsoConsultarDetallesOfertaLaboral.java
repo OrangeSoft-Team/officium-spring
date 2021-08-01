@@ -23,13 +23,13 @@ public class TestUnitarioCasoUsoConsultarDetallesOfertaLaboral {
     @Test
     public void debeRetornarExpcionCuandoOferaLaboralNoEncontrada() {
         PuertoDetallesOfertaLaboral puertoDetallesOfertaLaboral = Mockito.mock(PuertoDetallesOfertaLaboral.class);
-        when(puertoDetallesOfertaLaboral.obtenerDetallesOfertaLaboral(new IdOfertaLaboral(ofertaLaboralEmpleadoMother.getOfertaUUID().toString())))
+        when(puertoDetallesOfertaLaboral.obtenerDetallesOfertaLaboral(new IdOfertaLaboral(ofertaLaboralEmpleadoMother.getOfertaUUID())))
                 .thenReturn(null);
         CasoUsoConsultarDetallesOfertaLaboral consultarDetallesOfertaLaboral = new CasoUsoConsultarDetallesOfertaLaboralImpl(puertoDetallesOfertaLaboral);
         String mensajeEsperado = "com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.exepciones.ExcepcionOfertaLaboralNoEncontrada: La oferta laboral solicitada no existe";
         Exception espearada = null;
         try {
-            consultarDetallesOfertaLaboral.consultarDetallesOfertaLaboral(new IdOfertaLaboral(ofertaLaboralEmpleadoMother.getOfertaUUID().toString()));
+            consultarDetallesOfertaLaboral.consultarDetallesOfertaLaboral(new IdOfertaLaboral(ofertaLaboralEmpleadoMother.getOfertaUUID()));
         }catch (Exception e) {
             espearada = e;
         }
