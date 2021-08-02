@@ -1,5 +1,6 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura;
 
+import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.dto.DtoModificarOfertaLaboralAdministrador;
 import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.servicios.*;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,9 @@ public class ControladorOfertasLaborales {
 
     @Autowired
     private final ServicioDuplicarOfertaLaboralAdministrador servicioDuplicarOfertaLaboralAdministrador;
+
+    @Autowired
+    private final ServicioModificarOfertaLaboralAdministrador servicioModificarOfertaLaboralAdministrador;
 
     @GetMapping()
     public List<DtoOfertasLaboralesActivasAdministrador> obtenerListaOfertasLaboralesActivasEmpleado() {
@@ -71,6 +75,22 @@ public class ControladorOfertasLaborales {
             throw new RuntimeException("El codigo de oferta laboral enviado no es valido");
         }
         servicioDuplicarOfertaLaboralAdministrador.duplicarOfertaLaboral(new IdOfertaLaboral(UUID.fromString(idOfertaLaboral)));
+    }
+
+    @PutMapping("/{idOfertaLaboral}")
+    public void modificarOfertaLaboralAdministrador(
+            @PathVariable String idOfertaLaboral,
+            @RequestBody DtoModificarOfertaLaboralAdministrador dtoModificarOfertaLaboralAdministrador
+    ){
+        try{
+            UUID.fromString(idOfertaLaboral);
+        }catch (IllegalArgumentException e) {
+            throw new RuntimeException("El codigo de oferta laboral enviado no es valido");
+        }
+        servicioModificarOfertaLaboralAdministrador.modificarOfertaLaboral(
+                new IdOfertaLaboral(UUID.fromString(idOfertaLaboral)),
+                dtoModificarOfertaLaboralAdministrador
+        );
     }
 
 }

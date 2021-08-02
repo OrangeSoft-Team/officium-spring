@@ -6,12 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DtoCrearOfertaLaboralEmpresaAdministrador {
-    private String uuidEmpresa;
+public class DtoModificarOfertaLaboralAdministrador {
     private String titulo;
     private String cargo;
     private Float sueldo;
@@ -21,5 +21,5 @@ public class DtoCrearOfertaLaboralEmpresaAdministrador {
     private String turnoTrabajo;
     private Integer numeroVacantes;
     private String requisitosEspeciales;
-    private List<DtoHabilidad> habilidades;
+    private List<UUID> habilidades;
 }
