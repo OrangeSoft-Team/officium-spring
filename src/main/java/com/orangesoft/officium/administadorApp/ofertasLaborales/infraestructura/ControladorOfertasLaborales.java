@@ -1,9 +1,6 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura;
 
-import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.servicios.ServicioCancelarOfertaLaboralAdministrador;
-import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.servicios.ServicioCrearOfertaLaboralEmpresaAdministrador;
-import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.servicios.ServicioObtenerDetallesOfertaLaboralAdministrador;
-import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.servicios.ServicioObtenerListaOfertasLaboralesActivasAdministrador;
+import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.servicios.*;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +27,9 @@ public class ControladorOfertasLaborales {
 
     @Autowired
     private final ServicioCancelarOfertaLaboralAdministrador servicioCancelarOfertaLaboralAdministrador;
+
+    @Autowired
+    private final ServicioDuplicarOfertaLaboralAdministrador servicioDuplicarOfertaLaboralAdministrador;
 
     @GetMapping()
     public List<DtoOfertasLaboralesActivasAdministrador> obtenerListaOfertasLaboralesActivasEmpleado() {
@@ -61,6 +61,16 @@ public class ControladorOfertasLaborales {
             throw new RuntimeException("El codigo de oferta laboral enviado no es valido");
         }
         servicioCancelarOfertaLaboralAdministrador.cancelarOfertaLaboral(new IdOfertaLaboral(UUID.fromString(idOfertaLaboral)));
+    }
+
+    @PostMapping("/{idOfertaLaboral}/duplicar")
+    public void duplicarOfertaLaboralAdministrador(@PathVariable String idOfertaLaboral) {
+        try{
+            UUID.fromString(idOfertaLaboral);
+        }catch (IllegalArgumentException e) {
+            throw new RuntimeException("El codigo de oferta laboral enviado no es valido");
+        }
+        servicioDuplicarOfertaLaboralAdministrador.duplicarOfertaLaboral(new IdOfertaLaboral(UUID.fromString(idOfertaLaboral)));
     }
 
 }
