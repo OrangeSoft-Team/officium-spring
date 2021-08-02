@@ -1,5 +1,6 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura;
 
+import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.servicios.ServicioCancelarOfertaLaboralAdministrador;
 import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.servicios.ServicioCrearOfertaLaboralEmpresaAdministrador;
 import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.servicios.ServicioObtenerDetallesOfertaLaboralAdministrador;
 import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.servicios.ServicioObtenerListaOfertasLaboralesActivasAdministrador;
@@ -15,7 +16,7 @@ import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.
 import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.dto.DtoOfertasLaboralesActivasAdministrador;
 
 @RestController
-@RequestMapping("/api/personal_administrativo/ofertas_laborales")
+@RequestMapping("/api/staff/ofertas_laborales")
 @AllArgsConstructor
 public class ControladorOfertasLaborales {
     @Autowired
@@ -26,6 +27,9 @@ public class ControladorOfertasLaborales {
 
     @Autowired
     private final ServicioCrearOfertaLaboralEmpresaAdministrador servicioCrearOfertaLaboralEmpresaAdministrador;
+
+    @Autowired
+    private final ServicioCancelarOfertaLaboralAdministrador servicioCancelarOfertaLaboralAdministrador;
 
     @GetMapping()
     public List<DtoOfertasLaboralesActivasAdministrador> obtenerListaOfertasLaboralesActivasEmpleado() {
@@ -47,6 +51,16 @@ public class ControladorOfertasLaborales {
             @RequestBody DtoCrearOfertaLaboralEmpresaAdministrador dtoCrearOfertaLaboralEmpresaAdministrador
     ){
         return servicioCrearOfertaLaboralEmpresaAdministrador.crearOfertaLaboralAdministrador(dtoCrearOfertaLaboralEmpresaAdministrador);
+    }
+
+    @PutMapping("/{idOfertaLaboral}/cancelar")
+    public void cancelarOfertaLaboralAdministrador(@PathVariable String idOfertaLaboral) {
+        try{
+            UUID.fromString(idOfertaLaboral);
+        }catch (IllegalArgumentException e) {
+            throw new RuntimeException("El codigo de oferta laboral enviado no es valido");
+        }
+        servicioCancelarOfertaLaboralAdministrador.cancelarOfertaLaboral(new IdOfertaLaboral(UUID.fromString(idOfertaLaboral)));
     }
 
 }
