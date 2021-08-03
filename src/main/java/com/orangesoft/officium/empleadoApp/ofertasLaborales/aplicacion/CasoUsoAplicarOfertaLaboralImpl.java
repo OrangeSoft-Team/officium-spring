@@ -10,10 +10,13 @@ import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.exepcione
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.exepciones.ExcepcionOfertaLaboralNoEncontrada;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.exepciones.ExcepcionOfertaLaboralNoEsDeEsaEmpresa;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.salida.PuertoAplicarOfertaLaboral;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.salida.PuertoDetallesOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.salida.PuertoValidarPostulacionOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.PostulacionOfertaLaboral;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.exepciones.ExcepcionFechaPublicacionOfertaLaboralNula;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.*;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,11 +24,14 @@ import java.time.Instant;
 import java.util.UUID;
 
 @Component
+@AllArgsConstructor
 public class CasoUsoAplicarOfertaLaboralImpl implements CasoUsoAplicarOfertaLaboral {
     @Autowired
-    private PuertoAplicarOfertaLaboral puertoAplicarOfertaLaboral;
+    private final PuertoAplicarOfertaLaboral puertoAplicarOfertaLaboral;
     @Autowired
-    private PuertoValidarPostulacionOfertaLaboral puertoValidarPostulacionOfertaLaboral;
+    private final PuertoValidarPostulacionOfertaLaboral puertoValidarPostulacionOfertaLaboral;
+    @Autowired
+    private final PuertoDetallesOfertaLaboral puertoDetallesOfertaLaboral;
 
 
     @Override
@@ -42,10 +48,10 @@ public class CasoUsoAplicarOfertaLaboralImpl implements CasoUsoAplicarOfertaLabo
                 new ComentarioPostulacionOfertaLaboral(null)
 
         );
+
         puertoAplicarOfertaLaboral.aplicarOfertaLaboral(postulacionOfertaLaboral);
     }
 
-    // TODO: Evaluar abstracción por composición de un validador de reglas de negocio
     private void validarSolicitudOfertaLaboral(IdEmpleado idEmpleado, IdEmpresa idEmpresa, IdOfertaLaboral idOfertaLaboral,  Tupla<OfertaLaboral, Empleado> ofertaLaboralEmpleadoTupla) {
         if(ofertaLaboralEmpleadoTupla == null)
             throw new ExcepcionOfertaLaboralNoEncontrada();

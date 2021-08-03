@@ -17,6 +17,6 @@ public interface RepositorioDetallesOfertaLaboral extends JpaRepository<Persiste
             " FROM ofertasLaborales o " +
             " INNER JOIN empresas e " +
             " ON o.uuidEmpresa = e.uuid" +
-            " WHERE o.estatus= 'EN_PROGRESO' AND o.uuid = :#{#idOfertaLaboral}")
+            " WHERE o.uuid = :#{#idOfertaLaboral}")
     public Tupla<PersistenciaEmpresa,PersistenciaOfertaLaboral> obtenerDetallesOfertaLaboral(@Param("idOfertaLaboral") UUID idOfertaLaboral);
 }

@@ -45,4 +45,8 @@ public class PuertoValidarPostulacionOfertaLaboralImpl implements PuertoValidarP
         return new TuplaOfertaLaboralEmpleado(mapeadorPersistenciaAOfertaLaboral.PersistenciaAOfertaLaboral(ofertaLaboral.getSecondElement()),
                 mapeadorPersistenciaEmpleado.mapPersistenciaAEmpleado(persistenciaEmpleado, repositorioDireccion.buscarDireccionIdEmpleado(persistenciaEmpleado.getUuid())));
     }
+
+    private boolean validarOfertalaboral() {
+        return false;
+    }
 }

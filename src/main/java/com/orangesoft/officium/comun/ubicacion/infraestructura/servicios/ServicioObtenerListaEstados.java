@@ -24,8 +24,7 @@ public class ServicioObtenerListaEstados {
 
     @Transactional(readOnly = true)
     public List<DtoEstado> obtenerListaEstados(String idPais) {
-        return casoUsoObtenerListaEstados.obtenerListaEstados(
-                new IdPais(UUID.fromString(idPais)))
+        return casoUsoObtenerListaEstados.obtenerListaEstados(new IdPais(UUID.fromString(idPais)))
                 .stream()
                 .map(mapeadorDTOEstado::mapEstadoADto)
                 .collect(Collectors.toList());

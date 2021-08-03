@@ -26,7 +26,7 @@ public class Estado {
             throw new ExcepcionIdEstadoNulo();
         if(nombreEstado == null)
             throw new ExcepcionNombreEstadoNulo();
-
+        this.idPais = idPais;
         this.idEstado = idEstado;
         this.nombreEstado = nombreEstado;
     }

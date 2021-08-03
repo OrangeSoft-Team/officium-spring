@@ -1,9 +1,6 @@
 package com.orangesoft.officium.comun.persistencia.habilidadesOfertaLaboral;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Embeddable;
 import java.io.Serializable;
@@ -11,6 +8,7 @@ import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 @Embeddable
 @Getter
 @Setter

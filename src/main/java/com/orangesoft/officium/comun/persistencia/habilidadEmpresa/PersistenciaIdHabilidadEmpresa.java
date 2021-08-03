@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.UUID;
 
 @Embeddable
+@EqualsAndHashCode
 @Getter
 @Setter
 public class PersistenciaIdHabilidadEmpresa implements Serializable {

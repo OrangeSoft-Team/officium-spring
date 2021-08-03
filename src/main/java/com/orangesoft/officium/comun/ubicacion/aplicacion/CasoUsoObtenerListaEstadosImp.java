@@ -18,6 +18,7 @@ public class CasoUsoObtenerListaEstadosImp implements CasoUsoObtenerListaEstados
 
     @Override
     public List<Estado> obtenerListaEstados(IdPais idPais) {
+        System.out.println(puertoListaEstados.obtenerListaPaises(idPais).toString());
         return puertoListaEstados.obtenerListaPaises(idPais);
     }
 }
