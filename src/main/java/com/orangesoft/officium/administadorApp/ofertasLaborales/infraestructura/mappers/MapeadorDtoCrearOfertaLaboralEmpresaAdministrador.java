@@ -37,7 +37,7 @@ import java.util.UUID;
         EnumTurnoOfertaLaboral.class
     })
 public abstract class MapeadorDtoCrearOfertaLaboralEmpresaAdministrador {
-    @Mapping(target = "uuidEmpresa", expression = "java(ofertaLaboral.getIdEmpresaOfertaLaboral().getIdEmpresa())")
+    @Mapping(target = "uuidEmpresa", expression = "java(ofertaLaboral.getIdEmpresaOfertaLaboral().getIdEmpresa().toString())")
     @Mapping(target = "titulo", expression = "java(ofertaLaboral.getTituloOfertaLaboral().getTituloOfertaLaboral())")
     @Mapping(target = "cargo", expression = "java(ofertaLaboral.getCargoOfertaLaboral().getCargoOfertaLaboral())")
     @Mapping(target = "sueldo", expression = "java(ofertaLaboral.getSueldoOfertaLaboral().getSueldoOfertaLaboral())")
@@ -50,7 +50,7 @@ public abstract class MapeadorDtoCrearOfertaLaboralEmpresaAdministrador {
     public abstract DtoCrearOfertaLaboralEmpresaAdministrador mapOfertaLaboralADto(OfertaLaboral ofertaLaboral);
 
     @Mapping(target = "idOfertaLaboral", expression = "java(new IdOfertaLaboral(UUID.randomUUID()))")
-    @Mapping(target = "idEmpresaOfertaLaboral", expression = "java(new IdEmpresa(dtoCrearOfertaLaboralEmpresaAdministrador.getUuidEmpresa()))")
+    @Mapping(target = "idEmpresaOfertaLaboral", expression = "java(new IdEmpresa(UUID.fromString(dtoCrearOfertaLaboralEmpresaAdministrador.getUuidEmpresa())))")
     @Mapping(target = "tituloOfertaLaboral", expression = "java(new TituloOfertaLaboral(dtoCrearOfertaLaboralEmpresaAdministrador.getTitulo()))")
     @Mapping(target = "fechaPublicacionOfertaLaboral", expression = "java(new FechaOfertaLaboral( DateTimeFormatter.ofPattern(\"yyyy-MM-dd\").withZone( ZoneId.systemDefault() ).format(  LocalDateTime.now()  ) ))")
     @Mapping(target = "fechaUltimaModificacionOfertaLaboral", expression = "java(new FechaOfertaLaboral( DateTimeFormatter.ofPattern(\"yyyy-MM-dd\").withZone( ZoneId.systemDefault() ).format(  LocalDateTime.now()  ) ))")

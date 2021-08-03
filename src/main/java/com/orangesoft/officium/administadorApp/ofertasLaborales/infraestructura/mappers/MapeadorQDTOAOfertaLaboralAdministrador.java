@@ -41,7 +41,7 @@ import org.springframework.stereotype.Component;
         RequisitosEspecialesOfertaLaboral.class,
         EnumTurnoOfertaLaboral.class})
 public abstract class MapeadorQDTOAOfertaLaboralAdministrador {
-    @Mapping(target = "idEmpresaOfertaLaboral", expression = "java(new IdEmpresa(qDtoOfertasLaboralesActivas.getUuidEmpresa().toString()))")
+    @Mapping(target = "idEmpresaOfertaLaboral", expression = "java(new IdEmpresa(qDtoOfertasLaboralesActivas.getUuidEmpresa()))")
     @Mapping(target = "idOfertaLaboral", expression = "java(new IdOfertaLaboral(qDtoOfertasLaboralesActivas.getUuid()))")
     @Mapping(target = "tituloOfertaLaboral", expression = "java(new TituloOfertaLaboral(qDtoOfertasLaboralesActivas.getTitulo()))")
     @Mapping(target = "cargoOfertaLaboral", expression = "java(new CargoOfertaLaboral(qDtoOfertasLaboralesActivas.getCargo()))")
