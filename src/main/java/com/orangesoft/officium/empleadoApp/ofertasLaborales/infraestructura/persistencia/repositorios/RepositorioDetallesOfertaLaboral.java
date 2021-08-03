@@ -16,7 +16,7 @@ public interface RepositorioDetallesOfertaLaboral extends JpaRepository<Persiste
             "new com.orangesoft.officium.comun.generics.TuplaPersistenciaEmpresaOferta(e , o) " +
             " FROM ofertasLaborales o " +
             " INNER JOIN empresas e " +
-            " ON o.idPersistenciaOfertaLaboral.uuidEmpresa = e.uuid" +
-            " WHERE o.estado = 'P' AND o.idPersistenciaOfertaLaboral.uuid = :#{#idOfertaLaboral}")
+            " ON o.uuidEmpresa = e.uuid" +
+            " WHERE o.estatus= 'EN_PROGRESO' AND o.uuid = :#{#idOfertaLaboral}")
     public Tupla<PersistenciaEmpresa,PersistenciaOfertaLaboral> obtenerDetallesOfertaLaboral(@Param("idOfertaLaboral") UUID idOfertaLaboral);
 }

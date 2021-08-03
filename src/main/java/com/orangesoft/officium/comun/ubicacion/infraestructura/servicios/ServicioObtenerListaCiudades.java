@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,7 +24,9 @@ public class ServicioObtenerListaCiudades {
 
     @Transactional(readOnly = true)
     public List<DtoCiudad> obtenerListaCiudades(String idPais, String idEstado) {
-        return casoUsoObtenerListaCiudades.obtenerListaCiudades(new IdPais(idPais), new IdEstado(idEstado))
+        return casoUsoObtenerListaCiudades.obtenerListaCiudades(
+                new IdPais(UUID.fromString(idPais)),
+                new IdEstado(UUID.fromString(idEstado)))
                 .stream()
                 .map(mapeadorDTOCiudad::mapCiudadADto)
                 .collect(Collectors.toList());

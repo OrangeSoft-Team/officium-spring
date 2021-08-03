@@ -4,14 +4,16 @@ import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionIdEs
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+import java.util.UUID;
+
 @EqualsAndHashCode
 @Getter
 public final class IdEstado {
-    private final String idEstado;
+    private final UUID uuid;
 
-    public IdEstado(String idEstado) {
-        if(idEstado == null || idEstado.isEmpty())
+    public IdEstado(UUID idEstado) {
+        if(idEstado == null)
             throw new ExcepcionIdEstadoNulo();
-        this.idEstado = idEstado;
+        this.uuid = idEstado;
     }
 }

@@ -1,6 +1,6 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value;
 
-import com.orangesoft.officium.empleadoApp.estadoOfertaLaboral.dominio.EnumEstadoPostulacionOfertaLaboral;
+import com.orangesoft.officium.comun.dominio.postulacionOfertaLaboral.EnumEstatusPostulacionOfertaLaboral;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -9,5 +9,5 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public final class EstadoPostulacionOfertaLaboral {
-    private final EnumEstadoPostulacionOfertaLaboral estado;
+    private final EnumEstatusPostulacionOfertaLaboral estado;
 }

@@ -1,15 +1,15 @@
 package com.orangesoft.officium.empleadoApp.empleado.dominio.values;
 
-import com.orangesoft.officium.empleadoApp.genero.dominio.EnumGeneroEmpleado;
+import com.orangesoft.officium.comun.persona.EnumGenero;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @EqualsAndHashCode
 @Getter
 public final class GeneroEmpleado {
-    private EnumGeneroEmpleado genero;
+    private EnumGenero genero;
 
-    public GeneroEmpleado(EnumGeneroEmpleado genero) {
+    public GeneroEmpleado(EnumGenero genero) {
         this.genero = genero;
     }
 }

@@ -20,14 +20,13 @@ public class Estado {
     private NombreEstado nombreEstado;
 
     public Estado(IdPais idPais, IdEstado idEstado, NombreEstado nombreEstado) {
-        if(idEstado == null)
+        if(idPais == null)
             throw new ExcepcionIdPaisNulo();
         if(idEstado == null)
             throw new ExcepcionIdEstadoNulo();
         if(nombreEstado == null)
             throw new ExcepcionNombreEstadoNulo();
 
-        this.idPais = idPais;
         this.idEstado = idEstado;
         this.nombreEstado = nombreEstado;
     }

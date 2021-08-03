@@ -20,14 +20,15 @@ public class QDtoOfertasLaboralesActivas {
     private UUID uuid;
     private String titulo;
     private Instant fechaPublicacion;
+    private Instant fechaLimiteAplicacion;
     private Instant fechaUltimaModificacion;
     private String cargo;
     private float sueldo;
-    private String divisa;
     private String descripcion;
     private String duracionEstimadaEscala;
-    private String duracionEstimada;
+    private int duracionEstimada;
     private String turnoTrabajo;
     private int numeroVacantes;
-    private char estado;
+    private String estatus;
+    private String requisitosEspeciales;
 }

@@ -1,28 +1,24 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion;
 
+import com.orangesoft.officium.comun.dominio.postulacionOfertaLaboral.EnumEstatusPostulacionOfertaLaboral;
 import com.orangesoft.officium.comun.generics.Tupla;
 import com.orangesoft.officium.empleadoApp.empleado.dominio.Empleado;
 import com.orangesoft.officium.empleadoApp.empleado.dominio.values.IdEmpleado;
 import com.orangesoft.officium.empleadoApp.empresa.dominio.value.IdEmpresa;
-import com.orangesoft.officium.empleadoApp.estadoOfertaLaboral.dominio.EnumEstadoPostulacionOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.entrada.CasoUsoAplicarOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.exepciones.ExcepcionEmpleadoNoEncontrado;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.exepciones.ExcepcionOfertaLaboralNoEncontrada;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.exepciones.ExcepcionOfertaLaboralNoEsDeEsaEmpresa;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.salida.PuertoAplicarOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.salida.PuertoDetallesOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.salida.PuertoValidarPostulacionOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.PostulacionOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.ComentarioOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.EstadoPostulacionOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.FechaPostulacionOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.IdOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.PuertoDetallesOfertaLaboralImpl;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
+import java.util.UUID;
 
 @Component
 public class CasoUsoAplicarOfertaLaboralImpl implements CasoUsoAplicarOfertaLaboral {
@@ -38,12 +34,13 @@ public class CasoUsoAplicarOfertaLaboralImpl implements CasoUsoAplicarOfertaLabo
         validarSolicitudOfertaLaboral(idEmpleado,idEmpresa,idOfertaLaboral,ofertaLaboralEmpleadoTupla);
 
         PostulacionOfertaLaboral postulacionOfertaLaboral = new PostulacionOfertaLaboral(
-                idEmpresa,
+                new IdPostulacionOfertaLaboral(UUID.randomUUID()),
+                new FechaPostulacionOfertaLaboral(Instant.now()),
+                new EstadoPostulacionOfertaLaboral(EnumEstatusPostulacionOfertaLaboral.EN_PROCESO),
                 idOfertaLaboral,
                 idEmpleado,
-                new FechaPostulacionOfertaLaboral(Instant.now()),
-                new ComentarioOfertaLaboral(null),
-                new EstadoPostulacionOfertaLaboral(EnumEstadoPostulacionOfertaLaboral.PROCESO)
+                new ComentarioPostulacionOfertaLaboral(null)
+
         );
         puertoAplicarOfertaLaboral.aplicarOfertaLaboral(postulacionOfertaLaboral);
     }

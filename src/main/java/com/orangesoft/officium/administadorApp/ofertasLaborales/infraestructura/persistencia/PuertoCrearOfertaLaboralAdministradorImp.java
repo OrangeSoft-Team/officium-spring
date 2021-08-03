@@ -1,8 +1,11 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia;
 
+import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.mappers.MapeadorAPersistenciaHabilidadOfertaLaboralAdministrador;
 import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.mappers.MapeadorOfertaLaboralPersistenciaAdministrador;
+import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.repositorios.RepositorioCrearHabilidadOfertaLaboral;
 import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.repositorios.RepositorioCrearOfertaLaboralAdministrador;
-import com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.repositorios.RepositorioEmpresaAdministrador;
+import com.orangesoft.officium.administadorApp.empresa.infraestructura.persistencia.repositorios.RepositorioEmpresaAdministrador;
+import com.orangesoft.officium.comun.dominio.habilidad.infraestructura.mapeadores.MapeadorPersistenciaHabilidad;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -23,7 +26,13 @@ public class PuertoCrearOfertaLaboralAdministradorImp implements PuertoCrearOfer
     private final RepositorioEmpresaAdministrador repositorioEmpresa;
 
     @Autowired
+    private final RepositorioCrearHabilidadOfertaLaboral repositorioCrearHabilidadOfertaLaboral;
+
+    @Autowired
     private final MapeadorOfertaLaboralPersistenciaAdministrador mapeadorOfertaLaboralPersistencia;
+
+    @Autowired
+    private final MapeadorAPersistenciaHabilidadOfertaLaboralAdministrador mapeadorAPersistenciaHabilidadOfertaLaboralAdministrador;
 
     @Override
     public void crearOfertaLaboral(OfertaLaboral ofertaLaboral) {
@@ -33,5 +42,14 @@ public class PuertoCrearOfertaLaboralAdministradorImp implements PuertoCrearOfer
         repositorioCrearOfertaLaboral.save(
                 mapeadorOfertaLaboralPersistencia.ofertaLaboralAPersistencia(ofertaLaboral)
         );
+        try{
+            ofertaLaboral.getHabilidades().forEach(habilidad -> {
+                repositorioCrearHabilidadOfertaLaboral.save(
+                        mapeadorAPersistenciaHabilidadOfertaLaboralAdministrador.habilidadAPersistencia(ofertaLaboral.getIdOfertaLaboral() ,habilidad.getIdHabilidad())
+                );
+            });
+        } catch (Exception ignored){
+
+        }
     }
 }

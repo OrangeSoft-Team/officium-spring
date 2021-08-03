@@ -4,17 +4,19 @@ import com.orangesoft.officium.empleadoApp.empresa.dominio.excepciones.Excepcion
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+import java.util.UUID;
+
 @EqualsAndHashCode
 @Getter
 public final class IdEmpresa {
-    private final String idEmpresa;
+    private final UUID idEmpresa;
 
-    public IdEmpresa(String idEmpresa) {
+    public IdEmpresa(UUID idEmpresa) {
         validarIdEmpresa(idEmpresa);
         this.idEmpresa = idEmpresa;
     }
 
-    private void validarIdEmpresa(String idEmpresa) {
+    private void validarIdEmpresa(UUID idEmpresa) {
         if(idEmpresa == null)
             throw new ExcepcionIdEmpresaNulo();
     }

@@ -22,7 +22,7 @@ public class PuertoListaEstadosImp implements PuertoListaEstados {
     private final MappeadorPersistenciaEstado mappeadorPersistenciaEstado;
     @Override
     public List<Estado> obtenerListaPaises(IdPais idPais) {
-        return repositorioEstado.findAllByIdPersistenciaEstado_UuidPais(UUID.fromString(idPais.getIdPais()))
+        return repositorioEstado.findAllByUuidPais(idPais.getUuid())
                 .stream()
                 .map(mappeadorPersistenciaEstado::persistenciaAEstado)
                 .collect(Collectors.toList());

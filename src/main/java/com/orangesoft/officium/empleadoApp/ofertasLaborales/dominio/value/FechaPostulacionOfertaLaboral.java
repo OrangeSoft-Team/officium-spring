@@ -12,9 +12,7 @@ public final class FechaPostulacionOfertaLaboral {
 
     public FechaPostulacionOfertaLaboral(Instant fechaPostulacion) {
         if(fechaPostulacion == null)
-            this.fechaPostulacion = Instant.now();
-        else
-            this.fechaPostulacion = fechaPostulacion;
+            fechaPostulacion = Instant.now();
+        this.fechaPostulacion = fechaPostulacion;
     }
-
 }

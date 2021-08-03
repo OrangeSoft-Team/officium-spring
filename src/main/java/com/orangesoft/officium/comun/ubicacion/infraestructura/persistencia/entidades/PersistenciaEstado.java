@@ -3,6 +3,8 @@ package com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia.ent
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.UUID;
 
 @Data
 @Getter
@@ -11,8 +13,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity(name = "estados")
 public class PersistenciaEstado {
-    @EmbeddedId
-    private IdPersistenciaEstado idPersistenciaEstado;
+    @Id
+    @GeneratedValue
+    private UUID uuid;
+    @NotNull
+    private UUID uuidPais;
+    @NotNull
     private String nombre;
 }
 

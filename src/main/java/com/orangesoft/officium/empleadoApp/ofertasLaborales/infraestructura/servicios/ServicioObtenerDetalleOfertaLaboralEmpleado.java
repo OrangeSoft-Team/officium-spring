@@ -29,7 +29,7 @@ public class ServicioObtenerDetalleOfertaLaboralEmpleado {
         }catch (IllegalArgumentException e){
             throw new RuntimeException("El identificador suministrado no cumple con el formato esperado");
         }
-        Tupla<Empresa, OfertaLaboral> tupla = consultarDetallesOfertaLaboral.consultarDetallesOfertaLaboral(new IdOfertaLaboral(idOfertaLaboral));
+        Tupla<Empresa, OfertaLaboral> tupla = consultarDetallesOfertaLaboral.consultarDetallesOfertaLaboral(new IdOfertaLaboral(UUID.fromString(idOfertaLaboral)));
         return mapeadorOfertaLaboralADetalleDTO.mapOfertaLaboralADetalleDto(tupla.getFirstElement(), tupla.getSecondElement());
     }
 }

@@ -1,5 +1,6 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.valueObjects;
 
+import com.orangesoft.officium.comun.dominio.ofertaLaboral.EnumTurnoOfertaLaboral;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
@@ -9,17 +10,11 @@ import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.excepcio
 @EqualsAndHashCode
 @Getter
 public final class TurnoTrabajoOfertaLaboral {
-    private final String turnoTrabajoOfertaLaboral;
+    private final EnumTurnoOfertaLaboral turnoTrabajoOfertaLaboral;
 
-    public TurnoTrabajoOfertaLaboral(String turno) {
+    public TurnoTrabajoOfertaLaboral(EnumTurnoOfertaLaboral turno) {
         if(turno == null)
             throw new ExcepcionTurnoTrabajoOfertaLaboralNulo();
-        switch (turno) {
-            case "mañana": break;
-            case "tarde": break;
-            case "noche": break;
-            default: throw new ExcepcionTurnoTrabajoOfertaLaboralInvalido();
-        }
         this.turnoTrabajoOfertaLaboral = turno;
     }
 }

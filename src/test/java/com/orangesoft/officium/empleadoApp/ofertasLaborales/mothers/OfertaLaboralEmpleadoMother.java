@@ -1,26 +1,14 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.mothers;
 
 import com.orangesoft.officium.comun.generics.Tupla;
-import com.orangesoft.officium.comun.generics.TuplaEmpresaOfertaLaboral;
-import com.orangesoft.officium.comun.generics.TuplaOfertaLaboral;
-import com.orangesoft.officium.comun.generics.TuplaPersistenciaEmpresaOferta;
-import com.orangesoft.officium.comun.persistencia.ofertaLaboral.IdPersistenciaOfertaLaboral;
 import com.orangesoft.officium.comun.persistencia.ofertaLaboral.PersistenciaOfertaLaboral;
-import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdCiudad;
-import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdEstado;
-import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdPais;
 import com.orangesoft.officium.empleadoApp.empresa.dominio.Empresa;
 import com.orangesoft.officium.empleadoApp.empresa.dominio.value.*;
 import com.orangesoft.officium.comun.persistencia.empresa.PersistenciaEmpresa;
-import com.orangesoft.officium.empleadoApp.escalaTiempo.dominio.EnumEscalaTiempo;
-import com.orangesoft.officium.empleadoApp.estadoOfertaLaboral.dominio.EnumEstadoOfertaLaboral;
-import com.orangesoft.officium.empleadoApp.moneda.dominio.EnumMoneda;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.OfertaLaboral;
-import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.*;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.dto.DtoDetalleOfertaLaboralActivaEmpleado;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.dto.DtoOfertasLaboralesActivasEmpleado;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.query.QDtoOfertasLaboralesActivas;
-import com.orangesoft.officium.empleadoApp.turnoTrabajo.dominio.EnumTurnoTrabajo;
 import lombok.Getter;
 
 import java.time.Instant;
@@ -49,7 +37,7 @@ public class OfertaLaboralEmpleadoMother {
     }
 
     public DtoDetalleOfertaLaboralActivaEmpleado obtenerDtoDetallesOfertaLaboralPython() {
-        return new DtoDetalleOfertaLaboralActivaEmpleado(
+        /*return new DtoDetalleOfertaLaboralActivaEmpleado(
                 ofertaUUID.toString(),
                 "Se busca desarrollador en Python",
                 fechaCreacion.toString(),
@@ -65,13 +53,15 @@ public class OfertaLaboralEmpleadoMother {
                 empresaUUID.toString(),
                 "Cobras y lagartos SoftwareFactory",
                 "Todos los caminos llevan a Roma"
-        );
+        );*/
+        return  null;
     }
 
     public Tupla<NombreEmpresa,OfertaLaboral> obtenerEntidadOfertaLaboralPython() {
-        return new TuplaOfertaLaboral(new NombreEmpresa("Cobras y lagartos SoftwareFactory"),new OfertaLaboral(
+        return null;
+        /*new TuplaOfertaLaboral(new NombreEmpresa("Cobras y lagartos SoftwareFactory"),new OfertaLaboral(
                 new IdEmpresa(empresaUUID.toString()),
-                new IdOfertaLaboral(ofertaUUID.toString()),
+                new IdOfertaLaboral(ofertaUUID),
                 new TituloOfertaLaboral("Se busca desarrollador en Python"),
                 new CargoOfertaLaboral("Desarrollador 2"),
                 new FechaPublicacionOfertaLaboral(fechaCreacion,null),
@@ -82,10 +72,13 @@ public class OfertaLaboralEmpleadoMother {
                 new NumeroVacantes(2),
                 new EstadoOfertaLaboral(EnumEstadoOfertaLaboral.PUBLICADA)
         ));
+        * */
     }
 
     public Tupla<Empresa,OfertaLaboral> obtenerEmpresaOfertaLaboralPython() {
-        return new TuplaEmpresaOfertaLaboral(
+        return null;
+        /*
+        new TuplaEmpresaOfertaLaboral(
                 new Empresa(
                         new IdEmpresa(empresaUUID.toString()),
                         new NombreEmpresa("Cobras y lagartos SoftwareFactory"),
@@ -108,9 +101,11 @@ public class OfertaLaboralEmpleadoMother {
                         new NumeroVacantes(2),
                         new EstadoOfertaLaboral(EnumEstadoOfertaLaboral.PUBLICADA)
         ));
+         */
     }
 
     public Tupla<PersistenciaEmpresa, PersistenciaOfertaLaboral> obtenerPersistenciaEmpresaOfertaLaboralPython() {
+        /*
         PersistenciaOfertaLaboral persistenciaOfertaLaboral = new PersistenciaOfertaLaboral();
         persistenciaOfertaLaboral.setIdPersistenciaOfertaLaboral(new IdPersistenciaOfertaLaboral(empresaUUID, ofertaUUID));
         persistenciaOfertaLaboral.setTitulo("Se busca desarrollador en Python");
@@ -135,9 +130,12 @@ public class OfertaLaboralEmpleadoMother {
         persistenciaEmpresa.setUuidEstado(UUID.fromString("23450ac5-23f6-4e4a-b2ab-4da5aee82070"));
         persistenciaEmpresa.setUuidCiudad(UUID.fromString("7a424dee-7e50-4a01-ab6e-a09201677818"));
         return new TuplaPersistenciaEmpresaOferta(persistenciaEmpresa,persistenciaOfertaLaboral);
+         */
+        return null;
     }
 
     public PersistenciaOfertaLaboral obtenerPersistenciaOfertaLaboralPython() {
+        /*
         PersistenciaOfertaLaboral persistenciaOfertaLaboral = new PersistenciaOfertaLaboral();
         persistenciaOfertaLaboral.setIdPersistenciaOfertaLaboral(new IdPersistenciaOfertaLaboral(empresaUUID, ofertaUUID));
         persistenciaOfertaLaboral.setTitulo("Se busca desarrollador en Python");
@@ -153,9 +151,12 @@ public class OfertaLaboralEmpleadoMother {
         persistenciaOfertaLaboral.setNumeroVacantes(2);
         persistenciaOfertaLaboral.setEstado('P');
         return persistenciaOfertaLaboral;
+         */
+        return null;
     }
 
     public QDtoOfertasLaboralesActivas obtenerQDTOOfertaLaboralPython() {
+        /*
         QDtoOfertasLaboralesActivas qDtoOfertasLaboralesActivas = new QDtoOfertasLaboralesActivas();
         qDtoOfertasLaboralesActivas.setUuidEmpresa(empresaUUID);
         qDtoOfertasLaboralesActivas.setUuid(ofertaUUID);
@@ -173,6 +174,8 @@ public class OfertaLaboralEmpleadoMother {
         qDtoOfertasLaboralesActivas.setEstado('P');
         qDtoOfertasLaboralesActivas.setNombreEmpresa("Cobras y lagartos SoftwareFactory");
         return qDtoOfertasLaboralesActivas;
+         */
+        return null;
     }
 
     public DtoOfertasLaboralesActivasEmpleado obtenerDtoOfertaLaboralJava() {
@@ -192,6 +195,7 @@ public class OfertaLaboralEmpleadoMother {
     }
 
     public Tupla<NombreEmpresa,OfertaLaboral> obtenerEntidadOfertaLaboralJava() {
+        /*
         return new TuplaOfertaLaboral(new NombreEmpresa("Cobras y lagartos SoftwareFactory"),new OfertaLaboral(
                 new IdEmpresa(empresaUUID.toString()),
                 new IdOfertaLaboral(ofertaUUID.toString()),
@@ -205,6 +209,8 @@ public class OfertaLaboralEmpleadoMother {
                 new NumeroVacantes(2),
                 new EstadoOfertaLaboral(EnumEstadoOfertaLaboral.PUBLICADA)
         ));
+         */
+        return null;
     }
 
 }

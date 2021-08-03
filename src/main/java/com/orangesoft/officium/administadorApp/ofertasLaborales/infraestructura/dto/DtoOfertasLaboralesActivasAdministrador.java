@@ -18,4 +18,5 @@ public class DtoOfertasLaboralesActivasAdministrador {
     private String turnoTrabajo;
     private Integer numeroVacantes;
     private String empresaNombre;
+    private String estatus;
 }

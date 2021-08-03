@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,7 +24,8 @@ public class ServicioObtenerListaEstados {
 
     @Transactional(readOnly = true)
     public List<DtoEstado> obtenerListaEstados(String idPais) {
-        return casoUsoObtenerListaEstados.obtenerListaEstados(new IdPais(idPais))
+        return casoUsoObtenerListaEstados.obtenerListaEstados(
+                new IdPais(UUID.fromString(idPais)))
                 .stream()
                 .map(mapeadorDTOEstado::mapEstadoADto)
                 .collect(Collectors.toList());

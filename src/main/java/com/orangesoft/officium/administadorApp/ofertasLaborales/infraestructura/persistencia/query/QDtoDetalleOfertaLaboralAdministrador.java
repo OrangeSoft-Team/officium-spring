@@ -25,8 +25,9 @@ public class QDtoDetalleOfertaLaboralAdministrador {
     private float sueldo;
     private String descripcion;
     private String duracionEstimadaEscala;
-    private String duracionEstimada;
+    private int duracionEstimada;
     private String turnoTrabajo;
     private int numeroVacantes;
-    private String Ciudad;
+    private UUID direccion;
+    private String requisitosEspeciales;
 }

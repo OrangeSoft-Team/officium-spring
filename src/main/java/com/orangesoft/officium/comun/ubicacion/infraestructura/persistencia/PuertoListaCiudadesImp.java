@@ -24,9 +24,8 @@ public class PuertoListaCiudadesImp implements PuertoListaCiudades {
 
     @Override
     public List<Ciudad> obtenerListaCiudades(IdPais idPais, IdEstado idEstado) {
-        return repositorioCiudad.findAllByIdPersistenciaCiudad_UuidPaisAndIdPersistenciaCiudad_UuidEstado(
-                UUID.fromString(idPais.getIdPais()),
-                UUID.fromString(idEstado.getIdEstado()))
+        return repositorioCiudad.findAllByUuidEstado(
+                idEstado.getUuid())
                 .stream()
                 .map(mapeadorPersistenciaCiudad::persistenciaCiudadACiudad)
                 .collect(Collectors.toList());

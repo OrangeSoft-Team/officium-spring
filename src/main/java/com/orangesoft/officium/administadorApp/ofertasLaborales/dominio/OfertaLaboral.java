@@ -1,17 +1,19 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.dominio;
 
-import lombok.Builder;
+import com.orangesoft.officium.administadorApp.empresa.dominio.valueObjects.IdEmpresa;
+import com.orangesoft.officium.administadorApp.empresa.dominio.valueObjects.NombreEmpresa;
+import com.orangesoft.officium.comun.dominio.habilidad.dominio.Habilidad;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.excepciones.*;
 import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.valueObjects.*;
-import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionIdCiudadNulo;
-import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdCiudad;
+
+import java.util.List;
 
 @EqualsAndHashCode
-@Builder
+//@Builder
 @Getter
 @Setter
 public class OfertaLaboral {
@@ -26,9 +28,11 @@ public class OfertaLaboral {
     private TurnoTrabajoOfertaLaboral turnoTrabajoOfertaLaboral;
     private NumeroVacantesOfertaLaboral numeroVacantesOfertaLaboral;
     private EstadoOfertaLaboral estadoOfertaLaboral;
-    private IdCiudad idCiudadOfertaLaboral;
+    private RequisitosEspecialesOfertaLaboral requisitosEspecialesOfertaLaboral;
+    private NombreDireccionOfertaLaboral direccionOfertaLaboral;
     private IdEmpresa idEmpresaOfertaLaboral;
     private NombreEmpresa nombreEmpresaOfertaLaboral;
+    private List<Habilidad> habilidades;
 
     public OfertaLaboral(IdOfertaLaboral idOfertaLaboral,
                          TituloOfertaLaboral tituloOfertaLaboral,
@@ -40,10 +44,12 @@ public class OfertaLaboral {
                          DuracionEstimadaOfertaLaboral duracionEstimadaOfertaLaboral,
                          TurnoTrabajoOfertaLaboral turnoTrabajoOfertaLaboral,
                          NumeroVacantesOfertaLaboral numeroVacantesOfertaLaboral,
+                         RequisitosEspecialesOfertaLaboral requisitosEspecialesOfertaLaboral,
                          EstadoOfertaLaboral estadoOfertaLaboral,
-                         IdCiudad idCiudadOfertaLaboral,
+                         NombreDireccionOfertaLaboral direccionOfertaLaboral,
                          IdEmpresa idEmpresaOfertaLaboral,
-                         NombreEmpresa nombreEmpresaOfertaLaboral) {
+                         NombreEmpresa nombreEmpresaOfertaLaboral,
+                         List<Habilidad> habilidades) {
         if (idOfertaLaboral == null)
             throw new ExcepcionIdOfertaLaboralNulo();
         if (tituloOfertaLaboral == null)
@@ -64,11 +70,13 @@ public class OfertaLaboral {
             throw new ExcepcionTurnoTrabajoOfertaLaboralNulo();
         if (numeroVacantesOfertaLaboral == null)
             throw new ExcepcionNumeroVacantesOfertaLaboralNulo();
+        if (requisitosEspecialesOfertaLaboral == null)
+            throw  new ExcepcionCampoNulo("requisitos especiales");
         if (estadoOfertaLaboral == null)
             throw  new ExcepcionCampoNulo("estado");
         // TODO: revisar este atributo ya que se usa para colocar el nombre y el id de la ciudad
-//        if (idCiudadOfertaLaboral == null)
-//            throw new ExcepcionIdCiudadNulo();
+//        if (nombreCiudadOfertaLaboral == null)
+//            throw new ExcepcionCampoNulo("nombre direccion");
         if (idEmpresaOfertaLaboral == null)
             throw new ExcepcionCampoNulo("id empresa");
 //        if (nombreEmpresaOfertaLaboral == null)
@@ -85,8 +93,10 @@ public class OfertaLaboral {
         this.turnoTrabajoOfertaLaboral = turnoTrabajoOfertaLaboral;
         this.numeroVacantesOfertaLaboral = numeroVacantesOfertaLaboral;
         this.estadoOfertaLaboral = estadoOfertaLaboral;
-        this.idCiudadOfertaLaboral = idCiudadOfertaLaboral;
+        this.requisitosEspecialesOfertaLaboral = requisitosEspecialesOfertaLaboral;
+        this.direccionOfertaLaboral = direccionOfertaLaboral;
         this.idEmpresaOfertaLaboral = idEmpresaOfertaLaboral;
         this.nombreEmpresaOfertaLaboral = nombreEmpresaOfertaLaboral;
+        this.habilidades = habilidades;
     }
 }

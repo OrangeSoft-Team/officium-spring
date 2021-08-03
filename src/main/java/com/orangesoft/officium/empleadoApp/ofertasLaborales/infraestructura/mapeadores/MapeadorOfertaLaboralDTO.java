@@ -9,9 +9,12 @@ import org.mapstruct.Mapping;
 
 import java.util.UUID;
 
-@Mapper(componentModel = "spring", imports = {UUID.class, EnumMoneda.class})
+@Mapper(componentModel = "spring", imports = {
+        UUID.class, EnumMoneda.class
+
+})
 public abstract class MapeadorOfertaLaboralDTO {
-    @Mapping(target = "uuid", expression = "java(ofertaLaboral.getIdOfertaLaboral().getIdOfertaLaboral())")
+    @Mapping(target = "uuid", expression = "java(ofertaLaboral.getIdOfertaLaboral().getIdOfertaLaboral().toString())")
     @Mapping(target = "titulo", expression = "java(ofertaLaboral.getTituloOfertaLaboral().getTitulo())")
     @Mapping(target = "fechaPublicacion", expression = "java(ofertaLaboral.getFechaPublicacionOfertaLaboral().getFechaPublicacion().toString())")
     @Mapping(target = "cargo", expression = "java(ofertaLaboral.getCargoOfertaLaboral().getCargo())")

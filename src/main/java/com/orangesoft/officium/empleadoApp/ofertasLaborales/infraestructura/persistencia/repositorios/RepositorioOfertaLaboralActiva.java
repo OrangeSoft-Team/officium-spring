@@ -15,24 +15,25 @@ public interface RepositorioOfertaLaboralActiva extends JpaRepository<Persistenc
     @Query(value = "SELECT " +
             "new com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.query.QDtoOfertasLaboralesActivas(" +
             "e.nombre," +
-            "o.idPersistenciaOfertaLaboral.uuidEmpresa," +
-            "o.idPersistenciaOfertaLaboral.uuid," +
+            "o.uuidEmpresa," +
+            "o.uuid," +
             "o.titulo," +
             "o.fechaPublicacion," +
+            "o.fechaLimite," +
             "o.fechaUltimaModificacion," +
             "o.cargo," +
             "o.sueldo," +
-            "o.divisa," +
             "o.descripcion," +
-            "o.duracionEstimadaEscala," +
-            "o.duracionEstimada," +
+            "o.escalaDuracion," +
+            "o.valorDuracion," +
             "o.turnoTrabajo," +
             "o.numeroVacantes," +
-            "o.estado" +
+            "o.estatus," +
+            "o.requisitosEspeciales" +
             ")" +
             " FROM ofertasLaborales o " +
             " INNER JOIN empresas e " +
-            " ON o.idPersistenciaOfertaLaboral.uuidEmpresa = e.uuid" +
-            " WHERE o.estado = 'P'")
+            " ON o.uuidEmpresa = e.uuid" +
+            " WHERE o.estatus = 'P'")
     public List<QDtoOfertasLaboralesActivas> obtenerListaOfertasLaboralesActivas();
 }

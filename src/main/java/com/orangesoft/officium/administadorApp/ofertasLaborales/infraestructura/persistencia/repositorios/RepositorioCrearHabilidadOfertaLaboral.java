@@ -1,0 +1,10 @@
+package com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.repositorios;
+
+import com.orangesoft.officium.comun.persistencia.habilidadesOfertaLaboral.PersistenciaHabilidadOfertaLaboral;
+import com.orangesoft.officium.comun.persistencia.habilidadesOfertaLaboral.PersistenciaIdHabilidadOfertaLaboral;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface RepositorioCrearHabilidadOfertaLaboral extends JpaRepository<PersistenciaHabilidadOfertaLaboral, PersistenciaIdHabilidadOfertaLaboral> {
+}

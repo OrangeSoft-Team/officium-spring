@@ -11,27 +11,28 @@ import java.util.UUID;
 
 @Repository
 public interface RepositorioOfertaLaboralActivaAdministrador extends JpaRepository<PersistenciaOfertaLaboral, UUID> {
+    // TODO AGREGAR OBTENCION DE REQUISITOS ESPECIALES
     @Query(value = "SELECT " +
             "new com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.query.QDtoOfertasLaboralesActivasAdministrador(" +
             "e.nombre," +
-            "o.idPersistenciaOfertaLaboral.uuidEmpresa," +
-            "o.idPersistenciaOfertaLaboral.uuid," +
+            "o.uuidEmpresa," +
+            "o.uuid," +
             "o.titulo," +
             "o.fechaPublicacion," +
             "o.fechaUltimaModificacion," +
             "o.cargo," +
             "o.sueldo," +
-            "o.divisa," +
             "o.descripcion," +
-            "o.duracionEstimadaEscala," +
-            "o.duracionEstimada," +
+            "o.escalaDuracion," +
+            "o.valorDuracion," +
             "o.turnoTrabajo," +
             "o.numeroVacantes," +
-            "o.estado" +
+            "o.estatus," +
+            "o.requisitosEspeciales" +
             ")" +
             " FROM ofertasLaborales o " +
             " INNER JOIN empresas e " +
-            " ON o.idPersistenciaOfertaLaboral.uuidEmpresa = e.uuid" +
-            " WHERE o.estado = 'P'")
+            " ON o.uuidEmpresa = e.uuid" +
+            " WHERE o.estatus = 'PUBLICADO'")
     public List<QDtoOfertasLaboralesActivasAdministrador> obtenerListaOfertasLaboralesActivas();
 }

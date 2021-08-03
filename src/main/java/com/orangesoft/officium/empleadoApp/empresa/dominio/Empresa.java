@@ -1,16 +1,10 @@
 package com.orangesoft.officium.empleadoApp.empresa.dominio;
 
-import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionIdCiudadNulo;
-import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionIdEstadoNulo;
-import com.orangesoft.officium.comun.ubicacion.dominio.excepciones.ExcepcionIdPaisNulo;
-import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdCiudad;
-import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdEstado;
-import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.IdPais;
-import com.orangesoft.officium.empleadoApp.empresa.dominio.excepciones.ExcepcionCorreoElectronicoEmpresaNulo;
-import com.orangesoft.officium.empleadoApp.empresa.dominio.excepciones.ExcepcionDireccionEmpresaNula;
-import com.orangesoft.officium.empleadoApp.empresa.dominio.excepciones.ExcepcionIdEmpresaNulo;
-import com.orangesoft.officium.empleadoApp.empresa.dominio.excepciones.ExcepcionNombreEmpresaNulo;
+import com.orangesoft.officium.comun.ubicacion.dominio.Direccion;
+import com.orangesoft.officium.empleadoApp.empresa.dominio.excepciones.*;
 import com.orangesoft.officium.empleadoApp.empresa.dominio.value.*;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.exepciones.ExcepcionRequisitosEspecialesOfertaLaboralInvalidos;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.RequisitosEspecialesOfertaLaboral;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -24,28 +18,24 @@ public class Empresa {
     private IdEmpresa idEmpresa;
     private NombreEmpresa nombreEmpresa;
     private CorreoElectronicoEmpresa correoElectronicoEmpresa;
-    private DireccionEmpresa direccionEmpresa;
-    private CodigoPostalEmpresa codigoPostalEmpresa;
-    private IdPais idPaisEmpresa;
-    private IdEstado idEstadoEmpresa;
-    private IdCiudad idCiudadEmpresa;
+    private EstatusEmpresa estatusEmpresa;
+    private RequisitosEspecialesEmpresa requisitosEspecialesEmpresa;
+
+    // Agregado
+    private Direccion direccionEmpresa;
 
     public Empresa(IdEmpresa idEmpresa,
                    NombreEmpresa nombreEmpresa,
                    CorreoElectronicoEmpresa correoElectronicoEmpresa,
-                   DireccionEmpresa direccionEmpresa,
-                   CodigoPostalEmpresa codigoPostalEmpresa,
-                   IdPais idPaisEmpresa,
-                   IdEstado idEstadoEmpresa,
-                   IdCiudad idCiudadEmpresa) {
+                   EstatusEmpresa estatusEmpresa,
+                   RequisitosEspecialesEmpresa requisitosEspecialesEmpresa,
+                   Direccion direccionEmpresa) {
         this.idEmpresa = idEmpresa;
         this.nombreEmpresa = nombreEmpresa;
         this.correoElectronicoEmpresa = correoElectronicoEmpresa;
+        this.estatusEmpresa = estatusEmpresa;
+        this.requisitosEspecialesEmpresa = requisitosEspecialesEmpresa;
         this.direccionEmpresa = direccionEmpresa;
-        this.codigoPostalEmpresa = codigoPostalEmpresa;
-        this.idPaisEmpresa = idPaisEmpresa;
-        this.idEstadoEmpresa = idEstadoEmpresa;
-        this.idCiudadEmpresa = idCiudadEmpresa;
         validarEmpresa();
     }
 
@@ -56,15 +46,11 @@ public class Empresa {
             throw new ExcepcionNombreEmpresaNulo();
         if(correoElectronicoEmpresa == null)
             throw new ExcepcionCorreoElectronicoEmpresaNulo();
+        if(estatusEmpresa == null)
+            throw new ExcepcionEstatusEmpresaNulo();
+        if(requisitosEspecialesEmpresa == null)
+            requisitosEspecialesEmpresa = new RequisitosEspecialesEmpresa(null);
         if(direccionEmpresa == null)
             throw new ExcepcionDireccionEmpresaNula();
-        if(codigoPostalEmpresa == null)
-            throw new ExcepcionCorreoElectronicoEmpresaNulo();
-        if(idPaisEmpresa == null)
-            throw new ExcepcionIdPaisNulo();
-        if(idEstadoEmpresa == null)
-            throw new ExcepcionIdEstadoNulo();
-        if(idCiudadEmpresa == null)
-            throw new ExcepcionIdCiudadNulo();
     }
 }

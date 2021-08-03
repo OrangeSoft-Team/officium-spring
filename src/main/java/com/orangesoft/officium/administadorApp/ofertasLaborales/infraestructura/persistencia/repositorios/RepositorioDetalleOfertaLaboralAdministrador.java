@@ -14,26 +14,27 @@ public interface RepositorioDetalleOfertaLaboralAdministrador extends JpaReposit
     @Query(value = "SELECT " +
             "new com.orangesoft.officium.administadorApp.ofertasLaborales.infraestructura.persistencia.query.QDtoDetalleOfertaLaboralAdministrador(" +
             "e.nombre," +
-            "o.idPersistenciaOfertaLaboral.uuidEmpresa," +
-            "o.idPersistenciaOfertaLaboral.uuid," +
+            "o.uuidEmpresa," +
+            "o.uuid," +
             "o.titulo," +
             "o.fechaPublicacion," +
             "o.fechaUltimaModificacion," +
             "o.cargo," +
             "o.sueldo," +
             "o.descripcion," +
-            "o.duracionEstimadaEscala," +
-            "o.duracionEstimada," +
+            "o.escalaDuracion," +
+            "o.valorDuracion," +
             "o.turnoTrabajo," +
             "o.numeroVacantes," +
-            "c.nombre" +
+            "d.uuid," +
+            "o.requisitosEspeciales" +
             ")" +
             " FROM ofertasLaborales o " +
             " INNER JOIN empresas e " +
-            " ON o.idPersistenciaOfertaLaboral.uuidEmpresa = e.uuid " +
-            " INNER JOIN ciudades c " +
-            " ON c.idPersistenciaCiudad.uuid = e.uuidCiudad " +
-            " WHERE o.estado = 'P' " +
-            " AND o.idPersistenciaOfertaLaboral.uuid = :idOfertaLaboral ")
+            " ON o.uuidEmpresa = e.uuid " +
+            " INNER JOIN direcciones d " +
+            " ON d.uuid = e.uuidDireccion " +
+            " WHERE o.estatus = 'PUBLICADO' " +
+            " AND o.uuid = :idOfertaLaboral ")
     public QDtoDetalleOfertaLaboralAdministrador obtenerDetallesOfertaLaboral(@Param("idOfertaLaboral") UUID idOfertaLaboral);
 }
