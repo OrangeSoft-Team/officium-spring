@@ -1,5 +1,8 @@
 package com.orangesoft.officium.administadorApp.postulaciones.infraestructura;
 
+import com.orangesoft.officium.administadorApp.administrador.dominio.PersonalAdministrativo;
+import com.orangesoft.officium.administadorApp.administrador.infraestructura.mappers.MapeadorPersistenciaPersonalAdministrativo;
+import com.orangesoft.officium.administadorApp.administrador.infraestructura.persistencia.repositorios.RepositorioObtenerAdministrador;
 import com.orangesoft.officium.administadorApp.postulaciones.dominio.valueObjects.IdPostulacionOfertaLaboral;
 import com.orangesoft.officium.administadorApp.postulaciones.infraestructura.dto.DtoDetallePostulacionOfertaLaboralAdministrador;
 import com.orangesoft.officium.administadorApp.postulaciones.infraestructura.dto.DtoPostulacionesOfertaLaboralAdministrador;
@@ -7,11 +10,15 @@ import com.orangesoft.officium.administadorApp.postulaciones.infraestructura.ser
 import com.orangesoft.officium.administadorApp.postulaciones.infraestructura.servicios.ServicioDetallePostulacionOfertaLaboralAdministrador;
 import com.orangesoft.officium.administadorApp.postulaciones.infraestructura.servicios.ServicioPostulacionesOfertaLaboralAdministrador;
 import com.orangesoft.officium.administadorApp.postulaciones.infraestructura.servicios.ServicioRechazarPostulacionOfertaLaboralAdministrador;
+import com.orangesoft.officium.comun.persistencia.personalAdministrativo.PersistenciaPersonalAdministrativo;
+import com.orangesoft.officium.comun.seguridad.autenticacion.servicio.ServicioAutenticacion;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -31,13 +38,23 @@ public class ControladorPostulacionesOfertaLaboral {
     @Autowired
     private final ServicioRechazarPostulacionOfertaLaboralAdministrador servicioRechazarPostulacionOfertaLaboralAdministrador;
 
+    @Autowired
+    private final ServicioAutenticacion<PersonalAdministrativo, MapeadorPersistenciaPersonalAdministrativo, PersistenciaPersonalAdministrativo, RepositorioObtenerAdministrador> servicioAutenticacion;
+
     @GetMapping("")
-    public List<DtoPostulacionesOfertaLaboralAdministrador> obtenerPostulaciones() {
+    @ResponseStatus(HttpStatus.OK)
+    public List<DtoPostulacionesOfertaLaboralAdministrador> obtenerPostulaciones(@RequestHeader Map<String, String> headers) {
+        this.servicioAutenticacion.validarUsuario(headers.get("authorization"));
         return servicioPostulacionesOfertaLaboralAdministrador.obtenerPostulaciones();
     }
 
     @GetMapping("/{idPostulacion}")
-    public DtoDetallePostulacionOfertaLaboralAdministrador obtenerDetallesOfertaLaboralAdministrador(@PathVariable String idPostulacion) {
+    @ResponseStatus(HttpStatus.OK)
+    public DtoDetallePostulacionOfertaLaboralAdministrador obtenerDetallesOfertaLaboralAdministrador(
+            @PathVariable String idPostulacion,
+            @RequestHeader Map<String, String> headers
+    ) {
+        this.servicioAutenticacion.validarUsuario(headers.get("authorization"));
         try{
             UUID.fromString(idPostulacion);
         }catch (IllegalArgumentException e) {
@@ -47,7 +64,9 @@ public class ControladorPostulacionesOfertaLaboral {
     }
 
     @PutMapping("/{idPostulacion}/aceptar")
-    public void aceptarPostulacionOfertaLaboral(@PathVariable String idPostulacion) {
+    @ResponseStatus(HttpStatus.OK)
+    public void aceptarPostulacionOfertaLaboral(@PathVariable String idPostulacion, @RequestHeader Map<String, String> headers) {
+        this.servicioAutenticacion.validarUsuario(headers.get("authorization"));
         try{
             UUID.fromString(idPostulacion);
         }catch (IllegalArgumentException e) {
@@ -57,7 +76,9 @@ public class ControladorPostulacionesOfertaLaboral {
     }
 
     @PutMapping("/{idPostulacion}/rechazar")
-    public void rechazarPostulacionOfertaLaboral(@PathVariable String idPostulacion) {
+    @ResponseStatus(HttpStatus.OK)
+    public void rechazarPostulacionOfertaLaboral(@PathVariable String idPostulacion, @RequestHeader Map<String, String> headers) {
+        this.servicioAutenticacion.validarUsuario(headers.get("authorization"));
         try{
             UUID.fromString(idPostulacion);
         }catch (IllegalArgumentException e) {

@@ -1,0 +1,14 @@
+package com.orangesoft.officium.administadorApp.administrador.infraestructura.autenticacion;
+
+import com.orangesoft.officium.administadorApp.administrador.dominio.PersonalAdministrativo;
+import com.orangesoft.officium.administadorApp.administrador.infraestructura.mappers.MapeadorPersistenciaPersonalAdministrativo;
+import com.orangesoft.officium.administadorApp.administrador.infraestructura.persistencia.repositorios.RepositorioObtenerAdministrador;
+import com.orangesoft.officium.comun.persistencia.personalAdministrativo.PersistenciaPersonalAdministrativo;
+import com.orangesoft.officium.comun.seguridad.autenticacion.AutenticacionUsuario;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
+
+@Component
+@AllArgsConstructor
+public class AutenticacionAdministrador extends AutenticacionUsuario<PersonalAdministrativo, MapeadorPersistenciaPersonalAdministrativo, PersistenciaPersonalAdministrativo, RepositorioObtenerAdministrador> {
+}
