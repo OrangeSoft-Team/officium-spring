@@ -6,6 +6,7 @@ import com.orangesoft.officium.administadorApp.postulaciones.infraestructura.dto
 import com.orangesoft.officium.administadorApp.postulaciones.infraestructura.servicios.ServicioAceptarPostulacionOfertaLaboralAdministrador;
 import com.orangesoft.officium.administadorApp.postulaciones.infraestructura.servicios.ServicioDetallePostulacionOfertaLaboralAdministrador;
 import com.orangesoft.officium.administadorApp.postulaciones.infraestructura.servicios.ServicioPostulacionesOfertaLaboralAdministrador;
+import com.orangesoft.officium.administadorApp.postulaciones.infraestructura.servicios.ServicioRechazarPostulacionOfertaLaboralAdministrador;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +27,9 @@ public class ControladorPostulacionesOfertaLaboral {
 
     @Autowired
     private final ServicioAceptarPostulacionOfertaLaboralAdministrador servicioAceptarPostulacionOfertaLaboralAdministrador;
+
+    @Autowired
+    private final ServicioRechazarPostulacionOfertaLaboralAdministrador servicioRechazarPostulacionOfertaLaboralAdministrador;
 
     @GetMapping("")
     public List<DtoPostulacionesOfertaLaboralAdministrador> obtenerPostulaciones() {
@@ -50,5 +54,15 @@ public class ControladorPostulacionesOfertaLaboral {
             throw new RuntimeException("El codigo enviado de la postulacion no es valido");
         }
         servicioAceptarPostulacionOfertaLaboralAdministrador.aceptarPostulacion(new IdPostulacionOfertaLaboral(UUID.fromString(idPostulacion)));
+    }
+
+    @PutMapping("/{idPostulacion}/rechazar")
+    public void rechazarPostulacionOfertaLaboral(@PathVariable String idPostulacion) {
+        try{
+            UUID.fromString(idPostulacion);
+        }catch (IllegalArgumentException e) {
+            throw new RuntimeException("El codigo enviado de la postulacion no es valido");
+        }
+        servicioRechazarPostulacionOfertaLaboralAdministrador.rechazarPostulacion(new IdPostulacionOfertaLaboral(UUID.fromString(idPostulacion)));
     }
 }
