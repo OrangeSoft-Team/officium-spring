@@ -1,7 +1,9 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura;
 
 
+import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.dto.DtoConsultarDetallesOfertasLaboralesEmpleador;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.dto.DtoOfertaLaboralActivaEmpleador;
+import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.servicios.ServicioConsultarDetallesOfertasLaborales;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.servicios.ServicioOfertaLaboralActivaEmpleador;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +23,23 @@ public class ControladorOfertaLaboralEmpleador {
     @Autowired
     private ServicioOfertaLaboralActivaEmpleador servicioVerOfertasLaboralesActivasEmpleador;
 
+    @Autowired
+    private ServicioConsultarDetallesOfertasLaborales servicioConsultarDetalleOfertasLaborales;
+
     @GetMapping("/{idEmpresa}")
     public List<DtoOfertaLaboralActivaEmpleador> ofertasLaboralesActivas(@PathVariable String idEmpresa) {
         return servicioVerOfertasLaboralesActivasEmpleador.ofertasLaboralesActivas(idEmpresa);
 
+    }
+
+    @GetMapping("/{idOfertaLaboral}")
+    public DtoConsultarDetallesOfertasLaboralesEmpleador consultarDetallesOfertaLaboral(@PathVariable String idOfertaLaboral) {
+        try {
+            UUID.fromString(idOfertaLaboral);
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException("El identificador suministrado no cumple con el formato esperado");
+        }
+        return servicioConsultarDetalleOfertasLaborales.consultarDetallesOfertaLaboral(idOfertaLaboral);
     }
 
 

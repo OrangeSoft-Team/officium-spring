@@ -1,0 +1,12 @@
+package com.orangesoft.officium.empleadorApp.ofertasLaborales.aplicacion.salida;
+
+import com.orangesoft.officium.empleadorApp.Tupla.Tupla;
+import com.orangesoft.officium.empleadorApp.empresa.dominio.Empresa;
+import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjects.IdOfertaLaboral;
+import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.OfertaLaboral;
+
+import java.util.List;
+public interface PuertoConsultarDetallesOfertasLaboralesEmpleador {
+    public Tupla<Empresa,OfertaLaboral> consultarDetallesOfertasLaborales(IdOfertaLaboral idOfertaLaboral);
+
+}
