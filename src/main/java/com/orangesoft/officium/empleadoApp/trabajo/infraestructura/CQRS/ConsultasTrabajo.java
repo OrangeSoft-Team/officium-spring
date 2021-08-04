@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface ConsultasTrabajo {
     public List<TrabajosEmpleadoDTO> obtenerTrabajosEmpleado(UUID idEmpleado);
-    public DetalleTrabajoEmpleadoDTO obtenerDetalleTrabajo();
+    public DetalleTrabajoEmpleadoDTO obtenerDetalleTrabajo(UUID uuid);
 }

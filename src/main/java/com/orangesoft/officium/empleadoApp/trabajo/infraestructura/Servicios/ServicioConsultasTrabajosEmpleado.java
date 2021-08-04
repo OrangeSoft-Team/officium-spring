@@ -31,7 +31,11 @@ public class ServicioConsultasTrabajosEmpleado implements ConsultasTrabajo {
     }
 
     @Override
-    public DetalleTrabajoEmpleadoDTO obtenerDetalleTrabajo() {
+    public DetalleTrabajoEmpleadoDTO obtenerDetalleTrabajo(UUID uuid) {
+        /*return repositorioTrabajoActivos.obtenerDetalleTrabajo(idTrabajo)
+                .stream()
+                .map(mapeadorPersistenciaDTOTrabajosEmpleado::PersistenciaATrabajosEmpleadoDTO)
+                .collect(Collectors.toList());;*/
         return null;
     }
 }

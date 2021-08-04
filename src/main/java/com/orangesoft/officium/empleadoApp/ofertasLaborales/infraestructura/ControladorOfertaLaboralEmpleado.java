@@ -33,25 +33,27 @@ public class ControladorOfertaLaboralEmpleado {
     @Autowired
     private final ServicioConsultarPostulacionesOfertasLaboralesEmpleado servicioConsultarPostulacionesOfertasLaboralesEmpleado;
 
-    // TODO: Definir query strings para aplicar filtros de busqueda y encapsular a través de un comando
     @GetMapping("/")
+    @ResponseStatus(HttpStatus.OK)
     public List<DtoOfertasLaboralesActivasEmpleado> obtenerListaOfertasLaboralesActivasEmpleado() {
         return servicioObtenerListaOfertasLaboralesActivasEmpleado.obtenerListaOfertasLaboralesActivasEmpleado();
     }
 
-    // TODO: Mejorar el manejo de excepciones de aplicación
     @GetMapping("/{idOfertaLaboral}")
+    @ResponseStatus(HttpStatus.OK)
     public DtoDetalleOfertaLaboralActivaEmpleado obtenerDetallesOfertaLaboralEmpleado(@PathVariable String idOfertaLaboral) {
         return servicioObtenerDetalleOfertaLaboralEmpleado.consultarDetallesOfertaLaboral(idOfertaLaboral);
     }
 
     @PostMapping("/{idOfertaLaboral}")
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Void> postularseOfertaLaboral(@PathVariable String idOfertaLaboral, @RequestBody DtoAplicarOfertaLaboralEmpleadoEmpleado dtoAplicarOfertaLaboralEmpleadoEmpleado) {
         servicioAplicarOfertaLaboralEmpleado.aplicarOfertaLaboral(dtoAplicarOfertaLaboralEmpleadoEmpleado, idOfertaLaboral);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("/postulaciones/{idEmpleado}")
+    @ResponseStatus(HttpStatus.OK)
     public List<DtoConsultarPostulacionesOfertasLaboralesEmpleado> consultarPostulacionesOfertasLaboralesEmpleados(@PathVariable String idEmpleado) {
         return servicioConsultarPostulacionesOfertasLaboralesEmpleado.consultarPostulacionesOfertasLaboralesEmpleado(idEmpleado);
     }
