@@ -1,7 +1,9 @@
 package com.orangesoft.officium.administadorApp.postulaciones.infraestructura;
 
+import com.orangesoft.officium.administadorApp.postulaciones.dominio.valueObjects.IdPostulacionOfertaLaboral;
 import com.orangesoft.officium.administadorApp.postulaciones.infraestructura.dto.DtoDetallePostulacionOfertaLaboralAdministrador;
 import com.orangesoft.officium.administadorApp.postulaciones.infraestructura.dto.DtoPostulacionesOfertaLaboralAdministrador;
+import com.orangesoft.officium.administadorApp.postulaciones.infraestructura.servicios.ServicioDetallePostulacionOfertaLaboralAdministrador;
 import com.orangesoft.officium.administadorApp.postulaciones.infraestructura.servicios.ServicioPostulacionesOfertaLaboralAdministrador;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,10 @@ import java.util.UUID;
 public class ControladorPostulacionesOfertaLaboral {
 
     @Autowired
-    private ServicioPostulacionesOfertaLaboralAdministrador servicioPostulacionesOfertaLaboralAdministrador;
+    private final ServicioPostulacionesOfertaLaboralAdministrador servicioPostulacionesOfertaLaboralAdministrador;
+
+    @Autowired
+    private final ServicioDetallePostulacionOfertaLaboralAdministrador servicioDetallePostulacionOfertaLaboralAdministrador;
 
     @GetMapping("")
     public List<DtoPostulacionesOfertaLaboralAdministrador> obtenerPostulaciones() {
@@ -33,6 +38,6 @@ public class ControladorPostulacionesOfertaLaboral {
         }catch (IllegalArgumentException e) {
             throw new RuntimeException("El codigo enviado de la postulacion no es valido");
         }
-        return null;
+        return servicioDetallePostulacionOfertaLaboralAdministrador.obtenerDetalles(new IdPostulacionOfertaLaboral(UUID.fromString(idPostulacion)));
     }
 }
