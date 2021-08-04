@@ -1,7 +1,7 @@
-package com.orangesoft.officium.empleadorApp.habilidad.valueObjects;
+package com.orangesoft.officium.empleadorApp.habilidad.dominio.valueObjects;
 
-import com.orangesoft.officium.empleadorApp.habilidad.Excepciones.ExcepcionNombreHabilidadInvalido;
-import com.orangesoft.officium.empleadorApp.habilidad.Excepciones.ExcepcionNombreHabilidadNoNull;
+import com.orangesoft.officium.empleadorApp.habilidad.dominio.Excepciones.ExcepcionNombreHabilidadInvalido;
+import com.orangesoft.officium.empleadorApp.habilidad.dominio.Excepciones.ExcepcionNombreHabilidadNoNull;
 
 public class NombreHabilidad {
     private final String nombreHabilidad;

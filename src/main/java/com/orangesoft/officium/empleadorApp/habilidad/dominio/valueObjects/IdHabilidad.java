@@ -1,6 +1,6 @@
-package com.orangesoft.officium.empleadorApp.habilidad.valueObjects;
+package com.orangesoft.officium.empleadorApp.habilidad.dominio.valueObjects;
 
-import com.orangesoft.officium.empleadorApp.habilidad.Excepciones.ExcepcionIdHabilidadNoNull;
+import com.orangesoft.officium.empleadorApp.habilidad.dominio.Excepciones.ExcepcionIdHabilidadNoNull;
 
 public class IdHabilidad {
     private final String idHabilidad;

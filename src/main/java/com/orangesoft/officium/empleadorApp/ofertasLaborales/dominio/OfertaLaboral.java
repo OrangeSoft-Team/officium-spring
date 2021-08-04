@@ -1,7 +1,7 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.excepciones.ExcepcionIdEmpresaNulo;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.valueObjects.IdEmpresa;
-import com.orangesoft.officium.empleadorApp.habilidad.Excepciones.ExcepcionIdHabilidadNoNull;
+import com.orangesoft.officium.empleadorApp.habilidad.dominio.Excepciones.ExcepcionIdHabilidadNoNull;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjects.RequisitosEspeciales;
 import com.orangesoft.officium.empleadorApp.habilidad.Habilidad;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.excepciones.*;

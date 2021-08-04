@@ -1,7 +1,7 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.mappers;
 
 import com.orangesoft.officium.empleadorApp.habilidad.Habilidad;
-import com.orangesoft.officium.empleadorApp.habilidad.valueObjects.IdHabilidad;
+import com.orangesoft.officium.empleadorApp.habilidad.dominio.valueObjects.IdHabilidad;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjects.EnumDuracionEstimada;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjects.EnumEstadoOfertaLaboral;

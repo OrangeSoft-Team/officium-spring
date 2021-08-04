@@ -1,10 +1,9 @@
 package com.orangesoft.officium.empleadorApp.empresa.dominio;
 
-import com.orangesoft.officium.empleadorApp.direccion.Direccion;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.excepciones.*;
 import com.orangesoft.officium.empleadorApp.empresa.dominio.valueObjects.*;
 
-import com.orangesoft.officium.empleadorApp.habilidad.Excepciones.ExcepcionNombreHabilidadNoNull;
+import com.orangesoft.officium.empleadorApp.habilidad.dominio.Excepciones.ExcepcionNombreHabilidadNoNull;
 import com.orangesoft.officium.empleadorApp.habilidad.Habilidad;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.OfertaLaboral;
 import com.orangesoft.officium.empleadorApp.opinion.Opinion;
@@ -13,7 +12,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.management.Notification;
 import java.util.List;
 
 @EqualsAndHashCode

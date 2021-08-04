@@ -1,4 +1,4 @@
-package com.orangesoft.officium.empleadorApp.habilidad.Excepciones;
+package com.orangesoft.officium.empleadorApp.habilidad.dominio.Excepciones;
 
 public class ExcepcionCategoriaHabilidadNoNull extends RuntimeException{
     public ExcepcionCategoriaHabilidadNoNull(){

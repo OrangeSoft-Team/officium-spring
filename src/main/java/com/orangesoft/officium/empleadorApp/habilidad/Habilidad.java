@@ -1,8 +1,8 @@
 package com.orangesoft.officium.empleadorApp.habilidad;
 
-import com.orangesoft.officium.empleadorApp.habilidad.valueObjects.Categoria;
-import com.orangesoft.officium.empleadorApp.habilidad.valueObjects.IdHabilidad;
-import com.orangesoft.officium.empleadorApp.habilidad.valueObjects.NombreHabilidad;
+import com.orangesoft.officium.empleadorApp.habilidad.dominio.valueObjects.Categoria;
+import com.orangesoft.officium.empleadorApp.habilidad.dominio.valueObjects.IdHabilidad;
+import com.orangesoft.officium.empleadorApp.habilidad.dominio.valueObjects.NombreHabilidad;
 
 public class Habilidad {
     private IdHabilidad idHabilidad;

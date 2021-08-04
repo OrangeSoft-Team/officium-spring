@@ -1,7 +1,7 @@
-package com.orangesoft.officium.empleadorApp.habilidad.valueObjects;
+package com.orangesoft.officium.empleadorApp.habilidad.dominio.valueObjects;
 
-import com.orangesoft.officium.empleadorApp.habilidad.Excepciones.ExcepcionCategoriaHabilidadInvalida;
-import com.orangesoft.officium.empleadorApp.habilidad.Excepciones.ExcepcionCategoriaHabilidadNoNull;
+import com.orangesoft.officium.empleadorApp.habilidad.dominio.Excepciones.ExcepcionCategoriaHabilidadInvalida;
+import com.orangesoft.officium.empleadorApp.habilidad.dominio.Excepciones.ExcepcionCategoriaHabilidadNoNull;
 
 public class Categoria {
     private final String categoria;

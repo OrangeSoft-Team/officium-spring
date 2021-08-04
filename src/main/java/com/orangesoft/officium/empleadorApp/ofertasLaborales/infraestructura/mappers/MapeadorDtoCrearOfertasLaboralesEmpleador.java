@@ -1,5 +1,4 @@
 package com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.mappers;
-
 import com.orangesoft.officium.empleadorApp.empresa.dominio.Empresa;
 import com.orangesoft.officium.empleadorApp.habilidad.Habilidad;
 import com.orangesoft.officium.empleadorApp.habilidad.dominio.valueObjects.IdHabilidad;
@@ -8,6 +7,7 @@ import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObject
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjects.EnumEstadoOfertaLaboral;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.dominio.valueObjects.EnumTurnoTrabajo;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.dto.DtoConsultarDetallesOfertasLaboralesEmpleador;
+import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.dto.DtoCrearOfertaLaboralEmpleador;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -17,22 +17,20 @@ import java.util.UUID;
         IdHabilidad.class, Habilidad.class, EnumTurnoTrabajo.class, EnumEstadoOfertaLaboral.class, OfertaLaboral.class, EnumDuracionEstimada.class
 
 })
-public abstract class MapeadorDtoConsultarOfertasLaboralesEmpleador {
-    @Mapping(target = "uuid", expression = "java(ofertaLaboral.getIdOfertaLaboral().getIdOfertaLaboral())")
+public abstract class MapeadorDtoCrearOfertasLaboralesEmpleador {
     @Mapping(target = "titulo", expression = "java(ofertaLaboral.getTitulo().getTitulo())")
-    @Mapping(target = "fechaPublicacion", expression = "java(ofertaLaboral.getFechaPublicacion().getFechaPublicacion())")
-    @Mapping(target = "cargo", expression = "java(ofertaLaboral.getCargo().getCargo())")
-    @Mapping(target = "sueldo", expression = "java(ofertaLaboral.getSueldo().getSueldo())")
+     @Mapping(target = "cargo", expression = "java(ofertaLaboral.getCargo().getCargo())")
+    @Mapping(target = "sueldo", expression = "java(Integer.parseInt(ofertaLaboral.getSueldo().toString()))")
+    @Mapping(target = "descripcion", expression = "java(ofertaLaboral.getDescripcion().toString())")
     @Mapping(target = "duracionEstimadaValor", expression = "java(Integer.parseInt(ofertaLaboral.getDuracionEstimada().toString()))")
     @Mapping(target = "duracionEstimadaEscala", expression = "java(ofertaLaboral.getDuracionEstimada().toString())")
     @Mapping(target = "turnoTrabajo", expression = "java(ofertaLaboral.getTurnoTrabajo().getTurnoTrabajo().toString())")
     @Mapping(target = "numeroVacantes", expression = "java(ofertaLaboral.getNumeroVacantes().getNumeroVacantes())")
-    @Mapping(target = "estado", expression = "java(ofertaLaboral.getEstado().getEstado().toString())")
     @Mapping(target = "requisitosEspeciales", expression = "java(ofertaLaboral.getRequisitosEspeciales().toString())")
     @Mapping(target = "uuidHabilidad", expression = "java(ofertaLaboral.getHabilidads().toString())")
     @Mapping(target = "nombreHabilidad", expression = "java(ofertaLaboral.getHabilidads().toString())")
     @Mapping(target = "nombreCategoriaHabilidad", expression = "java(ofertaLaboral.getHabilidads().toString())")
-    public abstract DtoConsultarDetallesOfertasLaboralesEmpleador mapOfertaLaboralConsultarDetallesDto(Empresa empresa, OfertaLaboral ofertaLaboral);
+    public abstract DtoCrearOfertaLaboralEmpleador mapCrearOfertaLaboralAdto(Empresa empresa, OfertaLaboral ofertaLaboral);
 
 
     @Mapping(target = "titulo", expression = "java(new Titulo(dtoOfertasLaboralesConsultarDetallesEmpleador.getTitulo()))")
