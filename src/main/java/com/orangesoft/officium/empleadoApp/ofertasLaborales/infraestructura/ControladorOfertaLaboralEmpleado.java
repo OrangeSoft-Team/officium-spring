@@ -47,7 +47,7 @@ public class ControladorOfertaLaboralEmpleado {
 
     @PostMapping("/{idOfertaLaboral}")
     public ResponseEntity<Void> postularseOfertaLaboral(@PathVariable String idOfertaLaboral, @RequestBody DtoAplicarOfertaLaboralEmpleadoEmpleado dtoAplicarOfertaLaboralEmpleadoEmpleado) {
-        servicioAplicarOfertaLaboralEmpleado.aplicarOfertaLaboral(dtoAplicarOfertaLaboralEmpleadoEmpleado.getUuidEmpleado().toString(), dtoAplicarOfertaLaboralEmpleadoEmpleado.getUuidEmpresa().toString(), idOfertaLaboral);
+        servicioAplicarOfertaLaboralEmpleado.aplicarOfertaLaboral(dtoAplicarOfertaLaboralEmpleadoEmpleado, idOfertaLaboral);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
