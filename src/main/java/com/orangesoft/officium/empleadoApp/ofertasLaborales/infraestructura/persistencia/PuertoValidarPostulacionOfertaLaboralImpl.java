@@ -3,6 +3,8 @@ package com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.per
 import com.orangesoft.officium.comun.generics.Tupla;
 import com.orangesoft.officium.comun.generics.TuplaOfertaLaboralEmpleado;
 import com.orangesoft.officium.comun.persistencia.ofertaLaboral.PersistenciaOfertaLaboral;
+import com.orangesoft.officium.comun.persistencia.postulacionOfertaLaboral.PersistenciaPostulacionOfertaLaboral;
+import com.orangesoft.officium.comun.persistencia.trabajo.PersistenciaTrabajo;
 import com.orangesoft.officium.comun.ubicacion.infraestructura.persistencia.repositorios.RepositorioDireccion;
 import com.orangesoft.officium.empleadoApp.empleado.dominio.Empleado;
 import com.orangesoft.officium.empleadoApp.empleado.dominio.values.IdEmpleado;
@@ -13,9 +15,13 @@ import com.orangesoft.officium.empleadoApp.empresa.dominio.value.IdEmpresa;
 import com.orangesoft.officium.comun.persistencia.empresa.PersistenciaEmpresa;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.salida.PuertoValidarPostulacionOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.OfertaLaboral;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.PostulacionOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.IdOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.mapeadores.MapeadorPersistenciaOfertaLaboral;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.mapeadores.MapeadorPersistenciaPostulacionOfertaLaboral;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.repositorios.RepositorioDetallesOfertaLaboral;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.repositorios.RepositorioPostulacionesOfertaLaborales;
+import com.orangesoft.officium.empleadoApp.trabajo.infraestructura.repositorio.RepositorioTrabajoActivos;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -35,6 +41,12 @@ public class PuertoValidarPostulacionOfertaLaboralImpl implements PuertoValidarP
     private final MapeadorPersistenciaEmpleado mapeadorPersistenciaEmpleado;
     @Autowired
     private final RepositorioDireccion repositorioDireccion;
+    @Autowired
+    private final RepositorioPostulacionesOfertaLaborales postulacionesOfertaLaborales;
+    @Autowired
+    private final MapeadorPersistenciaPostulacionOfertaLaboral mapeadorPersistenciaPostulacionOfertaLaboral;
+    @Autowired
+    private final RepositorioTrabajoActivos repositorioTrabajoActivos;
 
     @Override
     public Tupla<OfertaLaboral, Empleado> validarPostulacionOfertaLaboral(IdEmpleado idEmpleado, IdEmpresa idEmpresa, IdOfertaLaboral idOfertaLaboral) {
@@ -46,7 +58,13 @@ public class PuertoValidarPostulacionOfertaLaboralImpl implements PuertoValidarP
                 mapeadorPersistenciaEmpleado.mapPersistenciaAEmpleado(persistenciaEmpleado, repositorioDireccion.buscarDireccionIdEmpleado(persistenciaEmpleado.getUuid())));
     }
 
-    private boolean validarOfertalaboral() {
-        return false;
+    @Override
+    public PostulacionOfertaLaboral validarSiYaSePostuloElEmpleado(IdEmpleado idEmpleado, IdOfertaLaboral idOfertaLaboral) {
+        PersistenciaPostulacionOfertaLaboral persistenciaOfertaLaboral = postulacionesOfertaLaborales.obtenerPostulacionOfertaLaboral(idEmpleado.getIdEmpleado(), idOfertaLaboral.getIdOfertaLaboral());
+        PersistenciaTrabajo persistenciaTrabajo = repositorioTrabajoActivos.obtenerTrabajosActivosEmpleado(idEmpleado.getIdEmpleado());
+        if(persistenciaOfertaLaboral == null && persistenciaTrabajo == null)
+            return null;
+        return mapeadorPersistenciaPostulacionOfertaLaboral.PersistenciaAPostulacionOfertaLaboral(persistenciaOfertaLaboral);
     }
+
 }

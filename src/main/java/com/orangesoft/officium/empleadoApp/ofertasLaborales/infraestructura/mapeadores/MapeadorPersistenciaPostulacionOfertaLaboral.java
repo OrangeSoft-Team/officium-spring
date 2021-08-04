@@ -26,18 +26,21 @@ import java.util.UUID;
 public abstract class MapeadorPersistenciaPostulacionOfertaLaboral {
         @Mapping(target = "idPostulacionOfertaLaboral", expression = "java(new IdPostulacionOfertaLaboral(persistenciaPostulacionOfertaLaboral.getUuid()))")
         @Mapping(target = "fechaPostulacionOfertaLaboral", expression = "java(new FechaPostulacionOfertaLaboral(persistenciaPostulacionOfertaLaboral.getFechaPostulacion()))")
-        @Mapping(target = "estadoPostulacionOfertaLaboral", expression = "java(new EstadoPostulacionOfertaLaboral(EnumEstatusPostulacionOfertaLaboral.valueOf(persistenciaPostulacionOfertaLaboral.getEstatus())))")
+        @Mapping(target = "estadoPostulacionOfertaLaboral", expression = "java(new EstadoPostulacionOfertaLaboral(convierte(persistenciaPostulacionOfertaLaboral.getEstatus())))")
         @Mapping(target = "idOfertaLaboral", expression = "java(new IdOfertaLaboral(persistenciaPostulacionOfertaLaboral.getUuidOferta()))")
         @Mapping(target = "idEmpleado", expression = "java(new IdEmpleado(persistenciaPostulacionOfertaLaboral.getUuidEmpleado()))")
         @Mapping(target = "comentarioPostulacionOfertaLaboral", expression = "java(new ComentarioPostulacionOfertaLaboral(persistenciaPostulacionOfertaLaboral.getComentario()))")
         public abstract PostulacionOfertaLaboral PersistenciaAPostulacionOfertaLaboral(PersistenciaPostulacionOfertaLaboral persistenciaPostulacionOfertaLaboral);
 
-        @Mapping(target = "uuid", expression = "java(postulacionOfertaLaboral.getIdOfertaLaboral().getIdOfertaLaboral())")
+        @Mapping(target = "uuid", expression = "java(postulacionOfertaLaboral.getIdPostulacionOfertaLaboral().getUuid())")
         @Mapping(target = "fechaPostulacion", expression = "java(postulacionOfertaLaboral.getFechaPostulacionOfertaLaboral().getFechaPostulacion())")
-        @Mapping(target = "estatus", expression = "java(postulacionOfertaLaboral.getEstadoPostulacionOfertaLaboral().getEstado().toString())")
+        @Mapping(target = "estatus", expression = "java(postulacionOfertaLaboral.getEstadoPostulacionOfertaLaboral().getEstado() == EnumEstatusPostulacionOfertaLaboral.EN_PROCESO ?  \"EN PROCESO\" : postulacionOfertaLaboral.getEstadoPostulacionOfertaLaboral().getEstado().toString())")
         @Mapping(target = "uuidOferta", expression = "java(postulacionOfertaLaboral.getIdOfertaLaboral().getIdOfertaLaboral())")
-        @Mapping(target = "uuidEmpleado", expression = "java(postulacionOfertaLaboral.getIdOfertaLaboral().getIdOfertaLaboral())")
+        @Mapping(target = "uuidEmpleado", expression = "java(postulacionOfertaLaboral.getIdEmpleado().getIdEmpleado())")
         @Mapping(target = "comentario", expression = "java(postulacionOfertaLaboral.getComentarioPostulacionOfertaLaboral().getComentario())")
         public abstract PersistenciaPostulacionOfertaLaboral PostulacionOfertaLaboralAPersistencia(PostulacionOfertaLaboral postulacionOfertaLaboral);
 
+        protected EnumEstatusPostulacionOfertaLaboral convierte(String string) {
+               return string.equals("EN PROCESO") ? EnumEstatusPostulacionOfertaLaboral.EN_PROCESO : EnumEstatusPostulacionOfertaLaboral.valueOf(string);
+        }
 }
