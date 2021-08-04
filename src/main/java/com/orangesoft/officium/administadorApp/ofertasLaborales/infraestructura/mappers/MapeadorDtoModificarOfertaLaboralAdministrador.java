@@ -52,7 +52,7 @@ public abstract class MapeadorDtoModificarOfertaLaboralAdministrador {
 //    public abstract DtoModificarOfertaLaboralAdministrador mapOfertaLaboralADto(OfertaLaboral ofertaLaboral);
 
     @Mapping(target = "idOfertaLaboral", expression = "java(new IdOfertaLaboral(UUID.randomUUID()))")
-    @Mapping(target = "idEmpresaOfertaLaboral", expression = "java(new IdEmpresa(UUID.randomUUID().toString()))")
+    @Mapping(target = "idEmpresaOfertaLaboral", expression = "java(new IdEmpresa(UUID.randomUUID()))")
     @Mapping(target = "tituloOfertaLaboral", expression = "java(new TituloOfertaLaboral(dtoModificarOfertaLaboralAdministrador.getTitulo()))")
     @Mapping(target = "fechaPublicacionOfertaLaboral", expression = "java(new FechaOfertaLaboral( DateTimeFormatter.ofPattern(\"yyyy-MM-dd\").withZone( ZoneId.systemDefault() ).format(  LocalDateTime.now()  ) ))")
     @Mapping(target = "fechaUltimaModificacionOfertaLaboral", expression = "java(new FechaOfertaLaboral( DateTimeFormatter.ofPattern(\"yyyy-MM-dd\").withZone( ZoneId.systemDefault() ).format(  LocalDateTime.now()  ) ))")

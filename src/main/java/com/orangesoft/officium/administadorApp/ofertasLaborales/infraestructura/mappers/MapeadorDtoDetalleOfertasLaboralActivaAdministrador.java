@@ -27,7 +27,7 @@ public abstract class MapeadorDtoDetalleOfertasLaboralActivaAdministrador {
     @Mapping(target = "duracionEstimadaEscala", expression = "java(ofertaLaboral.getDuracionEstimadaOfertaLaboral().getPeriodoTiempoOfertaLaboral().toString())")
     @Mapping(target = "turnoTrabajo", expression = "java(ofertaLaboral.getTurnoTrabajoOfertaLaboral().getTurnoTrabajoOfertaLaboral().toString())")
     @Mapping(target = "numeroVacantes", expression = "java(ofertaLaboral.getNumeroVacantesOfertaLaboral().getNumeroVacantesOfertaLaboral())")
-    @Mapping(target = "uuidEmpresa", expression = "java(ofertaLaboral.getIdEmpresaOfertaLaboral().getIdEmpresa())")
+    @Mapping(target = "uuidEmpresa", expression = "java(ofertaLaboral.getIdEmpresaOfertaLaboral().getIdEmpresa().toString())")
     @Mapping(target = "empresaNombre", expression = "java(ofertaLaboral.getNombreEmpresaOfertaLaboral().getNombreEmpresa())")
     @Mapping(target = "direccionEmpresa", expression = "java(ofertaLaboral.getDireccionOfertaLaboral().toString())")
     public abstract DtoDetalleOfertaLaboralActivaAdministrador mapOfertaLaboralADto(OfertaLaboral ofertaLaboral);
@@ -42,7 +42,7 @@ public abstract class MapeadorDtoDetalleOfertasLaboralActivaAdministrador {
     @Mapping(target = "duracionEstimadaOfertaLaboral", expression = "java(new DuracionEstimadaOfertaLaboral(dtoDetalleOfertaLaboralActivaAdministrador.getDuracionEstimadaValor(), EnumEscalaDuracionOfertaLaboral.valueOf(dtoDetalleOfertaLaboralActivaAdministrador.getDuracionEstimadaEscala())))")
     @Mapping(target = "turnoTrabajoOfertaLaboral", expression = "java(new TurnoTrabajoOfertaLaboral(EnumTurnoOfertaLaboral.valueOf(dtoDetalleOfertaLaboralActivaAdministrador.getTurnoTrabajo())))")
     @Mapping(target = "numeroVacantesOfertaLaboral", expression = "java(new NumeroVacantesOfertaLaboral(dtoDetalleOfertaLaboralActivaAdministrador.getNumeroVacantes()))")
-    @Mapping(target = "idEmpresaOfertaLaboral", expression = "java(new IdEmpresa(dtoDetalleOfertaLaboralActivaAdministrador.getUuidEmpresa()))")
+    @Mapping(target = "idEmpresaOfertaLaboral", expression = "java(new IdEmpresa(UUID.fromString(dtoDetalleOfertaLaboralActivaAdministrador.getUuidEmpresa())))")
     @Mapping(target = "nombreEmpresaOfertaLaboral", expression = "java(new NombreEmpresa(dtoDetalleOfertaLaboralActivaAdministrador.getEmpresaNombre()))")
     @Mapping(target = "requisitosEspecialesOfertaLaboral", expression = "java(new RequisitosEspecialesOfertaLaboral(dtoDetalleOfertaLaboralActivaAdministrador.getRequisitosEspeciales()))")
     // TODO Verificar si es necesario colocar la asignacion de habilidades

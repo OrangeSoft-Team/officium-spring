@@ -40,7 +40,7 @@ import java.util.UUID;
         RequisitosEspecialesOfertaLaboral.class,
         EnumTurnoOfertaLaboral.class})
 public abstract class MapeadorQDtoDetalleOfertaLaboralAdministrador {
-    @Mapping(target = "idEmpresaOfertaLaboral", expression = "java(new IdEmpresa(qDtoDetalleOfertaLaboral.getUuidEmpresa().toString()))")
+    @Mapping(target = "idEmpresaOfertaLaboral", expression = "java(new IdEmpresa(qDtoDetalleOfertaLaboral.getUuidEmpresa()))")
     @Mapping(target = "idOfertaLaboral", expression = "java(new IdOfertaLaboral(qDtoDetalleOfertaLaboral.getUuid()))")
     @Mapping(target = "tituloOfertaLaboral", expression = "java(new TituloOfertaLaboral(qDtoDetalleOfertaLaboral.getTitulo()))")
     @Mapping(target = "cargoOfertaLaboral", expression = "java(new CargoOfertaLaboral(qDtoDetalleOfertaLaboral.getCargo()))")

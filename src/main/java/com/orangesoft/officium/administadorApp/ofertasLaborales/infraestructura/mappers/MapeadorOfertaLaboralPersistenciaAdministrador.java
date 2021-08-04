@@ -32,7 +32,7 @@ public abstract class MapeadorOfertaLaboralPersistenciaAdministrador {
     @Mapping(target = "turnoTrabajo", expression = "java(ofertaLaboral.getTurnoTrabajoOfertaLaboral().getTurnoTrabajoOfertaLaboral().toString())")
     @Mapping(target = "numeroVacantes", expression = "java(ofertaLaboral.getNumeroVacantesOfertaLaboral().getNumeroVacantesOfertaLaboral())")
     @Mapping(target = "estatus", expression = "java(ofertaLaboral.getEstadoOfertaLaboral().getEstadoOfertaLaboral().toString())")
-    @Mapping(target = "uuidEmpresa", expression = "java(UUID.fromString(ofertaLaboral.getIdEmpresaOfertaLaboral().getIdEmpresa()))")
+    @Mapping(target = "uuidEmpresa", expression = "java(ofertaLaboral.getIdEmpresaOfertaLaboral().getIdEmpresa())")
     @Mapping(target = "requisitosEspeciales", expression = "java(ofertaLaboral.getRequisitosEspecialesOfertaLaboral().getRequisitosEspeciales())")
     public abstract PersistenciaOfertaLaboral ofertaLaboralAPersistencia(OfertaLaboral ofertaLaboral);
 }

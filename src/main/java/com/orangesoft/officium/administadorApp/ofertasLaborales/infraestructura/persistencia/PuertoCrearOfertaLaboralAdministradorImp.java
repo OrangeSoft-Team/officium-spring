@@ -36,7 +36,7 @@ public class PuertoCrearOfertaLaboralAdministradorImp implements PuertoCrearOfer
 
     @Override
     public void crearOfertaLaboral(OfertaLaboral ofertaLaboral) {
-        if (repositorioEmpresa.getPersistenciaEmpresaByUuid(UUID.fromString(ofertaLaboral.getIdEmpresaOfertaLaboral().getIdEmpresa())) == null) {
+        if (repositorioEmpresa.getPersistenciaEmpresaByUuid(ofertaLaboral.getIdEmpresaOfertaLaboral().getIdEmpresa()) == null) {
             throw new RuntimeException("Empresa no encontrada");
         }
         repositorioCrearOfertaLaboral.save(

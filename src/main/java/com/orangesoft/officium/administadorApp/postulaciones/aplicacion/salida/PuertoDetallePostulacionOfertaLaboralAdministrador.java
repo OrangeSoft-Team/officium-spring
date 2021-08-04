@@ -1,0 +1,8 @@
+package com.orangesoft.officium.administadorApp.postulaciones.aplicacion.salida;
+
+import com.orangesoft.officium.administadorApp.postulaciones.dominio.PostulacionOfertaLaboralAdministrador;
+import com.orangesoft.officium.administadorApp.postulaciones.dominio.valueObjects.IdPostulacionOfertaLaboral;
+
+public interface PuertoDetallePostulacionOfertaLaboralAdministrador {
+    public PostulacionOfertaLaboralAdministrador obtenerDetallePostulacion(IdPostulacionOfertaLaboral idPostulacionOfertaLaboral);
+}
