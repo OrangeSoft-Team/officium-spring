@@ -5,6 +5,7 @@ import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.dto
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.dto.DtoOfertaLaboralActivaEmpleador;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.servicios.ServicioConsultarDetallesOfertasLaborales;
 import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.servicios.ServicioOfertaLaboralActivaEmpleador;
+import com.orangesoft.officium.empleadorApp.ofertasLaborales.infraestructura.servicios.ServicioOfertaLaboralInactivaEmpleador;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,11 +27,21 @@ public class ControladorOfertaLaboralEmpleador {
     @Autowired
     private ServicioConsultarDetallesOfertasLaborales servicioConsultarDetalleOfertasLaborales;
 
+    @Autowired
+    private ServicioOfertaLaboralInactivaEmpleador servicioVerOfertasLaboralesInactivasEmpleador;
+
+
     @GetMapping("/{idEmpresa}")
     public List<DtoOfertaLaboralActivaEmpleador> ofertasLaboralesActivas(@PathVariable String idEmpresa) {
         return servicioVerOfertasLaboralesActivasEmpleador.ofertasLaboralesActivas(idEmpresa);
 
     }
+
+   /* @GetMapping("/{idEmpresa}")
+    public List<DtoOfertaLaboralActivaEmpleador> ofertasLaboralesInactivas(@PathVariable String idEmpresa) {
+        return servicioVerOfertasLaboralesInactivasEmpleador.ofertasLaboralesInactivas(idEmpresa);
+
+    }8*/
 
     @GetMapping("/{idOfertaLaboral}")
     public DtoConsultarDetallesOfertasLaboralesEmpleador consultarDetallesOfertaLaboral(@PathVariable String idOfertaLaboral) {
