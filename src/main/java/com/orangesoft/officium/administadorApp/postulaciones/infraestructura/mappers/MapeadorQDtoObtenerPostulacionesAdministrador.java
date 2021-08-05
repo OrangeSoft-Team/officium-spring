@@ -26,11 +26,13 @@ import org.mapstruct.Mapping;
         ComentarioPostulacionOfertaLaboral.class
 })
 public abstract class MapeadorQDtoObtenerPostulacionesAdministrador {
+    protected final String WHITE_ESPACE = " ";
+    protected final String UNDERSCORE = "_";
     @Mapping(target = "idPostulacion", expression = "java(new IdPostulacionOfertaLaboral(qDtoObtenerPostulacionesAdministrador.getUuid()))")
     @Mapping(target = "idOfertaLaboral", expression = "java(new IdOfertaLaboral(qDtoObtenerPostulacionesAdministrador.getUuidOferta()))")
     @Mapping(target = "tituloOfertaLaboral", expression = "java(new TituloOfertaLaboral(qDtoObtenerPostulacionesAdministrador.getTituloOferta()))")
     @Mapping(target = "cargoOfertaLaboral", expression = "java(new CargoOfertaLaboral(qDtoObtenerPostulacionesAdministrador.getCargoOferta()))")
-    @Mapping(target = "estatusPostulacionOfertaLaboral", expression = "java(EnumEstatusPostulacionOfertaLaboral.valueOf(qDtoObtenerPostulacionesAdministrador.getEstatus()))")
+    @Mapping(target = "estatusPostulacionOfertaLaboral", expression = "java(EnumEstatusPostulacionOfertaLaboral.valueOf(qDtoObtenerPostulacionesAdministrador.getEstatus().replace(this.WHITE_ESPACE, this.UNDERSCORE)))")
     //@Mapping(target = "idEmpresa", expression = "java(new IdEmpresa(qDtoObtenerPostulacionesAdministrador.getCargoOferta()))")
     @Mapping(target = "nombreEmpresa", expression = "java(new NombreEmpresa(qDtoObtenerPostulacionesAdministrador.getNombreEmpresa()))")
     //@Mapping(target = "idEmpleado", expression = "java(new IdEmpleado(qDtoObtenerPostulacionesAdministrador.getCargoOferta()))")
