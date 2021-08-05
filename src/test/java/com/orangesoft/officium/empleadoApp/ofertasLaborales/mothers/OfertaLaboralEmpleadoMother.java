@@ -1,17 +1,34 @@
 package com.orangesoft.officium.empleadoApp.ofertasLaborales.mothers;
 
+import com.orangesoft.officium.comun.dominio.habilidad.dominio.Habilidad;
+import com.orangesoft.officium.comun.dominio.ofertaLaboral.EnumEscalaDuracionOfertaLaboral;
+import com.orangesoft.officium.comun.dominio.ofertaLaboral.EnumEstatusOfertaLaboral;
+import com.orangesoft.officium.comun.dominio.ofertaLaboral.EnumTurnoOfertaLaboral;
 import com.orangesoft.officium.comun.generics.Tupla;
+import com.orangesoft.officium.comun.generics.TuplaEmpresaOfertaLaboral;
+import com.orangesoft.officium.comun.generics.TuplaOfertaLaboral;
+import com.orangesoft.officium.comun.generics.TuplaPersistenciaEmpresaOferta;
 import com.orangesoft.officium.comun.persistencia.ofertaLaboral.PersistenciaOfertaLaboral;
+import com.orangesoft.officium.comun.ubicacion.dominio.Direccion;
+import com.orangesoft.officium.comun.ubicacion.dominio.valueObjects.*;
 import com.orangesoft.officium.empleadoApp.empresa.dominio.Empresa;
 import com.orangesoft.officium.empleadoApp.empresa.dominio.value.*;
 import com.orangesoft.officium.comun.persistencia.empresa.PersistenciaEmpresa;
+import com.orangesoft.officium.empleadoApp.moneda.dominio.EnumMoneda;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.OfertaLaboral;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.PostulacionOfertaLaboral;
+import com.orangesoft.officium.empleadoApp.ofertasLaborales.dominio.value.*;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.dto.DtoDetalleOfertaLaboralActivaEmpleado;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.dto.DtoOfertasLaboralesActivasEmpleado;
 import com.orangesoft.officium.empleadoApp.ofertasLaborales.infraestructura.persistencia.query.QDtoOfertasLaboralesActivas;
 import lombok.Getter;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.UUID;
 
 @Getter
@@ -19,6 +36,8 @@ public class OfertaLaboralEmpleadoMother {
     private final UUID empresaUUID = UUID.randomUUID();
     private final UUID ofertaUUID =  UUID.randomUUID();
     private final Instant fechaCreacion = Instant.now();
+    private final Direccion direccion = new Direccion(new IdDireccion(UUID.randomUUID()), new CalleUnoDireccion("Ninguno"), new CalleDosDireccion("Ninguno"), new CodigoPostalDireccion("Ninguno"), new IdCiudad(UUID.randomUUID()));
+    private final UUID uuidPostulacion = UUID.randomUUID();
 
     public DtoOfertasLaboralesActivasEmpleado obtenerDtoOfertaLaboralPython() {
         return new DtoOfertasLaboralesActivasEmpleado(
@@ -37,7 +56,7 @@ public class OfertaLaboralEmpleadoMother {
     }
 
     public DtoDetalleOfertaLaboralActivaEmpleado obtenerDtoDetallesOfertaLaboralPython() {
-        /*return new DtoDetalleOfertaLaboralActivaEmpleado(
+        return new DtoDetalleOfertaLaboralActivaEmpleado(
                 ofertaUUID.toString(),
                 "Se busca desarrollador en Python",
                 fechaCreacion.toString(),
@@ -50,132 +69,130 @@ public class OfertaLaboralEmpleadoMother {
                 "HORA",
                 "DIURNO",
                 2,
-                empresaUUID.toString(),
+                "Ninguno",
+                "Ninguno",
+                 empresaUUID.toString(),
                 "Cobras y lagartos SoftwareFactory",
-                "Todos los caminos llevan a Roma"
-        );*/
-        return  null;
+                "Todos los caminos llevan a Roma",
+                new ArrayList<>()
+        );
     }
 
     public Tupla<NombreEmpresa,OfertaLaboral> obtenerEntidadOfertaLaboralPython() {
-        return null;
-        /*new TuplaOfertaLaboral(new NombreEmpresa("Cobras y lagartos SoftwareFactory"),new OfertaLaboral(
-                new IdEmpresa(empresaUUID.toString()),
+        return new TuplaOfertaLaboral(new NombreEmpresa("Cobras y lagartos SoftwareFactory"),
+                new OfertaLaboral(
+                new IdEmpresa(empresaUUID),
                 new IdOfertaLaboral(ofertaUUID),
                 new TituloOfertaLaboral("Se busca desarrollador en Python"),
+                new FechaPublicacionOfertaLaboral(fechaCreacion,null, fechaCreacion),
                 new CargoOfertaLaboral("Desarrollador 2"),
-                new FechaPublicacionOfertaLaboral(fechaCreacion,null),
                 new SueldoOfertaLaboral(8320.00f, EnumMoneda.USD),
                 new DescripcionOfertaLaboral("Se busca desarrollador en Python sin conocimientos de principios SOLID y con 10 años de experiencia"),
-                new DuracionEstimadaOfertaLaboral(50, EnumEscalaTiempo.HORA),
-                new TurnoTrabajoOfertaLaboral(EnumTurnoTrabajo.DIURNO),
+                new DuracionEstimadaOfertaLaboral(50, EnumEscalaDuracionOfertaLaboral.DIA),
+                new TurnoTrabajoOfertaLaboral(EnumTurnoOfertaLaboral.DIURNO),
                 new NumeroVacantes(2),
-                new EstadoOfertaLaboral(EnumEstadoOfertaLaboral.PUBLICADA)
+                new RequisitosEspecialesOfertaLaboral("Ninguno"),
+                new EstadoOfertaLaboral(EnumEstatusOfertaLaboral.PUBLICADO),
+                new ArrayList<Habilidad>(),
+                new ArrayList<PostulacionOfertaLaboral>()
         ));
-        * */
     }
 
     public Tupla<Empresa,OfertaLaboral> obtenerEmpresaOfertaLaboralPython() {
-        return null;
-        /*
-        new TuplaEmpresaOfertaLaboral(
+        return new TuplaEmpresaOfertaLaboral(
                 new Empresa(
-                        new IdEmpresa(empresaUUID.toString()),
+                        new IdEmpresa(empresaUUID),
                         new NombreEmpresa("Cobras y lagartos SoftwareFactory"),
                         new CorreoElectronicoEmpresa("daniel@bello.notrabaja"),
-                        new DireccionEmpresa("Todos los caminos llevan a Roma"),
-                        new CodigoPostalEmpresa("32424"),
-                        new IdPais("7a424dee-7e50-4a01-ab6e-a09201677818"),
-                        new IdEstado("23450ac5-23f6-4e4a-b2ab-4da5aee82070"),
-                        new IdCiudad("7a424dee-7e50-4a01-ab6e-a09201677818")),
+                        new EstatusEmpresa("Ninguno"),
+                        new RequisitosEspecialesEmpresa("Ninguno"),
+                        direccion),
                 new OfertaLaboral(
-                        new IdEmpresa(empresaUUID.toString()),
-                        new IdOfertaLaboral(ofertaUUID.toString()),
+                        new IdEmpresa(empresaUUID),
+                        new IdOfertaLaboral(ofertaUUID),
                         new TituloOfertaLaboral("Se busca desarrollador en Python"),
+                        new FechaPublicacionOfertaLaboral(fechaCreacion,null, fechaCreacion),
                         new CargoOfertaLaboral("Desarrollador 2"),
-                        new FechaPublicacionOfertaLaboral(fechaCreacion,null),
                         new SueldoOfertaLaboral(8320.00f, EnumMoneda.USD),
                         new DescripcionOfertaLaboral("Se busca desarrollador en Python sin conocimientos de principios SOLID y con 10 años de experiencia"),
-                        new DuracionEstimadaOfertaLaboral(50, EnumEscalaTiempo.HORA),
-                        new TurnoTrabajoOfertaLaboral(EnumTurnoTrabajo.DIURNO),
+                        new DuracionEstimadaOfertaLaboral(50, EnumEscalaDuracionOfertaLaboral.HORA),
+                        new TurnoTrabajoOfertaLaboral(EnumTurnoOfertaLaboral.DIURNO),
                         new NumeroVacantes(2),
-                        new EstadoOfertaLaboral(EnumEstadoOfertaLaboral.PUBLICADA)
+                        new RequisitosEspecialesOfertaLaboral("Ninguno"),
+                        new EstadoOfertaLaboral(EnumEstatusOfertaLaboral.PUBLICADO),
+                        new ArrayList<Habilidad>(),
+                        new ArrayList<PostulacionOfertaLaboral>()
         ));
-         */
     }
 
+
     public Tupla<PersistenciaEmpresa, PersistenciaOfertaLaboral> obtenerPersistenciaEmpresaOfertaLaboralPython() {
-        /*
         PersistenciaOfertaLaboral persistenciaOfertaLaboral = new PersistenciaOfertaLaboral();
-        persistenciaOfertaLaboral.setIdPersistenciaOfertaLaboral(new IdPersistenciaOfertaLaboral(empresaUUID, ofertaUUID));
+        persistenciaOfertaLaboral.setUuid(uuidPostulacion);
         persistenciaOfertaLaboral.setTitulo("Se busca desarrollador en Python");
-        persistenciaOfertaLaboral.setCargo("Desarrollador 2");
         persistenciaOfertaLaboral.setFechaPublicacion(fechaCreacion);
-        persistenciaOfertaLaboral.setFechaUltimaModificacion(fechaCreacion);
+        persistenciaOfertaLaboral.setFechaLimite(fechaCreacion);
+        persistenciaOfertaLaboral.setCargo("Desarrollador 2");
         persistenciaOfertaLaboral.setSueldo(8320.00f);
-        persistenciaOfertaLaboral.setDivisa("USD");
         persistenciaOfertaLaboral.setDescripcion("Se busca desarrollador en Python sin conocimientos de principios SOLID y con 10 años de experiencia");
-        persistenciaOfertaLaboral.setDuracionEstimada("50");
-        persistenciaOfertaLaboral.setDuracionEstimadaEscala("HORA");
+        persistenciaOfertaLaboral.setValorDuracion(50);
+        persistenciaOfertaLaboral.setEscalaDuracion("HORA");
         persistenciaOfertaLaboral.setTurnoTrabajo("DIURNO");
         persistenciaOfertaLaboral.setNumeroVacantes(2);
-        persistenciaOfertaLaboral.setEstado('P');
+        persistenciaOfertaLaboral.setEstatus("PUBLICADO");
+        persistenciaOfertaLaboral.setUuidEmpresa(empresaUUID);
+        persistenciaOfertaLaboral.setFechaUltimaModificacion(fechaCreacion);
+        persistenciaOfertaLaboral.setRequisitosEspeciales("Ninguno");
         PersistenciaEmpresa persistenciaEmpresa = new PersistenciaEmpresa();
         persistenciaEmpresa.setUuid(empresaUUID);
         persistenciaEmpresa.setNombre("Cobras y lagartos SoftwareFactory");
+        persistenciaEmpresa.setEstatus("ACTIVO");
         persistenciaEmpresa.setCorreoElectronico("daniel@bello.notrabaja");
-        persistenciaEmpresa.setDireccionCalle("Todos los caminos llevan a Roma");
-        persistenciaEmpresa.setCodigoPostal("32424");
-        persistenciaEmpresa.setUuidPais(UUID.fromString("7a424dee-7e50-4a01-ab6e-a09201677818"));
-        persistenciaEmpresa.setUuidEstado(UUID.fromString("23450ac5-23f6-4e4a-b2ab-4da5aee82070"));
-        persistenciaEmpresa.setUuidCiudad(UUID.fromString("7a424dee-7e50-4a01-ab6e-a09201677818"));
+        persistenciaEmpresa.setToken(empresaUUID.toString());
+        persistenciaEmpresa.setUuidDireccion(direccion.getIdDireccion().getUuid());
+        persistenciaEmpresa.setRequisitosEspeciales("Ninguno");
         return new TuplaPersistenciaEmpresaOferta(persistenciaEmpresa,persistenciaOfertaLaboral);
-         */
-        return null;
     }
 
     public PersistenciaOfertaLaboral obtenerPersistenciaOfertaLaboralPython() {
-        /*
         PersistenciaOfertaLaboral persistenciaOfertaLaboral = new PersistenciaOfertaLaboral();
-        persistenciaOfertaLaboral.setIdPersistenciaOfertaLaboral(new IdPersistenciaOfertaLaboral(empresaUUID, ofertaUUID));
+        persistenciaOfertaLaboral.setUuid(uuidPostulacion);
         persistenciaOfertaLaboral.setTitulo("Se busca desarrollador en Python");
-        persistenciaOfertaLaboral.setCargo("Desarrollador 2");
         persistenciaOfertaLaboral.setFechaPublicacion(fechaCreacion);
-        persistenciaOfertaLaboral.setFechaUltimaModificacion(fechaCreacion);
+        persistenciaOfertaLaboral.setFechaLimite(fechaCreacion);
+        persistenciaOfertaLaboral.setCargo("Desarrollador 2");
         persistenciaOfertaLaboral.setSueldo(8320.00f);
-        persistenciaOfertaLaboral.setDivisa("USD");
         persistenciaOfertaLaboral.setDescripcion("Se busca desarrollador en Python sin conocimientos de principios SOLID y con 10 años de experiencia");
-        persistenciaOfertaLaboral.setDuracionEstimada("50");
-        persistenciaOfertaLaboral.setDuracionEstimadaEscala("HORA");
+        persistenciaOfertaLaboral.setValorDuracion(50);
+        persistenciaOfertaLaboral.setEscalaDuracion("HORA");
         persistenciaOfertaLaboral.setTurnoTrabajo("DIURNO");
         persistenciaOfertaLaboral.setNumeroVacantes(2);
-        persistenciaOfertaLaboral.setEstado('P');
+        persistenciaOfertaLaboral.setEstatus("PUBLICADO");
+        persistenciaOfertaLaboral.setUuidEmpresa(empresaUUID);
+        persistenciaOfertaLaboral.setFechaUltimaModificacion(fechaCreacion);
+        persistenciaOfertaLaboral.setRequisitosEspeciales("Ninguno");
         return persistenciaOfertaLaboral;
-         */
-        return null;
     }
 
     public QDtoOfertasLaboralesActivas obtenerQDTOOfertaLaboralPython() {
-        /*
         QDtoOfertasLaboralesActivas qDtoOfertasLaboralesActivas = new QDtoOfertasLaboralesActivas();
+        qDtoOfertasLaboralesActivas.setNombreEmpresa("Cobras y lagartos SoftwareFactory");
         qDtoOfertasLaboralesActivas.setUuidEmpresa(empresaUUID);
         qDtoOfertasLaboralesActivas.setUuid(ofertaUUID);
         qDtoOfertasLaboralesActivas.setTitulo("Se busca desarrollador en Python");
-        qDtoOfertasLaboralesActivas.setCargo("Desarrollador 2");
         qDtoOfertasLaboralesActivas.setFechaPublicacion(fechaCreacion);
         qDtoOfertasLaboralesActivas.setFechaUltimaModificacion(fechaCreacion);
+        qDtoOfertasLaboralesActivas.setFechaUltimaModificacion(fechaCreacion);
+        qDtoOfertasLaboralesActivas.setCargo("Desarrollador 2");
         qDtoOfertasLaboralesActivas.setSueldo(8320.00f);
-        qDtoOfertasLaboralesActivas.setDivisa("USD");
         qDtoOfertasLaboralesActivas.setDescripcion("Se busca desarrollador en Python sin conocimientos de principios SOLID y con 10 años de experiencia");
-        qDtoOfertasLaboralesActivas.setDuracionEstimada("50");
+        qDtoOfertasLaboralesActivas.setDuracionEstimada(50);
         qDtoOfertasLaboralesActivas.setDuracionEstimadaEscala("HORA");
         qDtoOfertasLaboralesActivas.setTurnoTrabajo("DIURNO");
         qDtoOfertasLaboralesActivas.setNumeroVacantes(2);
-        qDtoOfertasLaboralesActivas.setEstado('P');
-        qDtoOfertasLaboralesActivas.setNombreEmpresa("Cobras y lagartos SoftwareFactory");
+        qDtoOfertasLaboralesActivas.setEstatus("PUBLICADO");
+        qDtoOfertasLaboralesActivas.setRequisitosEspeciales("Ninguno");
         return qDtoOfertasLaboralesActivas;
-         */
-        return null;
     }
 
     public DtoOfertasLaboralesActivasEmpleado obtenerDtoOfertaLaboralJava() {
@@ -195,22 +212,23 @@ public class OfertaLaboralEmpleadoMother {
     }
 
     public Tupla<NombreEmpresa,OfertaLaboral> obtenerEntidadOfertaLaboralJava() {
-        /*
-        return new TuplaOfertaLaboral(new NombreEmpresa("Cobras y lagartos SoftwareFactory"),new OfertaLaboral(
-                new IdEmpresa(empresaUUID.toString()),
-                new IdOfertaLaboral(ofertaUUID.toString()),
+        return new TuplaOfertaLaboral(new NombreEmpresa("Cobras y lagartos SoftwareFactory"),
+                new OfertaLaboral(
+                new IdEmpresa(empresaUUID),
+                new IdOfertaLaboral(ofertaUUID),
                 new TituloOfertaLaboral("Se busca desarrollador en Java"),
+                new FechaPublicacionOfertaLaboral(fechaCreacion,null, fechaCreacion),
                 new CargoOfertaLaboral("Desarrollador Infra III"),
-                new FechaPublicacionOfertaLaboral(fechaCreacion,null),
                 new SueldoOfertaLaboral(15020.00f, EnumMoneda.USD),
                 new DescripcionOfertaLaboral("Se busca desarrollador en Java sin conocimientos de principios SOLID y con 10 años de experiencia"),
-                new DuracionEstimadaOfertaLaboral(50, EnumEscalaTiempo.HORA),
-                new TurnoTrabajoOfertaLaboral(EnumTurnoTrabajo.DIURNO),
+                new DuracionEstimadaOfertaLaboral(50, EnumEscalaDuracionOfertaLaboral.HORA),
+                new TurnoTrabajoOfertaLaboral(EnumTurnoOfertaLaboral.DIURNO),
                 new NumeroVacantes(2),
-                new EstadoOfertaLaboral(EnumEstadoOfertaLaboral.PUBLICADA)
+                new RequisitosEspecialesOfertaLaboral("Ninguno"),
+                new EstadoOfertaLaboral(EnumEstatusOfertaLaboral.PUBLICADO),
+                new ArrayList<>(),
+                new ArrayList<>()
         ));
-         */
-        return null;
     }
 
 }

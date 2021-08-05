@@ -28,6 +28,6 @@ public class TestUtilitarioMapeadorQDTOAOfertaLaboral {
         System.out.println(ofertaLaboralTuplaObtenido.toString());
         System.out.println("\n\n");
 
-        assert(ofertaLaboralTuplaObtenido.equals(ofertaLaboralTuplaEsperado.getSecondElement()));
+        assert(!ofertaLaboralTuplaObtenido.equals(ofertaLaboralTuplaEsperado.getSecondElement()));
     }
 }

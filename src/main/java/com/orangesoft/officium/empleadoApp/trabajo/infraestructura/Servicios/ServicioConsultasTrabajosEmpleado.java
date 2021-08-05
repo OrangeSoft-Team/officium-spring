@@ -1,7 +1,7 @@
 package com.orangesoft.officium.empleadoApp.trabajo.infraestructura.Servicios;
 
 import com.orangesoft.officium.empleadoApp.trabajo.dominio.QueryDetalleDTO;
-import com.orangesoft.officium.empleadoApp.trabajo.infraestructura.CQRS.ConsultasTrabajo;
+import com.orangesoft.officium.empleadoApp.trabajo.infraestructura.CQRS.ConsultasTrabajoEmpleado;
 import com.orangesoft.officium.empleadoApp.trabajo.infraestructura.dto.DetalleTrabajoEmpleadoDTO;
 import com.orangesoft.officium.empleadoApp.trabajo.infraestructura.dto.TrabajosEmpleadoDTO;
 import com.orangesoft.officium.empleadoApp.trabajo.infraestructura.mapeadores.MapeadorPersistenciaDTODetalleTrabajoEmpleado;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-public class ServicioConsultasTrabajosEmpleado implements ConsultasTrabajo {
+public class ServicioConsultasTrabajosEmpleado implements ConsultasTrabajoEmpleado {
 
     @Autowired
     RepositorioTrabajoActivos repositorioTrabajoActivos;
