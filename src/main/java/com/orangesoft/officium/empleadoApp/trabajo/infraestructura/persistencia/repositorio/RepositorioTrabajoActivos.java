@@ -1,9 +1,8 @@
-package com.orangesoft.officium.empleadoApp.trabajo.infraestructura.repositorio;
+package com.orangesoft.officium.empleadoApp.trabajo.infraestructura.persistencia.repositorio;
 
 import com.orangesoft.officium.comun.persistencia.trabajo.PersistenciaTrabajo;
 import com.orangesoft.officium.empleadoApp.trabajo.dominio.QueryConsultaTrabajoDTO;
 import com.orangesoft.officium.empleadoApp.trabajo.dominio.QueryDetalleDTO;
-import com.orangesoft.officium.empleadoApp.trabajo.infraestructura.dto.TrabajosEmpleadoDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
