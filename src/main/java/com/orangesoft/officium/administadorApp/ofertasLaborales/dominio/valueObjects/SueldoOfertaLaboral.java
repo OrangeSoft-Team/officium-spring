@@ -8,10 +8,10 @@ import com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.excepcio
 @EqualsAndHashCode
 @Getter
 public final class SueldoOfertaLaboral {
-    private final Float sueldoOfertaLaboral;
+    private final float sueldoOfertaLaboral;
 
-    public SueldoOfertaLaboral(Float sueldoOfertaLaboral) {
-        if(sueldoOfertaLaboral == null || sueldoOfertaLaboral < 0)
+    public SueldoOfertaLaboral(float sueldoOfertaLaboral) {
+        if(sueldoOfertaLaboral < 0)
             throw new ExcepcionSueldoOfertaLaboralInvalido();
 
         this.sueldoOfertaLaboral = sueldoOfertaLaboral;
