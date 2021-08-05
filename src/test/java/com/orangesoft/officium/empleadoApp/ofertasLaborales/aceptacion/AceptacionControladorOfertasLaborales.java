@@ -41,7 +41,7 @@ public class AceptacionControladorOfertasLaborales {
         mockMvc.perform(get("/api/empleado/ofertas_laborales/7a424dee-7e50-4a01-ab6e-a09201677819")).andDo(print())
                 .andExpect(status().isUnauthorized()); //HTTP 401
     }
-    
+
     @Test
     public void debeRetornarSolicitudDenegadaConsultaPostulacionOfertasLaborales() throws Exception {
         mockMvc.perform(get("/api/empleado/ofertas_laborales/postulaciones/{7a424dee-7e50-4a01-ab6e-a09201677819")).andDo(print())
