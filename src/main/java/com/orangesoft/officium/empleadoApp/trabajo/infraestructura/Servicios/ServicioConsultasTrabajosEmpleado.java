@@ -6,13 +6,12 @@ import com.orangesoft.officium.empleadoApp.trabajo.infraestructura.dto.DetalleTr
 import com.orangesoft.officium.empleadoApp.trabajo.infraestructura.dto.TrabajosEmpleadoDTO;
 import com.orangesoft.officium.empleadoApp.trabajo.infraestructura.mapeadores.MapeadorPersistenciaDTODetalleTrabajoEmpleado;
 import com.orangesoft.officium.empleadoApp.trabajo.infraestructura.mapeadores.MapeadorPersistenciaDTOTrabajosEmpleado;
-import com.orangesoft.officium.empleadoApp.trabajo.infraestructura.repositorio.RepositorioTrabajoActivos;
+import com.orangesoft.officium.empleadoApp.trabajo.infraestructura.persistencia.repositorio.RepositorioTrabajoActivos;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
