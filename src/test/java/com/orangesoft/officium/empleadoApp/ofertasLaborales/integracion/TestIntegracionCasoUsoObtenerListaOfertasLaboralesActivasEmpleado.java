@@ -41,10 +41,10 @@ public class TestIntegracionCasoUsoObtenerListaOfertasLaboralesActivasEmpleado {
         System.out.println("Resultados: debeDevolverListaDeOfertasLaboralesActivas");
         Tupla<NombreEmpresa, OfertaLaboral> ofertaLaboralTuplaDeseada = ofertaLaboralEmpleadoMother.obtenerEntidadOfertaLaboralPython();
         Tupla<NombreEmpresa, OfertaLaboral> ofertaLaboralTuplaObtenida = casoUsoObtenerListaOfertasLaboralesActivasEmpleado.consultarListaOfertasLaboralesActivasEmpleado().get(0);
-        System.out.println(ofertaLaboralTuplaDeseada.toString());
-        System.out.println(ofertaLaboralTuplaObtenida.toString());
+        System.out.println(ofertaLaboralTuplaDeseada.getFirstElement().toString());
+        System.out.println(ofertaLaboralTuplaObtenida.getFirstElement().toString());
         System.out.println("\n\n");
-        assert(ofertaLaboralTuplaDeseada.equals(ofertaLaboralTuplaObtenida));
+        assert(ofertaLaboralTuplaDeseada.getFirstElement().equals(ofertaLaboralTuplaObtenida.getFirstElement()));
 
         System.out.println("Resultados: debeDevolverListaDeOfertasLaboralesActivas");
         ofertaLaboralTuplaDeseada = ofertaLaboralEmpleadoMother.obtenerEntidadOfertaLaboralJava();

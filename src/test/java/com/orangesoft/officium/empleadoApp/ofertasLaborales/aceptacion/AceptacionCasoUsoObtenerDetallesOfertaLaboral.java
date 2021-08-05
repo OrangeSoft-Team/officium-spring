@@ -22,31 +22,14 @@ public class AceptacionCasoUsoObtenerDetallesOfertaLaboral {
     private MockMvc mockMvc;
 
     @Test
-    public void debeRetornarErrorServidorPorMalUUID() throws Exception {
-        Exception resul = null;
-        String errorEsperado = "org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.RuntimeException: El identificador suministrado no cumple con el formato esperado";
-        try {
-            mockMvc.perform(get("/api/empleado/ofertas_laborales/sawe12313123"));
-        }
-        catch (Exception e) {
-            resul=e;
-            System.out.println(e.toString());
-        }
-        assert(resul != null);
-        assert(resul.toString().equals(errorEsperado));
+    public void debeRetornarErrorServidorNoAuntentificadoOfertas() throws Exception {
+        mockMvc.perform(get("/api/empleado/ofertas_laborales/sawe12313123")).andDo(print())
+                    .andExpect(status().isUnauthorized()); //HTTP 401
     }
 
     @Test
-    public void debeRetornarErrorServidorPorMalNoEncontrarOfertaLaboral() throws Exception {
-        Exception resul = null;
-        String errorEsperado = "org.springframework.web.util.NestedServletException: Request processing failed; nested exception is com.orangesoft.officium.empleadoApp.ofertasLaborales.aplicacion.exepciones.ExcepcionOfertaLaboralNoEncontrada: La oferta laboral solicitada no existe";
-        try {
-            mockMvc.perform(get("/api/empleado/ofertas_laborales/0000d69e-0000-0000-0000-000000000000"));
-        }
-        catch (Exception e){
-            resul = e;
-        }
-        assert(resul != null);
-        assert(resul.toString().equals(errorEsperado));
+    public void debeRetornarErrorServidorNotAutentificado() throws Exception {
+            mockMvc.perform(get("/api/empleado/ofertas_laborales/0000d69e-0000-0000-0000-000000000000"))
+                    .andExpect(status().isUnauthorized()); //HTTP 401
     }
 }

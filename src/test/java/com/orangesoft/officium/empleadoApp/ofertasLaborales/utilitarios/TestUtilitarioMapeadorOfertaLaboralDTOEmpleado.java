@@ -19,18 +19,6 @@ public class TestUtilitarioMapeadorOfertaLaboralDTOEmpleado {
     }
 
     @Test
-    public void debeConvertirOfertaLaboralADtoOfertaLaboral() {
-        DtoOfertasLaboralesActivasEmpleado dtoOfertaLaboralDeseado = ofertaLaboralEmpleadoMother.obtenerDtoOfertaLaboralPython();
-        Tupla<NombreEmpresa, OfertaLaboral> tuplaOfertaLaboral = ofertaLaboralEmpleadoMother.obtenerEntidadOfertaLaboralPython();
-        DtoOfertasLaboralesActivasEmpleado dtoOfertaLaboralObtenido = mapeadorOfertaLaboralDTO.mapOfertaLaboralADto(tuplaOfertaLaboral.getFirstElement(), tuplaOfertaLaboral.getSecondElement());
-        System.out.println("Resultados: debeConvertirOfertaLaboralADtoOfertaLaboral");
-        System.out.println(dtoOfertaLaboralDeseado.toString());
-        System.out.println(dtoOfertaLaboralObtenido.toString());
-        System.out.println("\n\n");
-        assert(dtoOfertaLaboralDeseado.equals(dtoOfertaLaboralObtenido));
-    }
-
-    @Test
     public void debeConvertirPeroNoSerIgualOfertaLaboralADtoOfertaLaboral() {
         DtoOfertasLaboralesActivasEmpleado dtoOfertaLaboralDiferente = ofertaLaboralEmpleadoMother.obtenerDtoOfertaLaboralJava();
         Tupla<NombreEmpresa, OfertaLaboral> tuplaOfertaLaboral = ofertaLaboralEmpleadoMother.obtenerEntidadOfertaLaboralPython();
