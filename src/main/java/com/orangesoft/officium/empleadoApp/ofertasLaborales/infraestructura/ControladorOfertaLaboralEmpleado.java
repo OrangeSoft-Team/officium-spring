@@ -41,6 +41,7 @@ public class ControladorOfertaLaboralEmpleado {
     @Autowired
     private final ServicioAutenticacion<Empleado, MapeadorPersistenciaSeguridadEmpleado, PersistenciaEmpleado, RepositorioEmpleado> servicioAutenticacionEmpleado;
 
+
     @GetMapping("/")
     @ResponseStatus(HttpStatus.OK)
     public List<DtoOfertasLaboralesActivasEmpleado> obtenerListaOfertasLaboralesActivasEmpleado(@RequestHeader Map<String, String> headers) {
