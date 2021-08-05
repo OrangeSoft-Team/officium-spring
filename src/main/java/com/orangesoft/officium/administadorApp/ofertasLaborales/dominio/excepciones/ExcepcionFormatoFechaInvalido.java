@@ -1,6 +1,8 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.excepciones;
 
-public class ExcepcionFormatoFechaInvalido extends RuntimeException{
+import com.orangesoft.officium.comun.dominio.excepciones.MalaSolicitudExcepcion;
+
+public class ExcepcionFormatoFechaInvalido extends MalaSolicitudExcepcion {
     public ExcepcionFormatoFechaInvalido() {
         super("El formato de la fecha es incorrecto");
     }
