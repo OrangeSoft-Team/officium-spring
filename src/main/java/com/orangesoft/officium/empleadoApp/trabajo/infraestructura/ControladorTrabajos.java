@@ -29,7 +29,6 @@ public class ControladorTrabajos {
     @Autowired
     private final ServicioAutenticacion<Empleado, MapeadorPersistenciaSeguridadEmpleado, PersistenciaEmpleado, RepositorioEmpleado> servicioAutenticacionEmpleado;
 
-
     @GetMapping("/")
     @ResponseStatus(HttpStatus.OK)
     public List<TrabajosEmpleadoDTO> obtenerTrabajosEmpleado(@RequestHeader Map<String, String> headers) {
@@ -42,5 +41,12 @@ public class ControladorTrabajos {
     public DetalleTrabajoEmpleadoDTO obtenerDetalleTrabajoEmpleado(@PathVariable String idTrabajo, @RequestHeader Map<String, String> headers) {
         servicioAutenticacionEmpleado.validarUsuario(headers.get("authorization"));
         return consultasTrabajo.obtenerDetalleTrabajo(UUID.fromString(idTrabajo));
+    }
+
+    @PutMapping("/{idTrabajo}")
+    @ResponseStatus(HttpStatus.OK)
+    public void renunciarTrabajoEmpleado(@PathVariable String idTrabajo, @RequestHeader Map<String, String> headers) {
+        Empleado empleado = servicioAutenticacionEmpleado.validarUsuario(headers.get("authorization"));
+        comandosTrabajo.renunciarTrabajo(empleado.getIdEmpleado().getIdEmpleado(), UUID.fromString(idTrabajo));
     }
 }

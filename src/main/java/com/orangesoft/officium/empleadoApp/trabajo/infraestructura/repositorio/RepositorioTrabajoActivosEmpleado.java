@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface RepositorioTrabajoActivos extends JpaRepository<PersistenciaTrabajo, UUID> {
+public interface RepositorioTrabajoActivosEmpleado extends JpaRepository<PersistenciaTrabajo, UUID> {
 
     @Query(value = "FROM trabajos t " +
             " INNER JOIN postulacionesOfertasLaborales p ON p.uuid = t.uuidPostulacion" +

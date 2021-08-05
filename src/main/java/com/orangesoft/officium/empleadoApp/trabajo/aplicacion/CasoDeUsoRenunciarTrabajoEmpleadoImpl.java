@@ -16,6 +16,9 @@ public class CasoDeUsoRenunciarTrabajoEmpleadoImpl implements CasoDeUsoRenunciar
 
     @Override
     public void renunciarTrabajoEmpleado(IdEmpleado idEmpleado, IdTrabajoEmpleado idTrabajoEmpleado) {
-        puertoRenunciarTrabajoEmpleado.renunciarTrabajoEmpleado(idTrabajoEmpleado);
+        if(puertoRenunciarTrabajoEmpleado.lePerteneceOfertaLaboral(idEmpleado, idTrabajoEmpleado))
+            puertoRenunciarTrabajoEmpleado.renunciarTrabajoEmpleado(idTrabajoEmpleado);
+        else
+            throw new ExcepcionSolicitudDeRenunciaInvalida();
     }
 }
