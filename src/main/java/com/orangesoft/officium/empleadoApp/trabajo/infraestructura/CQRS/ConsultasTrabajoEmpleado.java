@@ -6,7 +6,7 @@ import com.orangesoft.officium.empleadoApp.trabajo.infraestructura.dto.TrabajosE
 import java.util.List;
 import java.util.UUID;
 
-public interface ConsultasTrabajo {
+public interface ConsultasTrabajoEmpleado {
     public List<TrabajosEmpleadoDTO> obtenerTrabajosEmpleado(UUID idEmpleado);
     public DetalleTrabajoEmpleadoDTO obtenerDetalleTrabajo(UUID uuid);
 }

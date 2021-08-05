@@ -26,16 +26,4 @@ public class TestUtilitarioMapeadorPersistenciaAOfertaLaboral {
         System.out.println("\n\n");
         //assert(persistenciaOfertaLaboralDeseada.equals(persistenciaOfertaLaboralObtenida));
     }
-
-    @Test
-    public void debeConvertirPersistenciaAEntidadOfertaLaboral() {
-        OfertaLaboral ofertaLaboralDeseada = ofertaLaboralEmpleadoMother.obtenerEntidadOfertaLaboralPython().getSecondElement();
-        PersistenciaOfertaLaboral persistenciaOfertaLaboral = ofertaLaboralEmpleadoMother.obtenerPersistenciaOfertaLaboralPython();
-        OfertaLaboral ofertaLaboralObtenida = mapeadorPersistenciaAOfertaLaboral.PersistenciaAOfertaLaboral(persistenciaOfertaLaboral);
-        System.out.println("Resultados: debeConvertirPersistenciaAEntidadOfertaLaboral");
-        System.out.println(ofertaLaboralDeseada.toString());
-        System.out.println(ofertaLaboralObtenida.toString());
-        System.out.println("\n\n");
-        assert(ofertaLaboralDeseada.equals(ofertaLaboralObtenida));
-    }
 }
