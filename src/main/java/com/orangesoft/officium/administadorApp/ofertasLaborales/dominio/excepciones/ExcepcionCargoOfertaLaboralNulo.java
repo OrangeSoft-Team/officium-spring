@@ -1,6 +1,8 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.excepciones;
 
-public class ExcepcionCargoOfertaLaboralNulo extends RuntimeException{
+import com.orangesoft.officium.comun.dominio.excepciones.MalaSolicitudExcepcion;
+
+public class ExcepcionCargoOfertaLaboralNulo extends MalaSolicitudExcepcion {
     public ExcepcionCargoOfertaLaboralNulo() {
         super("El cargo de la oferta laboral no puede ser nulo");
     }

@@ -1,6 +1,8 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.excepciones;
 
-public class ExcepcionNumeroVacantesLaboralInvalido extends RuntimeException{
+import com.orangesoft.officium.comun.dominio.excepciones.MalaSolicitudExcepcion;
+
+public class ExcepcionNumeroVacantesLaboralInvalido extends MalaSolicitudExcepcion {
     public ExcepcionNumeroVacantesLaboralInvalido() {
         super("El valor de vacantes de la oferta laboral es invalido");
     }

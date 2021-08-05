@@ -1,6 +1,8 @@
 package com.orangesoft.officium.administadorApp.ofertasLaborales.dominio.excepciones;
 
-public class ExcepcionFechaNula extends RuntimeException{
+import com.orangesoft.officium.comun.dominio.excepciones.MalaSolicitudExcepcion;
+
+public class ExcepcionFechaNula extends MalaSolicitudExcepcion {
     public ExcepcionFechaNula() {
         super("La fecha no puede ser nula");
     }
