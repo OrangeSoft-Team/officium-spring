@@ -21,10 +21,13 @@ public class AutenticacionUsuario<U, M extends MapeadorPersistenciaEntidad<U, P>
 
     public U esUsuarioValido(String jwt){
         String[] chunks = jwt.split("\\.");
+        System.out.println(chunks.toString());
         Base64.Decoder decoder = Base64.getDecoder();
         String jwtPayload = new String(decoder.decode(chunks[1]));
+        System.out.println(jwtPayload);
         try{
             JwtPayload payload = new ObjectMapper().readValue(jwtPayload, JwtPayload.class);
+            System.out.println(payload.getIdUsuario());
             Optional<P> persistenciaUsuario = this.repositorio.findById(UUID.fromString(payload.getIdUsuario()));
             if (persistenciaUsuario.isPresent()) {
                 return this.mapeador.mapearAEntidad(persistenciaUsuario.get());
