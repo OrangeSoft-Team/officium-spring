@@ -27,8 +27,8 @@ public class ControladorOfertaLaboralEmpleador {
     @Autowired
     private ServicioConsultarDetallesOfertasLaborales servicioConsultarDetalleOfertasLaborales;
 
-    @Autowired
-    private ServicioOfertaLaboralInactivaEmpleador servicioVerOfertasLaboralesInactivasEmpleador;
+   // @Autowired
+    //private ServicioOfertaLaboralInactivaEmpleador servicioVerOfertasLaboralesInactivasEmpleador;
 
 
     @GetMapping("/{idEmpresa}")
@@ -36,12 +36,12 @@ public class ControladorOfertaLaboralEmpleador {
         return servicioVerOfertasLaboralesActivasEmpleador.ofertasLaboralesActivas(idEmpresa);
 
     }
-
-   /* @GetMapping("/{idEmpresa}")
+   /*
+    @GetMapping("/{idEmpresa}")
     public List<DtoOfertaLaboralActivaEmpleador> ofertasLaboralesInactivas(@PathVariable String idEmpresa) {
         return servicioVerOfertasLaboralesInactivasEmpleador.ofertasLaboralesInactivas(idEmpresa);
 
-    }8*/
+    }*/
 
     @GetMapping("/{idOfertaLaboral}")
     public DtoConsultarDetallesOfertasLaboralesEmpleador consultarDetallesOfertaLaboral(@PathVariable String idOfertaLaboral) {
